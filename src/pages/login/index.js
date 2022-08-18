@@ -7,7 +7,7 @@ import loginTemplate from "./login.tmpl";
 import linkTemplate from "../../components/base/link";
 
 const contextButtonSubmit = {
-  className: 'btn',
+  className: 'y-btn',
   text: 'Вход',
   typeButton: 'submit',
   handleClick: () => {},
@@ -16,7 +16,7 @@ const contextInputLogin = {
   handleChange: (e) => handleChange(e), 
   id: 'login',
   inputType: 'text', 
-  className: 'field-control',
+  className: 'y-field-control',
   inputName: 'login',
   value: '',
 }
@@ -24,7 +24,7 @@ const contextInputPassword = {
   handleChange: (e) => handleChange(e), 
   id: 'password',
   inputType: 'password', 
-  className: 'field-control',
+  className: 'y-field-control',
   inputName: 'password',
   value: '',
 }
@@ -32,14 +32,14 @@ const contextInputPassword = {
 const contextLabelLogin = {
   forName: 'login',
   labelName: 'Логин', 
-  className: 'field-text',
+  className: 'y-field-text',
   input: constructor(contextInputLogin, inputTemplate),
 }
 
 const contextLabelPassword = {
   forName: 'password',
   labelName: 'Пароль', 
-  className: 'field-text',
+  className: 'y-field-text',
   input: constructor(contextInputPassword, inputTemplate),
 }
 const contextLinkToSignIn = {
@@ -77,7 +77,7 @@ function renderContent(content) {
 
 const contextLogin = {
   text: 'Вход', 
-  className: 'login-page',
+  className: 'y-login-page',
   headerText: 'Вход', 
   form: renderForm,
 }

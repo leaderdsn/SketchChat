@@ -7,20 +7,20 @@ import { svgAttech, svgSend } from "../../../modules/data"
 let attribute = Symbol('hidden')
 const contextInputFile = {
   id: 'file',
-  className: 'file-control',
+  className: 'y-file-control',
   typeInput: 'file',
 }
 
 const contextUploadButton = {
   id: 'upload',
-  className: 'btn-upload',
+  className: 'y-btn-upload',
   value: null,
   text: svgAttech,
 }
 
 const contextSendButton = {
   id: 'sendButton',
-  className: 'btn-send',
+  className: 'y-btn-send',
   value: 'Upload',
   handleClick: null,
   text: svgSend,
@@ -28,7 +28,7 @@ const contextSendButton = {
 
 const contextSendTextarea = {
   id: 'send',
-  className: 'send-control',
+  className: 'y-send-control',
   name: 'send',
   placeholder: 'Сообщение',
 }
