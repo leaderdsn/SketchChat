@@ -2,14 +2,18 @@
   position: relative
   display: grid
   grid-template-columns: 1fr
-  justify-content: flex-end
+  grid-auto-rows: max-content
+  align-content: flex-end
   height: 81px
-  padding: 35px 0 0 0
   box-sizing: border-box
   border-bottom: 1px solid var(--border-color)
   width: 100%
+  &__search-control
+    margin-bottom: 14px
+    box-sizing: border-box
   a
     position: absolute
+    top: 0
     right: 0
     width: max-content
     color: var(--description-color)
