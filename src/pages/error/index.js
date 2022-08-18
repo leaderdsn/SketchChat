@@ -7,7 +7,7 @@ const contextLinkToChats = {
   textLink: 'Назад к чатам',
 }
 const contextError = {
-  className: 'error-page',
+  className: 'y-error-page',
   numberError: '404', 
   textMessage: 'Не туда попали', 
   content: constructor(contextLinkToChats, linkTemplate)
