@@ -1,0 +1,35 @@
+.y-chat-area
+  display: grid
+  grid-template-columns: 1fr
+  grid-template-rows: max-content 1fr max-content
+  width: calc(100% - 310px)
+  height: 100vh
+  margin-left: 310px
+  padding: 0 20px 0
+  box-sizing: border-box
+  background-color: var(--background-color)
+  position: relative
+  &__header,
+  &__footer
+    position: fixed
+    left: 330px
+    right: 20px
+    width: calc(100% - 350px)
+    height: 54px
+    background-color: var(--background-color)
+    box-sizing: border-box
+    z-index: 1000
+  &__header
+    top: 0
+    border-bottom: 1px solid var(--border-color)
+  &__footer
+    bottom: 0
+    border-top: 1px solid var(--border-color)
+  &__body
+    position: relative
+    overflow: hidden
+    display: grid
+    grid-template-columns: 1fr
+    margin: 64px 0
+    box-sizing: border-box
+    height: calc(100vh - 128px)

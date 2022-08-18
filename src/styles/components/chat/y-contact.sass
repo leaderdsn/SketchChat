@@ -1,0 +1,44 @@
+.y-contact-item
+  display: grid
+  grid-template-columns: max-content 1fr max-content
+  grid-gap: 10px
+  height: 71px
+  border-bottom: 1px solid var(--border-color)
+  padding: 12px 0
+  box-sizing: border-box
+  &__avatar
+    width: 41px
+    height: 41px
+    background-color: var( --input-color)
+    border-radius: 50%
+  &__description
+    display: grid
+    grid-template-columns: 1fr
+    grid-gap: 4px
+    p
+      color: var(--description-color)
+      white-space: normal
+      overflow: hidden
+      text-overflow: ellipsis
+      margin: 0
+      height: 30px
+  &__info
+    display: grid
+    grid-template-columns: max-content
+    justify-content: flex-end
+    grid-auto-flow: max-content
+  &__date-time
+    display: grid
+    width: max-content
+    font-size: 9px
+    color: var(--description-color)
+  &__notification-count
+    display: grid
+    width: 20px
+    height: 20px
+    font-size: 11px
+    color: var(--notification-text-color)
+    background-color: var(--primary-color)
+    border-radius: 50%
+    text-align: center
+    line-height: 20px
