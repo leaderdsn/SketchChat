@@ -1,5 +1,5 @@
 const linkTemplate = `
-    <a href='{{src}}'>
+    <a id='{{id}}' href='{{src}}'>
       {{textLink}}
     </a>
   `;

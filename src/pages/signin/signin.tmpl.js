@@ -1,8 +1,8 @@
 const signInTemplate = `
   <div class='{{className}}'>
-    <h1>
+    <h2>
       {{headerText}}
-    </h1>
+    </h2>
     {{form}}
     {{content}}
   </div>
