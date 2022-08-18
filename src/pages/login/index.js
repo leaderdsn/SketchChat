@@ -7,25 +7,28 @@ import loginTemplate from "./login.tmpl";
 import linkTemplate from "../../components/base/link";
 
 const contextButtonSubmit = {
+  id: 'goChat',
   className: 'y-btn',
-  text: 'Вход',
-  typeButton: 'submit',
+  typeButton: 'button',
   handleClick: () => {},
+  text: 'Вход',
 }
 const contextInputLogin = {
-  handleChange: (e) => handleChange(e), 
   id: 'login',
   typeInput: 'text', 
   className: 'y-field-control',
   inputName: 'login',
+  placeholder: '',
+  handleChange: () => {},
   value: '',
 }
 const contextInputPassword = {
-  handleChange: (e) => handleChange(e), 
   id: 'password',
   typeInput: 'password', 
   className: 'y-field-control',
   inputName: 'password',
+  placeholder: '',
+  handleChange: () => {},
   value: '',
 }
 
@@ -43,37 +46,22 @@ const contextLabelPassword = {
   input: constructor(contextInputPassword, inputTemplate),
 }
 const contextLinkToSignIn = {
+  id: 'goSignIn',
   src: '#',
   textLink: 'Нет аккаунта?',
 }
 
 const contextForm = {
   method: 'post',
-  content: renderContent(//поправить
-    [
-      constructor(contextLabelLogin, labelTemplate),
-      constructor(contextLabelPassword, labelTemplate),
-      constructor(contextButtonSubmit, buttonTemplate),
-      constructor(contextLinkToSignIn, linkTemplate),
-    ]
-  ), 
+  content: [
+    constructor(contextLabelLogin, labelTemplate),
+    constructor(contextLabelPassword, labelTemplate),
+    constructor(contextButtonSubmit, buttonTemplate),
+    constructor(contextLinkToSignIn, linkTemplate),
+  ].join('')
 }
 
 const renderForm = constructor(contextForm, formTemplate)
-
-function handleChange(value) {
-  console.log(value);
-}
-
-
-//переделать renderContent
-function renderContent(content) {
-  let res = '';
-  for(let i = 0; i < content.length; i++) {
-    res += content[i]
-  }
-  return res;
-}
 
 const contextLogin = {
   text: 'Вход', 

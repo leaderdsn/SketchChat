@@ -7,64 +7,73 @@ import linkTemplate from "../../components/base/link";
 import signInTemplate from "./signin.tmpl";
 
 const contextButtonSubmit = {
+  id: 'buttonSignIn',
   className: 'y-btn',
+  typeButton: 'button',
+  handleClick: () => {},
   text: 'Зарегистрироваться',
-  handleClick: (e) => handleClick(e),
 }
 const contextInputEmail = {
-  handleChange: (e) => handleChange(e), 
   id: 'email',
-  inputType: 'text', 
+  typeInput: 'text', 
   className: 'y-field-control',
   inputName: 'email',
+  placeholder: '',
+  handleChange: () => {},
   value: '',
 }
 const contextInputLogin = {
-  handleChange: (e) => handleChange(e), 
   id: 'login',
-  inputType: 'text', 
+  typeInput: 'text', 
   className: 'y-field-control',
   inputName: 'login',
+  placeholder: '',
+  handleChange: () => {},
   value: '',
 }
 const contextInputFirstName = {
-  handleChange: (e) => handleChange(e), 
   id: 'firstName',
-  inputType: 'text', 
+  typeInput: 'text', 
   className: 'y-field-control',
   inputName: 'firstName',
+  placeholder: '',
+  handleChange: () => {},
   value: '',
 }
 const contextInputLastName = {
-  handleChange: (e) => handleChange(e), 
   id: 'lastName',
-  inputType: 'text', 
+  typeInput: 'text', 
   className: 'y-field-control',
   inputName: 'lastName',
+  placeholder: '',
+  handleChange: () => {},
   value: '',
 }
 const contextInputPhone = {
-  handleChange: (e) => handleChange(e), 
   id: 'phone',
-  inputType: 'text', 
+  typeInput: 'text', 
   className: 'y-field-control',
   inputName: 'phone',
+  placeholder: '',
+  handleChange: () => {},
   value: '',
 }
 const contextInputPassword = {
-  handleChange: (e) => handleChange(e), 
   id: 'password',
-  inputType: 'password', 
+  typeInput: 'password', 
   className: 'y-field-control',
   inputName: 'password',
+  placeholder: '',
+  handleChange: () => {},
   value: '',
 }
 const contextInputRepeatPassword = {
-  handleChange: (e) => handleChange(e), 
   id: 'repeatPassword',
-  inputType: 'password', 
+  typeInput: 'password', 
   className: 'y-field-control',
   inputName: 'repeatPassword',
+  placeholder: '',
+  handleChange: (e) => console.log('t',e),
   value: '',
 }
 
@@ -105,52 +114,40 @@ const contextLabelPhone = {
 
 const contextLabelPassword = {
   forName: 'password',
-  labelName: 'Пароль (ещё раз)', 
+  labelName: 'Пароль ', 
   className: 'y-field-text',
   input: constructor(contextInputPassword, inputTemplate),
 }
 
 const contextLabelRepeatPassword = {
   forName: 'repeatpassword',
-  labelName: 'Пароль', 
+  labelName: 'Пароль (ещё раз)', 
   className: 'y-field-text',
   input: constructor(contextInputRepeatPassword, inputTemplate),
 }
 const contextLinkToLogin = {
+  id: 'goLogin',
   src: '#',
   textLink: 'Войти',
 }
 
 const contextForm = {
   method: 'post',
-  content: renderContent(
-    [
-      constructor(contextLabelEmail, labelTemplate),
-      constructor(contextLabelLogin, labelTemplate),
-      constructor(contextLabelFirstName, labelTemplate),
-      constructor(contextLabelLastName, labelTemplate),
-      constructor(contextLabelPhone, labelTemplate),
-      constructor(contextLabelPassword, labelTemplate),
-      constructor(contextLabelRepeatPassword, labelTemplate),
-      constructor(contextButtonSubmit, buttonTemplate),
-      constructor(contextLinkToLogin, linkTemplate),
-    ]
-  ), 
+  content: [
+    constructor(contextLabelEmail, labelTemplate),
+    constructor(contextLabelLogin, labelTemplate),
+    constructor(contextLabelFirstName, labelTemplate),
+    constructor(contextLabelLastName, labelTemplate),
+    constructor(contextLabelPhone, labelTemplate),
+    constructor(contextLabelPassword, labelTemplate),
+    constructor(contextLabelRepeatPassword, labelTemplate),
+    constructor(contextButtonSubmit, buttonTemplate),
+    constructor(contextLinkToLogin, linkTemplate),
+  ].join(''), 
 }
 
 const renderForm = constructor(contextForm, formTemplate)
 
-function handleChange(value) {
-  console.log(value);
-}
-
-function renderContent(content) {
-  let res = '';
-  for(let i = 0; i < content.length; i++) {
-    res += content[i]
-  }
-  return res;
-}
 
 const contextSignIn = { 
   className: 'y-signin-page',

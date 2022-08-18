@@ -5,9 +5,9 @@ import inputTemplate from "../../base/input";
 
 const contextInputSearch = {
   id: 'search',
-  className: 'search-panel__search-control',
+  className: 'y-search-panel__search-control',
   placeholder: 'Поиск',
-  inputType: 'text',
+  typeInput: 'text',
   handleChange: (e) => console.log(e),
   value: ''
 }
