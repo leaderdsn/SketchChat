@@ -18,8 +18,8 @@ const contextMainLayout = {
 }
 
 const root = document.querySelector('#root')
-//root.innerHTML = constructor(contextGuestLayout, guestLayoutTemplate)
-root.innerHTML = constructor(contextMainLayout, mainLayoutTemplate)
+root.innerHTML = constructor(contextGuestLayout, guestLayoutTemplate)
+// root.innerHTML = constructor(contextMainLayout, mainLayoutTemplate)
 
 openDialog = () => {
   document.querySelector('#file').click();

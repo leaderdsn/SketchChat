@@ -15,7 +15,7 @@ const contextButtonSubmit = {
 const contextInputLogin = {
   handleChange: (e) => handleChange(e), 
   id: 'login',
-  inputType: 'text', 
+  typeInput: 'text', 
   className: 'y-field-control',
   inputName: 'login',
   value: '',
@@ -23,7 +23,7 @@ const contextInputLogin = {
 const contextInputPassword = {
   handleChange: (e) => handleChange(e), 
   id: 'password',
-  inputType: 'password', 
+  typeInput: 'password', 
   className: 'y-field-control',
   inputName: 'password',
   value: '',
