@@ -23,7 +23,7 @@ const contextInputEmail = {
   value: '',
 }
 const contextInputLogin = {
-  id: 'login',
+  id: 'loginReg',
   typeInput: 'text', 
   className: 'y-field-control',
   inputName: 'login',
@@ -59,7 +59,7 @@ const contextInputPhone = {
   value: '',
 }
 const contextInputPassword = {
-  id: 'password',
+  id: 'passwordReg',
   typeInput: 'password', 
   className: 'y-field-control',
   inputName: 'password',
