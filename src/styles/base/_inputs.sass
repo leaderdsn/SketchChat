@@ -1,0 +1,35 @@
+input[type="text"],
+input[type="password"]
+  border: none
+  background-image: none
+  background-color: transparent
+  -webkit-box-shadow: none
+  -moz-box-shadow: none
+  box-shadow: none
+  &:focus
+    outline: none
+  &.y-field-control
+    height: 28px
+    border-bottom: 1px solid var(--primary-color)
+
+#search,
+#send
+  background-color: var(--input-color)
+  height: 32px
+  color: var(--description-color)
+  padding-left: 10px
+  box-sizing: border-box
+  width: 100%
+  &:focus
+    outline: none
+
+#search
+  border-radius: 5px
+
+#send
+  border-radius: 16px
+  resize: none
+  overflow: auto
+  &::-webkit-scrollbar
+    display: none
+
