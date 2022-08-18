@@ -4,7 +4,7 @@ import sidebar from "../../components/chat/sidebar";
 import chatArea from "../../components/chat/chatArea";
 
 const contextChat = {
-  className: 'chat-page',
+  className: 'y-chat-page',
   sidebar: sidebar, 
   chatArea: chatArea, 
 }
