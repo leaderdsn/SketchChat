@@ -3,29 +3,29 @@
   grid-template-columns: max-content 1fr max-content
   grid-gap: 10px
   height: 71px
-  border-bottom: 1px solid var(--border-color)
   padding: 12px 0
   box-sizing: border-box
-  cursor: pointer
+  border-bottom: 1px solid var(--border-color)
   transition: 0.3s
+  cursor: pointer
   &:hover
     background-color: var(--hover-color)
   &__avatar
     width: 41px
     height: 41px
-    background-color: var( --input-color)
     border-radius: 50%
+    background-color: var( --input-color)
   &__description
     display: grid
     grid-template-columns: 1fr
     grid-gap: 4px
     p
-      color: var(--description-color)
-      white-space: normal
       overflow: hidden
-      text-overflow: ellipsis
-      margin: 0
       height: 30px
+      margin: 0
+      white-space: normal
+      text-overflow: ellipsis
+      color: var(--description-color)
   &__info
     display: grid
     grid-template-columns: max-content
@@ -40,9 +40,9 @@
     display: grid
     width: 20px
     height: 20px
-    font-size: 11px
-    color: var(--notification-text-color)
-    background-color: var(--primary-color)
-    border-radius: 50%
     text-align: center
     line-height: 20px
+    font-size: 11px
+    color: var(--notification-text-color)
+    border-radius: 50%
+    background-color: var(--primary-color)
