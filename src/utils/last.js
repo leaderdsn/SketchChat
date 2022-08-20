@@ -1,7 +1,7 @@
 export default function last(list) {
-  if(!Array.isArray(list)) {
+  if (!Array.isArray(list)) {
     return undefined;
   }
   const length = list.length;
-	return length ? list[length - 1] : undefined;
+  return length ? list[length - 1] : undefined;
 }

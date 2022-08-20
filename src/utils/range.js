@@ -9,7 +9,7 @@ const baseRange = (start, end, step) => {
   }
 
   return result;
-}
+};
 
 export default function range(start = 0, end, step) {
   if (end === undefined) {

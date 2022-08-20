@@ -1,5 +1,5 @@
 export default function first(list) {
-  if(!Array.isArray(list)) {
+  if (!Array.isArray(list)) {
     return undefined;
   }
   const length = list.length;
