@@ -1,7 +1,7 @@
 const labelTemplate = `
-  <label class='{{className}}' for='{{forName}}'>
-  <span>{{labelName}}</span>
-  {{input}}
+  <label for='{{forName}}' class='{{className}}'> 
+    <span>{{labelName}}</span>
+    {{input}}
   </label>
 `;
 export default labelTemplate;

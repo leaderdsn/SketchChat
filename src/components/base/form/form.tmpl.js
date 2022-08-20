@@ -1,6 +1,6 @@
 const formTemplate = `
-    <form method="{{method}}">
-      {{content}}
-    </form>
-  `;
+  <form method='{{method}}'>
+    {{content}}
+  </form>
+`;
 export default formTemplate;

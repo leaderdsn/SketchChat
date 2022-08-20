@@ -1,5 +1,5 @@
 const guestLayoutTemplate = `
-  <div class="{{className}}">
+  <div class='{{className}}'>
     {{content}}
   </div>
 `;
