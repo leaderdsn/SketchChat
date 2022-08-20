@@ -10,21 +10,19 @@ class Templator {
   }
 
   get(obj, path, defaultValue) {
-    const keys = path.split('.');
-  
+    const keys = path.split(".");
+
     let result = obj;
     for (let key of keys) {
       result = result[key];
 
       if (result === undefined) {
-        // console.log(result[key])
-        // delete result[key]
-        return defaultValue;        
+        return defaultValue;
       }
     }
-  
+
     return result ?? defaultValue;
-  } 
+  }
 
   _compileTemplate(template, ctx) {
     let tmpl = this._template;
@@ -34,7 +32,7 @@ class Templator {
     while ((key = regExp.exec(tmpl))) {
       if (key[1]) {
         const tmplValue = key[1].trim();
-        const data = this.get(ctx, tmplValue, '');
+        const data = this.get(ctx, tmplValue, "");
 
         if (typeof data === "function") {
           window[tmplValue] = data;
@@ -43,7 +41,7 @@ class Templator {
             `window.${key[1].trim()}()`
           );
           continue;
-        } 
+        }
 
         tmpl = tmpl.replace(new RegExp(key[0], "gi"), data);
       }
@@ -54,5 +52,3 @@ class Templator {
 }
 
 export default Templator;
-
-window.Templator = Templator;

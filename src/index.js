@@ -1,84 +1,47 @@
-import guestLayoutTemplate from './layouts/guestLayout'
-import mainLayoutTemplate from './layouts/mainLayout'
-import login from './pages/login'
-import signin from './pages/signin'
-import chat from './pages/chat'
-import { requestError, serverError} from './pages/error'
-import constructor from './modules/constructor'
-import 'normalize.css'
-import './styles/main.sass'
+import guestLayoutTemplate from "~src/layouts/guestLayout";
+import mainLayoutTemplate from "~src/layouts/mainLayout";
+import { contextGuestLayout } from "~src/layouts/guestLayout"
+import { contextMainLayout } from "~src/layouts/mainLayout"
+import login from "~src/pages/login";
+import signin from "~src/pages/signin";
+import chat from "~src/pages/chat";
+import profileUser from "~src/components/profile/profileUser";
+import profileChange from "~src/components/profile/profileChange";
+import passwordChange from "~src/components/profile/passwordChange";
+import { requestError, serverError } from "~src/pages/error";
+import "normalize.css";
+import "~src/styles/main.sass";
 
-const contextGuestLayout = {
-  className: 'guest-layout',
-  content: [login, signin, serverError].join('')
-}
-const contextMainLayout = {
-  className: 'main-layout',
-  content: [chat, requestError].join('') 
-}
+ready = () => {
+  const loginPage = document.querySelector("#loginPage");
+  const signinPage = document.querySelector("#signinPage");
+  const chatPage = document.querySelector("#chatPage");
+  const profileUserPage = document.querySelector("#profileUserPage");
+  const changeProfilePage = document.querySelector("#changeProfilePage");
+  const changePasswordPage = document.querySelector("#changePasswordPage");
+  const serverErrorPage = document.querySelector("#serverErrorPage");
+  const requestErrorPage = document.querySelector("#requestErrorPage");
 
-window.onload = function() {
-  console.log("Страница загружена!")
-  const root = document.querySelector('#root')
-  
-  root.innerHTML = [
-    constructor(contextGuestLayout, guestLayoutTemplate),
-    constructor(contextMainLayout, mainLayoutTemplate),
-  ].join('')
-  const contact = document.querySelector('.y-contact-item')
-  const pageLogin = document.querySelector('.y-login-page')
-  const pageSignin = document.querySelector('.y-signin-page')
-  const pageChat = document.querySelector('.y-chat-page')
-  const pageErrorRequest = document.querySelector('.y-error-page-404')
-  const pageErrorServer = document.querySelector('.y-error-page-500')
-  const main = document.querySelector('.main-layout')
-  const guest = document.querySelector('.guest-layout')
+  const render = (tmpl, context, query) => {
+    query.innerHTML = window.constructor(context, tmpl);
+  };
 
-  main.style.display = 'none'
-  pageSignin.style.display = 'none'
-  pageErrorServer.style.display = 'none'
-
-  document.querySelector('#goSignIn').addEventListener("click", () => {
-    pageLogin.style.display = 'none'
-    pageSignin.style.display = 'grid'
-  }); 
-  document.querySelector('#buttonSignIn').addEventListener("click", () => {
-    pageSignin.style.display = 'none'
-    pageErrorServer.style.display = 'grid'
-  }); 
-  document.querySelector('#linkGoSignIn').addEventListener("click", () => {
-    pageSignin.style.display = 'grid'
-    pageErrorServer.style.display = 'none'
-  }); 
-  document.querySelector('#goLogin').addEventListener("click", () => {
-    pageSignin.style.display = 'none'
-    pageLogin.style.display = 'grid'
-  });
-  document.querySelector('#goChat').addEventListener("click", () => {
-    guest.style.display = 'none'
-    main.style.display = 'grid'
-    pageChat.style.display = 'grid'
-    pageErrorRequest.style.display = 'none'
-  });
-  const contacts = document.querySelectorAll('.y-contact-item')
-  for(let item of contacts) {
-    item.addEventListener("click", () => {
-      pageChat.style.display = 'none'
-      pageErrorRequest.style.display = 'grid'
-    });
-  }
-
-  document.querySelector('#linkGoChat').addEventListener("click", () => {
-    pageChat.style.display = 'grid'
-    pageErrorRequest.style.display = 'none'
-  });
-
-  document.getElementById('upload').addEventListener('click', () => {
-    document.getElementById('file').click();
-  });
-
+  render(guestLayoutTemplate, contextGuestLayout(login), loginPage);
+  render(guestLayoutTemplate, contextGuestLayout(signin), signinPage);
+  render(mainLayoutTemplate, contextMainLayout(chat), chatPage);
+  render(mainLayoutTemplate, contextMainLayout(profileUser), profileUserPage);
+  render(
+    mainLayoutTemplate,
+    contextMainLayout(profileChange),
+    changeProfilePage
+  );
+  render(
+    mainLayoutTemplate,
+    contextMainLayout(passwordChange),
+    changePasswordPage
+  );
+  render(mainLayoutTemplate, contextMainLayout(serverError), serverErrorPage);
+  render(mainLayoutTemplate, contextMainLayout(requestError), requestErrorPage);
 };
 
-
-
-
+document.addEventListener("DOMContentLoaded", ready);

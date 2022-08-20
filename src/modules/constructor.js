@@ -1,7 +1,5 @@
 import Templator from "./templator";
 
-function constructor(context, template) {
+export default constructor = (context, template) => {
   return new Templator(template).compile(context);
-}
-
-export default constructor;
+};

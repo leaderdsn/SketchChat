@@ -1,27 +1,28 @@
-import constructor from "../../../modules/constructor";
 import searchPanelTemplate from "./searchPanel.tmpl";
 import linkTemplate from "../../base/link";
 import inputTemplate from "../../base/input";
+import constructor from "~src/modules/constructor";
 
 const contextInputSearch = {
-  id: 'search',
-  className: 'y-search-panel__search-control',
-  placeholder: 'Поиск',
-  typeInput: 'text',
-  handleChange: (e) => console.log(e),
-  value: ''
-}
+  id: "search",
+  className: "y-search-panel__search-control",
+  placeholder: "Поиск",
+  typeInput: "text",
+  handleChange: () => {},
+  value: "",
+};
+
 const contextLinkGoToProfile = {
-  src: '#',
-  textLink: 'Профиль',
-}
+  src: "#profileUserPage",
+  textLink: "Профиль",
+};
 
 const contextSearcPanel = {
-  className: 'y-search-panel',
-  link: constructor(contextLinkGoToProfile, linkTemplate), 
+  className: "y-search-panel",
+  link: constructor(contextLinkGoToProfile, linkTemplate),
   input: constructor(contextInputSearch, inputTemplate),
-}
+};
 
-const searchPanel = constructor(contextSearcPanel, searchPanelTemplate)
+const searchPanel = constructor(contextSearcPanel, searchPanelTemplate);
 
 export default searchPanel;

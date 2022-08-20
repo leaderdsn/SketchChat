@@ -1,31 +1,37 @@
-import constructor from "../../modules/constructor";
-import errorTemplate from "./error.tmpl";
-import linkTemplate from "../../components/base/link";
+import errorTemplate from "~src/pages/error/error.tmpl";
+import linkTemplate from "~src/components/base/link";
+import constructor from "~src/modules/constructor";
 
 const contextLinkToChats = {
-  id: 'linkGoChat',
-  src: '#',
-  textLink: 'Назад к чатам',
-}
+  id: "linkGoChat",
+  src: "#chatPage",
+  textLink: "Назад к чатам",
+};
 const contextLinkToSignIn = {
-  id: 'linkGoSignIn',
-  src: '#',
-  textLink: 'Назад к регистрации',
-}
+  id: "linkGoSignIn",
+  src: "#signinPage",
+  textLink: "Назад к регистрации",
+};
 const contextRequestError = {
-  className: 'y-error-page-404',
-  numberError: '404', 
-  textMessage: 'Не туда попали', 
-  content: constructor(contextLinkToChats, linkTemplate)
-}
+  className: "y-error-page-404",
+  numberError: "404",
+  textMessage: "Не туда попали",
+  content: constructor(contextLinkToChats, linkTemplate),
+};
 
-export const requestError = constructor(contextRequestError, errorTemplate)
+export const requestError = constructor(
+  contextRequestError,
+  errorTemplate
+);
 
 const contextServerError = {
-  className: 'y-error-page-500',
-  numberError: '500', 
-  textMessage: 'Мы уже фиксим', 
-  content: constructor(contextLinkToSignIn, linkTemplate)
-}
+  className: "y-error-page-500",
+  numberError: "500",
+  textMessage: "Мы уже фиксим",
+  content: constructor(contextLinkToSignIn, linkTemplate),
+};
 
-export const serverError = constructor(contextServerError, errorTemplate)
+export const serverError = constructor(
+  contextServerError,
+  errorTemplate
+);

@@ -1,73 +1,76 @@
-import constructor from "../../modules/constructor";
-import buttonTemplate from "../../components/base/button";
-import inputTemplate from "../../components/base/input";
-import labelTemplate from "../../components/base/label";
-import formTemplate from "../../components/base/form";
 import loginTemplate from "./login.tmpl";
-import linkTemplate from "../../components/base/link";
+import buttonTemplate from "~src/components/base/button";
+import inputTemplate from "~src/components/base/input";
+import labelTemplate from "~src/components/base/label";
+import formTemplate from "~src/components/base/form";
+import linkTemplate from "~src/components/base/link";
+import constructor from "~src/modules/constructor";
 
 const contextButtonSubmit = {
-  id: 'goChat',
-  className: 'y-btn',
-  typeButton: 'button',
-  handleClick: () => {},
-  text: 'Вход',
-}
+  id: "goChat",
+  className: "y-btn",
+  typeButton: "button",
+  click: () => {},
+  text: "Вход",
+};
+
 const contextInputLogin = {
-  id: 'login',
-  typeInput: 'text', 
-  className: 'y-field-control',
-  inputName: 'login',
-  placeholder: '',
-  handleChange: () => {},
-  value: '',
-}
+  id: "login",
+  typeInput: "text",
+  className: "y-field-control",
+  inputName: "login",
+  placeholder: "",
+  click: () => {},
+  value: "",
+};
+
 const contextInputPassword = {
-  id: 'password',
-  typeInput: 'password', 
-  className: 'y-field-control',
-  inputName: 'password',
-  placeholder: '',
-  handleChange: () => {},
-  value: '',
-}
+  id: "password",
+  typeInput: "password",
+  className: "y-field-control",
+  inputName: "password",
+  placeholder: "",
+  click: () => {},
+  value: "",
+};
 
 const contextLabelLogin = {
-  forName: 'login',
-  labelName: 'Логин', 
-  className: 'y-field-text',
+  forName: "login",
+  labelName: "Логин",
+  className: "y-field-text",
   input: constructor(contextInputLogin, inputTemplate),
-}
+};
 
 const contextLabelPassword = {
-  forName: 'password',
-  labelName: 'Пароль', 
-  className: 'y-field-text',
+  forName: "password",
+  labelName: "Пароль",
+  className: "y-field-text",
   input: constructor(contextInputPassword, inputTemplate),
-}
+};
+
 const contextLinkToSignIn = {
-  id: 'goSignIn',
-  src: '#',
-  textLink: 'Нет аккаунта?',
-}
+  id: "goSignIn",
+  src: "#signinPage",
+  textLink: "Нет аккаунта?",
+};
 
 const contextForm = {
-  method: 'post',
+  method: "post",
   content: [
     constructor(contextLabelLogin, labelTemplate),
     constructor(contextLabelPassword, labelTemplate),
     constructor(contextButtonSubmit, buttonTemplate),
     constructor(contextLinkToSignIn, linkTemplate),
-  ].join('')
-}
+  ].join(""),
+};
 
-const renderForm = constructor(contextForm, formTemplate)
+const renderForm = constructor(contextForm, formTemplate);
 
 const contextLogin = {
-  text: 'Вход', 
-  className: 'y-login-page',
-  headerText: 'Вход', 
+  text: "Вход",
+  className: "y-login-page",
+  headerText: "Вход",
   form: renderForm,
-}
+};
 
 export default constructor(contextLogin, loginTemplate);
