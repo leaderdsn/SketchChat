@@ -39,5 +39,5 @@ Open source code using your favorite IDE/Text editor and navigate to src/ direct
 
 ### bash
 #### #using npm
-   npm run build
-   npm run start
+    npm run build
+    npm run start
