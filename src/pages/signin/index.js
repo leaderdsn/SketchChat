@@ -135,6 +135,7 @@ const contextLabelRepeatPassword = {
 
 const contextLinkToLogin = {
   id: "goLogin",
+  className: "text-link",
   src: "#",
   textLink: "Войти",
 };

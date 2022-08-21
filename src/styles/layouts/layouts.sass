@@ -3,7 +3,7 @@
   grid-gap: 100px
   background-color: var(--content-color)
 
-nav
+.navbar
   position: fixed
   top: 0
   right: 50%
@@ -18,20 +18,22 @@ nav
   background-color: var(--background-color)
   transform: translate(50%, 0)
   z-index: 2000
-  ul
-    display: grid
-    grid-template-columns: max-content
-    grid-auto-flow: column
-    li
-      border-right: 1px solid var(--border-color)
-      padding: 10px
-      &:last-child
-        border-right: 0
-      a
-        font-size: 20px
-        transition: 0.3s
-        &:hover
-          color: #017cff
+
+.list
+  display: grid
+  grid-template-columns: max-content
+  grid-auto-flow: column
+  &-item
+    border-right: 1px solid var(--border-color)
+    padding: 10px
+    &:last-child
+      border-right: 0
+    &__link
+      font-size: 20px
+      transition: 0.3s
+      &:hover
+        color: #017cff
+
 section
   display: grid
   grid-template-columns: 1fr

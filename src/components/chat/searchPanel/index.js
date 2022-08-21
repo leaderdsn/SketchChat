@@ -13,6 +13,7 @@ const contextInputSearch = {
 };
 
 const contextLinkGoToProfile = {
+  className: 'link-text',
   src: "#profileUserPage",
   textLink: "Профиль",
 };

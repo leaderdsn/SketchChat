@@ -4,11 +4,13 @@ import constructor from "~src/modules/constructor";
 
 const contextLinkToChats = {
   id: "linkGoChat",
+  className: "text-link",
   src: "#chatPage",
   textLink: "Назад к чатам",
 };
 const contextLinkToSignIn = {
   id: "linkGoSignIn",
+  className: "text-link",
   src: "#signinPage",
   textLink: "Назад к регистрации",
 };

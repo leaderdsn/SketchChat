@@ -50,6 +50,7 @@ const contextLabelPassword = {
 
 const contextLinkToSignIn = {
   id: "goSignIn",
+  className: "text-link",
   src: "#signinPage",
   textLink: "Нет аккаунта?",
 };
