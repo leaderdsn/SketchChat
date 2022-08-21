@@ -1,4 +1,5 @@
 import constructor from "../modules/constructor";
+
 const setDataToContext = (context, template, data) => {
   let res = [];
   try {
@@ -21,9 +22,9 @@ const setDataToContext = (context, template, data) => {
       })
       .join("");
     return res;
-  } catch(e) {
-    if (e.name === 'TypeError') {
-      throw new Error("Ошибка типа данных, data не массив!")
+  } catch (e) {
+    if (e.name === "TypeError") {
+      throw new Error("Ошибка типа данных, data не массив!");
     }
   }
 };
