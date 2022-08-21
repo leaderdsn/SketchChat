@@ -25,7 +25,6 @@ export const requestError = constructor(
 );
 
 const contextServerError = {
-  className: "y-error-page-500",
   numberError: "500",
   textMessage: "Мы уже фиксим",
   content: constructor(contextLinkToSignIn, linkTemplate),

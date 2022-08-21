@@ -1,5 +1,5 @@
 const chatTemplate = `
-  <div class='{{className}}'>
+  <div class='y-chat-page'>
     {{sidebar}}
     {{chatArea}}
   </div>

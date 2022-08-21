@@ -5,10 +5,6 @@ import sendPanel from "~src/components/chat/sendPanel";
 import constructor from "~src/modules/constructor";
 
 const contextChatArea = {
-  classNameChat: "y-chat-area",
-  classNameHeaderPanel: "y-chat-area__header",
-  classNameMessagesPanel: "y-chat-area__body",
-  classNameSendPanel: "y-chat-area__footer",
   headerPanel: headerPanel,
   messagesList: messagesList,
   sendPanel: sendPanel,

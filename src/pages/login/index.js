@@ -68,7 +68,6 @@ const renderForm = constructor(contextForm, formTemplate);
 
 const contextLogin = {
   text: "Вход",
-  className: "y-login-page",
   headerText: "Вход",
   form: renderForm,
 };

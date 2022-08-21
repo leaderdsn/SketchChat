@@ -4,9 +4,6 @@ import contactsList from "~src/components/chat/contactsList";
 import constructor from "~src/modules/constructor";
 
 const contextSidebar = {
-  className: "y-sidebar",
-  classNameSearchPanel: "y-sidebar__search-panel",
-  classNameContactsPanel: "y-sidebar__contacts-list",
   searchPanel: searchPanel,
   contactsPanel: contactsList,
 };

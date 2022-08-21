@@ -39,7 +39,6 @@ const upload = [
 ];
 
 const contextSendPanel = {
-  className: "y-send-panel",
   upload: upload.join(""),
   textArea: constructor(contextSendTextarea, textareaTemplate),
   sendButton: constructor(contextSendButton, buttonTemplate),

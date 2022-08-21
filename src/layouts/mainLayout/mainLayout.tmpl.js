@@ -1,5 +1,5 @@
 const mainLayoutTemplate = `
-  <div class='{{className}}'>
+  <div class='main-layout'>
     {{content}}
   </div>
 `;

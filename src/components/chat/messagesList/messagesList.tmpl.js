@@ -1,5 +1,5 @@
 const messagesListTemplate = `
-  <div class='{{className}}'>
+  <div class='y-messages-list'>
     {{messages}}
   </div>
 `;

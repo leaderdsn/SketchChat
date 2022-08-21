@@ -5,15 +5,12 @@ import { dataMessages } from "~src/modules/data";
 import setDataToContext from "~src/utils/setDataToContext";
 
 const contextMessage = {
-  className: "y-message-item",
-  classNameDateTime: "y-message-item__date",
   author: null,
   content: null,
   date: null,
 };
 
 const contextMessagesList = {
-  className: "y-messages-list",
   messages: setDataToContext(
     contextMessage,
     messageTemplate,

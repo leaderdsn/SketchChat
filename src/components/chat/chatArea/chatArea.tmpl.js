@@ -1,12 +1,12 @@
 const chatAreaTemplate = `
-  <div class='{{classNameChat}}'>
-    <div class='{{classNameHeaderPanel}}'>
+  <div class='y-chat-area'>
+    <div class='y-chat-area__header'>
       {{headerPanel}}
     </div>
-    <div class='{{classNameMessagesPanel}}'>
+    <div class='y-chat-area__body'>
       {{messagesList}}
     </div>
-    <div class='{{classNameSendPanel}}'>
+    <div class='y-chat-area__footer'>
       {{sendPanel}}
     </div>
   </div>

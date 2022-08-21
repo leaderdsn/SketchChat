@@ -1,6 +1,6 @@
 const userAvatarTemplate = `
-  <div class='{{className}}'>
-    <div class='{{classNameAvatar}}'>{{img}}</div>
+  <div class='y-user-avatar'>
+    <div class='y-user-avatar__img'>{{img}}</div>
     <strong>{{userName}}</strong>
   </div>
 `;

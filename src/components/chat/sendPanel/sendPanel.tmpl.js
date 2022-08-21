@@ -1,5 +1,5 @@
 const sendPanelTemplate = `
-  <div class='{{className}}'>
+  <div class='y-send-panel'>
     {{upload}}
     {{textArea}}
     {{sendButton}}

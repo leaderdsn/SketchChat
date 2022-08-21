@@ -1,6 +1,6 @@
 const headerPanelTemplate = `
-  <div class='{{className}}'>
-    <div class='{{classNameAvatar}}'>{{avatarContent}}</div>
+  <div class='y-header-panel'>
+    <div class='y-header-panel__avatar'>{{avatarContent}}</div>
     <strong>{{contactName}}</strong>
     {{controlButton}}
   </div>

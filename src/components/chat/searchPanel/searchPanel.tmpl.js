@@ -1,5 +1,5 @@
 const searchPanelTemplate = `
-  <div class='{{className}}'>
+  <div class='y-search-panel'>
     {{link}}
     {{input}}
   </div>

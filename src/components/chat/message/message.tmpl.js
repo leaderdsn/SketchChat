@@ -1,7 +1,7 @@
 const messageTemplate = `
-  <div class='{{className}}'>
+  <div class='y-message-item'>
     {{content}}
-    <div class='{{classNameDateTime}}'>
+    <div class='y-message-item__date'>
       {{date}}
     </div>
   </div>

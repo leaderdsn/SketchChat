@@ -84,15 +84,9 @@ const contextLabel = {
 };
 
 const contextPasswordChange = {
-  className: "y-profile change",
-  classNameBack: "y-profile__back",
-  classNameContent: "y-profile__content",
   back: constructor(contextButtonBack, buttonTemplate),
-  classNameAvatar: "y-profile__avatar",
   avatar: userAvatar,
-  classNameData: "y-profile__data",
   content: setDataToContext(contextLabel, labelTemplate, dataPasswordLabels),
-  classNameAction: "y-profile__action",
   action: constructor(contextButtonSave, buttonTemplate),
 };
 

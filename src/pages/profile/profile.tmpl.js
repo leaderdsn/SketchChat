@@ -1,5 +1,5 @@
 const profilePageTemplate = `
-  <div class='{{className}}'>
+  <div class='y-profile-page'>
     {{profile}}
   </div>
 `;

@@ -1,5 +1,5 @@
 const loginTemplate = `
-  <div class='{{className}}'>
+  <div class='y-login-page'>
     <h2>
       {{headerText}}
     </h2>

@@ -1,5 +1,5 @@
 const contactsListTemplate = `
-  <div class='{{className}}'>
+  <div class='y-contacts-list'>
     {{contacts}}
   </div>
 `;

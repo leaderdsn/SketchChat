@@ -18,7 +18,6 @@ const contextLinkGoToProfile = {
 };
 
 const contextSearcPanel = {
-  className: "y-search-panel",
   link: constructor(contextLinkGoToProfile, linkTemplate),
   input: constructor(contextInputSearch, inputTemplate),
 };

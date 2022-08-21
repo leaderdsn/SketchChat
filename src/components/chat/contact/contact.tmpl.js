@@ -1,13 +1,13 @@
 const contactTemplate = `
-  <div class='{{classNameContact}}'>
-    <div class='{{classNameAvatar}}'></div>
-    <div class='{{classNameDescription}}'>
+  <div class='y-contact-item'>
+    <div class='y-contact-item__avatar'></div>
+    <div class='y-contact-item__description'>
       <strong>{{nameContact}}</strong>
       <p>{{descriptionContact}}</p>
     </div>
-    <div class='{{classNameInfo}}'>
-      <span class='{{classNameDateTime}}'>{{dateTime}}</span>
-      <span class='{{classNameNotificationCount}}'>{{notificationCount}}</span>
+    <div class='y-contact-item__info'>
+      <span class='y-contact-item__date-time'>{{dateTime}}</span>
+      <span class='y-contact-item__notification-count'>{{notificationCount}}</span>
     </div>
   </div>
 `;
