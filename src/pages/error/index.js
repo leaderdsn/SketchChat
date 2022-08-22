@@ -15,7 +15,6 @@ const contextLinkToSignIn = {
   textLink: "Назад к регистрации",
 };
 const contextRequestError = {
-  className: "y-error-page-404",
   numberError: "404",
   textMessage: "Не туда попали",
   content: constructor(contextLinkToChats, linkTemplate),

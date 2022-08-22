@@ -57,6 +57,7 @@ const contextLinkToSignIn = {
 
 const contextForm = {
   method: "post",
+  className: "y-login-page__form",
   content: [
     constructor(contextLabelLogin, labelTemplate),
     constructor(contextLabelPassword, labelTemplate),

@@ -1,6 +1,6 @@
 const signInTemplate = `
-  <div class='{{className}}'>
-    <h2>
+  <div class='y-signin-page'>
+  <h2 class='y-signin-page__header'>
       {{headerText}}
     </h2>
     {{form}}

@@ -142,6 +142,7 @@ const contextLinkToLogin = {
 
 const contextForm = {
   method: "post",
+  className: "y-signin-page__form",
   content: [
     constructor(contextLabelEmail, labelTemplate),
     constructor(contextLabelLogin, labelTemplate),

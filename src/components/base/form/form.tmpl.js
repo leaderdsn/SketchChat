@@ -1,5 +1,5 @@
 const formTemplate = `
-  <form method='{{method}}'>
+  <form method='{{method}}' class='{{className}}'>
     {{content}}
   </form>
 `;
