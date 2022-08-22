@@ -5,9 +5,9 @@ const profileUserTemplate = `
     <div class='y-profile__avatar'>{{avatar}}</div>
     <div class='y-profile__data'>{{content}}</div>
     <div class='y-profile__action-list'>
-      <div class='y-profile__action-item'>{{action1}}</div>
-      <div class='y-profile__action-item'>{{action2}}</div>
-      <div class='y-profile__action-item'>{{action3}}</div>
+      <div class='y-profile__action-item'>{{buttonChangeData}}</div>
+      <div class='y-profile__action-item'>{{buttonChangePassword}}</div>
+      <div class='y-profile__action-item'>{{buttonExit}}</div>
     </div>
   </div>
 </div>

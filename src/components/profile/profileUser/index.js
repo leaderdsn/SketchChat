@@ -90,9 +90,9 @@ const contextUserInfo = {
   back: constructor(contextButtonBack, buttonTemplate),
   avatar: userAvatar,
   content: setDataToContext(contextLabel, labelTemplate, dataLabels),
-  action1: constructor(contextButton[0], buttonTemplate),
-  action2: constructor(contextButton[1], buttonTemplate),
-  action3: constructor(contextButton[2], buttonTemplate),
+  buttonChangeData: constructor(contextButton[0], buttonTemplate),
+  buttonChangePassword: constructor(contextButton[1], buttonTemplate),
+  buttonExit: constructor(contextButton[2], buttonTemplate),
 };
 
 export default constructor(
