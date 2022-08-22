@@ -7,43 +7,71 @@ import setDataToContext from "~src/utils/setDataToContext";
 import profilePageTemplate from "~src/pages/profile/profile.tmpl";
 import { contextProfile } from "~src/pages/profile";
 import constructor from "~src/modules/constructor";
+import blockTemplate from "~src/components/base/block";
+
+const contextBlocks = [
+  {
+    className: "description",
+    content: "pochta@yandex.ru"
+  },
+  {
+    className: "description",
+    content: "ivanivanov"
+  },
+  {
+    className: "description",
+    content: "Иван"
+  },
+  {
+    className: "description",
+    content: "Иванов"
+  },
+  {
+    className: "description",
+    content: "Иван"
+  },
+  {
+    className: "description",
+    content: "+7 (909) 967 30 30"
+  },
+]
 
 const dataLabels = [
   {
     forName: "email",
     className: "y-field-profile-text",
     labelName: "Почта",
-    input: `<span class='description'>pochta@yandex.ru</span>`,
+    input: constructor(contextBlocks[0], blockTemplate),
   },
   {
     forName: "login",
     className: "y-field-profile-text",
     labelName: "Логин",
-    input: `<span class='description'>ivanivanov</span>`,
+    input: constructor(contextBlocks[1], blockTemplate),
   },
   {
     forName: "firstName",
     className: "y-field-profile-text",
     labelName: "Имя",
-    input: `<span class='description'>Иван</span>`,
+    input: constructor(contextBlocks[2], blockTemplate),
   },
   {
     forName: "lastName",
     className: "y-field-profile-text",
     labelName: "Фамилия",
-    input: `<span class='description'>Иванов</span>`,
+    input: constructor(contextBlocks[3], blockTemplate),
   },
   {
     forName: "chatName",
     className: "y-field-profile-text",
     labelName: "Имя в чате",
-    input: `<span class='description'>Иван</span>`,
+    input: constructor(contextBlocks[4], blockTemplate),
   },
   {
     forName: "phone",
     className: "y-field-profile-text",
     labelName: "Телефон",
-    input: `<span class='description'>+7 (909) 967 30 30</span>`,
+    input: constructor(contextBlocks[5], blockTemplate),
   },
 ];
 
