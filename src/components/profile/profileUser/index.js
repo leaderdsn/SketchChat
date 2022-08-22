@@ -1,7 +1,6 @@
 import profileUserTemplate from "~src/components/profile/profileUser/profileUser.tmpl";
 import userAvatar from "~src/components/profile/userAvatar";
-import buttonTemplate from "~src/components/base/button";
-import { svgBack } from "~src/modules/data";
+import buttonTemplate from "~src/components/base/button";;
 import labelTemplate from "~src/components/base/label";
 import setDataToContext from "~src/utils/setDataToContext";
 import profilePageTemplate from "~src/pages/profile/profile.tmpl";
@@ -12,29 +11,29 @@ import blockTemplate from "~src/components/base/block";
 const contextBlocks = [
   {
     className: "description",
-    content: "pochta@yandex.ru"
+    content: "pochta@yandex.ru",
   },
   {
     className: "description",
-    content: "ivanivanov"
+    content: "ivanivanov",
   },
   {
     className: "description",
-    content: "Иван"
+    content: "Иван",
   },
   {
     className: "description",
-    content: "Иванов"
+    content: "Иванов",
   },
   {
     className: "description",
-    content: "Иван"
+    content: "Иван",
   },
   {
     className: "description",
-    content: "+7 (909) 967 30 30"
+    content: "+7 (909) 967 30 30",
   },
-]
+];
 
 const dataLabels = [
   {
@@ -104,7 +103,11 @@ const contextButtonBack = {
   className: "y-btn-back",
   typeButton: "button",
   click: () => {},
-  text: svgBack,
+  text: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="14" cy="14" r="14" transform="rotate(-180 14 14)" fill="#3369F3"/>
+    <rect x="20" y="14.8" width="11" height="1.6" transform="rotate(-180 20 14.8)" fill="white"/>
+    <path d="M13 19L9 14L13 9" stroke="white" stroke-width="1.6"/>
+  </svg>`,
 };
 
 const contextLabel = {

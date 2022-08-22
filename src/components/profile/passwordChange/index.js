@@ -5,7 +5,6 @@ import setDataToContext from "~src/utils/setDataToContext";
 import labelTemplate from "~src/components/base/label/label.tmpl";
 import buttonTemplate from "~src/components/base/button";
 import userAvatar from "~src/components/profile/userAvatar";
-import { svgBack } from "~src/modules/data";
 import { contextProfile } from "~src/pages/profile";
 import constructor from "~src/modules/constructor";
 
@@ -64,7 +63,7 @@ const contextButtonSave = {
   id: "savePasswordChange",
   className: "y-btn",
   typeButton: "button",
-  click: () => console.log('Сохранить'),
+  click: () => console.log("Сохранить"),
   text: "Сохранить",
 };
 
@@ -73,7 +72,11 @@ const contextButtonBack = {
   className: "y-btn-back",
   typeButton: "button",
   click: () => {},
-  text: svgBack,
+  text: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="14" cy="14" r="14" transform="rotate(-180 14 14)" fill="#3369F3"/>
+    <rect x="20" y="14.8" width="11" height="1.6" transform="rotate(-180 20 14.8)" fill="white"/>
+    <path d="M13 19L9 14L13 9" stroke="white" stroke-width="1.6"/>
+  </svg>`,
 };
 
 const contextLabel = {
@@ -91,8 +94,6 @@ const contextPasswordChange = {
 };
 
 export default constructor(
-  contextProfile(
-    constructor(contextPasswordChange, passwordChangeTemplate)
-  ),
+  contextProfile(constructor(contextPasswordChange, passwordChangeTemplate)),
   profilePageTemplate
 );
