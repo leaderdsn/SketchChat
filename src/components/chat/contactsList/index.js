@@ -3,6 +3,7 @@ import contactTemplate from "~src/components/chat/contact/contact.tmpl";
 import clone from "~src/utils/clone";
 import { dataContacts } from "~src/modules/data";
 import setDataToContext from "~src/utils/setDataToContext";
+import constructor from "~src/modules/constructor"
 
 const contextContact = {
   nameContact: null,
@@ -19,4 +20,4 @@ const contextContactsList = {
   ),
 };
 
-export default window.constructor(contextContactsList, contactsListTemplate);
+export default constructor(contextContactsList, contactsListTemplate);

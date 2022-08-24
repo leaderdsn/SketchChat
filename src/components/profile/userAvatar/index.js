@@ -1,8 +1,9 @@
 import userAvatarTemplate from "./userAvatar.tmpl";
+import constructor from "~src/modules/constructor"
 
 const contextUserAvatar = {
   img: '', 
   userName: 'Иван',
 }
 
-export default window.constructor(contextUserAvatar, userAvatarTemplate);
+export default constructor(contextUserAvatar, userAvatarTemplate);

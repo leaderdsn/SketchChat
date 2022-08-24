@@ -1,8 +1,9 @@
 import headerPanelTemplate from "./headerPanel.tmpl";
+import constructor from "~src/modules/constructor"
 
 const contextHeaderPanel = {
   avatarContent: "А",
   contactName: "Алёна",
   controlButton: null,
 };
-export default window.constructor(contextHeaderPanel, headerPanelTemplate);
+export default constructor(contextHeaderPanel, headerPanelTemplate);
