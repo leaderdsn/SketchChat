@@ -12,7 +12,7 @@ import { requestError, serverError } from "~src/pages/error";
 import constructor from "~src/modules/constructor";
 import "~src/styles/main.sass";
 
-ready = () => {
+function ready(){
   const loginPage = document.querySelector("#loginPage");
   const signinPage = document.querySelector("#signinPage");
   const chatPage = document.querySelector("#chatPage");
@@ -22,7 +22,7 @@ ready = () => {
   const serverErrorPage = document.querySelector("#serverErrorPage");
   const requestErrorPage = document.querySelector("#requestErrorPage");
 
-  const render = (tmpl, context, query) => {
+  function render(tmpl, context, query){
     query.innerHTML = constructor(context, tmpl);
   };
 
