@@ -1,0 +1,49 @@
+#root
+  display: grid
+  grid-gap: 100px
+  background-color: var(--content-color)
+
+.navbar
+  position: fixed
+  top: 0
+  right: 50%
+  display: grid
+  grid-template-columns: max-content
+  justify-content: center
+  align-items: center
+  padding: 20px
+  box-sizing: border-box
+  border-radius: 0 0 15px 15px
+  box-shadow: rgb(0 0 0 / 14%) 0 0 6px
+  background-color: var(--background-color)
+  transform: translate(50%, 0)
+  z-index: 2000
+
+.list
+  display: grid
+  grid-template-columns: max-content
+  grid-auto-flow: column
+
+.list-item
+  border-right: 1px solid var(--border-color)
+  padding: 10px
+  &:last-child
+    border-right: 0
+
+.list-item__link
+  font-size: 20px
+  transition: 0.3s
+  &:hover
+    color: #017cff
+
+section
+  display: grid
+  grid-template-columns: 1fr
+  justify-content: center
+  height: 100vh
+  border-top: 1px solid var(--border-color)
+  border-bottom: 1px solid var(--border-color)
+  background-color: var(--background-color)
+
+@import 'main-layout'
+@import 'guest-layout'
