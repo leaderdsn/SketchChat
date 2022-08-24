@@ -8,6 +8,9 @@ input[type="password"]
   -moz-box-shadow: none
   box-shadow: none
   border: none
+  &:focus
+    outline: none
+    background-color: var(--focus-color)
 
   &.y-field-control
     height: 28px
@@ -24,6 +27,11 @@ input[readonly="readonly"]
   box-sizing: border-box
   color: var(--description-color)
   background-color: var(--input-color)
+  &:focus
+    outline: none
+    background-color: var(--hover-color)
+    border: 1px solid var(--primary-color)
+    // background-color: var(--border-color)
 
 #search
   border-radius: 5px
@@ -33,5 +41,6 @@ input[readonly="readonly"]
   line-height: 32px
   resize: none
   border-radius: 16px
+  border: none
   &::-webkit-scrollbar
     display: none
