@@ -1,10 +1,5 @@
 {
-  "extends": "@parcel/config-default",
-  "compilerOptions": {
-    "experimentalDecorators": true,
-    "jsxImportSource": "preact",
-    "isolatedModules": true
-  }
+  "extends": "@parcel/config-default"
 
 } 
 
