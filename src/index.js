@@ -9,8 +9,6 @@ import profileUser from "~src/components/profile/profileUser";
 import profileChange from "~src/components/profile/profileChange";
 import passwordChange from "~src/components/profile/passwordChange";
 import { requestError, serverError } from "~src/pages/error";
-import "normalize.css";
-import "sass-reset";
 import "~src/styles/main.sass";
 
 ready = () => {
