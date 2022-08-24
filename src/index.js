@@ -9,6 +9,7 @@ import profileUser from "~src/components/profile/profileUser";
 import profileChange from "~src/components/profile/profileChange";
 import passwordChange from "~src/components/profile/passwordChange";
 import { requestError, serverError } from "~src/pages/error";
+import constructor from "~src/modules/constructor";
 import "~src/styles/main.sass";
 
 ready = () => {
@@ -22,7 +23,7 @@ ready = () => {
   const requestErrorPage = document.querySelector("#requestErrorPage");
 
   const render = (tmpl, context, query) => {
-    query.innerHTML = window.constructor(context, tmpl);
+    query.innerHTML = constructor(context, tmpl);
   };
 
   render(guestLayoutTemplate, contextGuestLayout(login), loginPage);

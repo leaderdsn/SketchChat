@@ -3,6 +3,7 @@ import messageTemplate from "~src/components/chat/message/message.tmpl";
 import clone from "~src/utils/clone";
 import { dataMessages } from "~src/modules/data";
 import setDataToContext from "~src/utils/setDataToContext";
+import constructor from "~src/modules/constructor"
 
 const contextMessage = {
   author: null,
@@ -18,4 +19,4 @@ const contextMessagesList = {
   ),
 };
 
-export default window.constructor(contextMessagesList, messagesListTemplate);
+export default constructor(contextMessagesList, messagesListTemplate);
