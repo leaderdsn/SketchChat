@@ -1,0 +1,20 @@
+.y-sidebar
+  position: absolute
+  top: 0
+  left: 0
+  display: grid
+  grid-template-columns: 1fr
+  grid-auto-rows: max-content
+  width: 310px
+  height: 100vh
+  background-color: var(--content-color)
+  padding: 20px 10px 0 10px
+  box-sizing: border-box
+  border-right: 1px solid var(--border-color)
+  z-index: 1000
+  &__contacts-list
+    overflow: hidden
+    position: relative
+    display: grid
+    grid-template-columns: 1fr
+    height: calc(100vh - 100px)
