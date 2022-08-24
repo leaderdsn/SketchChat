@@ -1,7 +1,7 @@
 import guestLayoutTemplate from "~src/layouts/guestLayout";
 import mainLayoutTemplate from "~src/layouts/mainLayout";
-import { contextGuestLayout } from "~src/layouts/guestLayout"
-import { contextMainLayout } from "~src/layouts/mainLayout"
+import { contextGuestLayout } from "~src/layouts/guestLayout";
+import { contextMainLayout } from "~src/layouts/mainLayout";
 import login from "~src/pages/login";
 import signin from "~src/pages/signin";
 import chat from "~src/pages/chat";
@@ -10,6 +10,7 @@ import profileChange from "~src/components/profile/profileChange";
 import passwordChange from "~src/components/profile/passwordChange";
 import { requestError, serverError } from "~src/pages/error";
 import "normalize.css";
+import "sass-reset";
 import "~src/styles/main.sass";
 
 ready = () => {
