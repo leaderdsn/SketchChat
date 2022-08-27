@@ -1,4 +1,4 @@
-import inputTemplate from "./input.tmpl";
+import inputTemplate from "~src/components/base/input/input.tmpl";
 
 export type TInput = {
   id: number | string,

@@ -1,4 +1,4 @@
-import guestLayoutTemplate from "./guestLayout.tmpl";
+import guestLayoutTemplate from "~src/layouts/guestLayout/guestLayout.tmpl";
 
 export type TLayout = {
   content: string

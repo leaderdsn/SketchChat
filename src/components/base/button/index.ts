@@ -1,4 +1,4 @@
-import buttonTemplate from "./button.tmpl";
+import buttonTemplate from "src/components/base/button/button.tmpl";
 
 export type TButton = {
   id: number | string,

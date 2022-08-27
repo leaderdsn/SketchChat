@@ -1,6 +1,6 @@
-import searchPanelTemplate from "./searchPanel.tmpl";
-import linkTemplate, { TLink } from "../../base/link";
-import inputTemplate, { TInput } from "../../base/input";
+import searchPanelTemplate from "~src/components/chat/searchPanel/searchPanel.tmpl";
+import linkTemplate, { TLink } from "~src/components/base/link";
+import inputTemplate, { TInput } from "~src/components/base/input";
 import constructor from "~src/modules/constructor";
 
 type TContextSearcPanel = {

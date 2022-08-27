@@ -1,4 +1,4 @@
-import labelTemplate from "./label.tmpl";
+import labelTemplate from "~src/components/base/label/label.tmpl";
 
 export type TLabel = {
   forName: string | null,

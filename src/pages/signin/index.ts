@@ -5,7 +5,7 @@ import formTemplate from "~src/components/base/form";
 import linkTemplate, { TLink } from "~src/components/base/link";
 import signInTemplate from "~src/pages/signin/signin.tmpl";
 import constructor from "~src/modules/constructor";
-import { TContextLoginAndSignIn, TForm } from "../login";
+import { TContextLoginAndSignIn, TForm } from "~src/pages/login";
 
 const contextButtonSubmit: TButton = {
   id: "buttonSignIn",

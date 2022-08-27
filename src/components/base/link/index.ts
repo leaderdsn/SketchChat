@@ -1,4 +1,4 @@
-import linkTemplate from "./link.tmpl";
+import linkTemplate from "~src/components/base/link/link.tmpl";
 
 export type TLink = {
   id?: number | string

@@ -1,4 +1,4 @@
-import headerPanelTemplate from "./headerPanel.tmpl";
+import headerPanelTemplate from "~src/components/chat/headerPanel/headerPanel.tmpl";
 import constructor from "~src/modules/constructor"
 
 type TContextHeaderPanel = {

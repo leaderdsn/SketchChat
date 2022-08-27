@@ -1,4 +1,4 @@
-import blockTemplate from "./block.tmpl";
+import blockTemplate from "~src/components/base/block/block.tmpl";
 
 export type TBlock =   {
   className: string,

@@ -1,4 +1,4 @@
-import userAvatarTemplate from "./userAvatar.tmpl";
+import userAvatarTemplate from "~src/components/profile/userAvatar/userAvatar.tmpl";
 import constructor from "~src/modules/constructor"
 
 const contextUserAvatar = {

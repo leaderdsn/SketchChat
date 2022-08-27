@@ -1,4 +1,4 @@
-import textareaTemplate from "./textarea.tmpl";
+import textareaTemplate from "~src/components/base/textarea/textarea.tmpl";
 
 export type TTextarea = {
   id: number | string,
