@@ -1,5 +1,5 @@
-import { TLayout } from "~src/layouts/guestLayout";
 import mainLayoutTemplate from "~src/layouts/mainLayout/mainLayout.tmpl";
+import { TLayout } from "~src/layouts/types";
 
 export const contextMainLayout= (content: string):TLayout  => {
   return {

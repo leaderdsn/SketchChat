@@ -1,11 +1,16 @@
-import buttonTemplate, { TButton } from "~src/components/base/button";
-import inputTemplate, { TInput } from "~src/components/base/input";
-import labelTemplate, { TLabel } from "~src/components/base/label";
+import buttonTemplate from "~src/components/base/button";
+import { TButton } from "~src/components/base/button/types";
+import inputTemplate from "~src/components/base/input";
+import { TInput } from "~src/components/base/input/types";
+import labelTemplate from "~src/components/base/label";
+import { TLabel } from "~src/components/base/label/types";
 import formTemplate from "~src/components/base/form";
-import linkTemplate, { TLink } from "~src/components/base/link";
+import linkTemplate from "~src/components/base/link";
+import { TLink } from "~src/components/base/link/types";
 import signInTemplate from "~src/pages/signin/signin.tmpl";
 import constructor from "~src/modules/constructor";
-import { TContextLoginAndSignIn, TForm } from "~src/pages/login";
+import { TForm } from "~src/components/base/form/types";
+import { TContextLoginAndSignIn } from "~src/pages/login/types";
 
 const contextButtonSubmit: TButton = {
   id: "buttonSignIn",

@@ -3,9 +3,10 @@ import inputTemplate from "~src/components/base/input/input.tmpl";
 import textareaTemplate from "~src/components/base/textarea/textarea.tmpl";
 import buttonTemplate from "~src/components/base/button/button.tmpl";
 import constructor from "~src/modules/constructor";
-import { TInput } from "~src/components/base/input";
-import { TButton } from "~src/components/base/button";
-import { TTextarea } from "~src/components/base/textarea";
+import { TInput } from "~src/components/base/input/types";
+import { TButton } from "~src/components/base/button/types";
+import { TTextarea } from "~src/components/base/textarea/types";
+import { TContextSendPanel } from "src/components/chat/sendPanel/types";
 
 const contextInputFile: TInput = {
   id: "file",
@@ -50,12 +51,6 @@ const upload: string[] = [
   constructor(contextInputFile, inputTemplate),
   constructor(contextUploadButton, buttonTemplate),
 ];
-
-type TContextSendPanel = {
-  upload: string,
-  textArea: string
-  sendButton: string,
-};
 
 const contextSendPanel: TContextSendPanel = {
   upload: upload.join(""),

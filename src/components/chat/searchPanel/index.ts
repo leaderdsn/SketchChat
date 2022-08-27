@@ -1,12 +1,10 @@
 import searchPanelTemplate from "~src/components/chat/searchPanel/searchPanel.tmpl";
-import linkTemplate, { TLink } from "~src/components/base/link";
-import inputTemplate, { TInput } from "~src/components/base/input";
+import linkTemplate from "~src/components/base/link";
+import { TLink } from "~src/components/base/link/types";
+import inputTemplate from "~src/components/base/input";
+import { TInput } from "~src/components/base/input/types";
 import constructor from "~src/modules/constructor";
-
-type TContextSearcPanel = {
-  link: string,
-  input: string,
-};
+import { TContextSearcPanel } from "~src/components/chat/searchPanel/types";
 
 const contextInputSearch: TInput = {
   id: "search",

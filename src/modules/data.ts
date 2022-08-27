@@ -1,17 +1,4 @@
-export type TDataMessage = {
-  id: number,
-  author: string,
-  content: string | null,
-  date: Date | string | null
-}
-
-export type TDataContacts = {
-  id: number,
-  nameContact: string,
-  descriptionContact: string | null,
-  dateTime: Date | string | null,
-  notificationCount: number | null,
-}
+import { TDataContacts, TDataMessage } from "~src/modules/types";
 
 export const dataMessages: TDataMessage[] = [
   {

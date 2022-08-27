@@ -3,11 +3,9 @@ import contactTemplate from "~src/components/chat/contact/contact.tmpl";
 import clone from "~src/utils/clone";
 import { dataContacts } from "~src/modules/data";
 import setDataToContext from "~src/utils/setDataToContext";
-import constructor, { TRecordType } from "~src/modules/constructor"
-
-type TContextContactsList = {
-  contacts: string[],
-}
+import constructor from "~src/modules/constructor"
+import { TRecordType } from "~src/modules/types"
+import { TContextContactsList } from "~src/components/chat/contactsList/types";
 
 const contextContact: Record<string, TRecordType> = {
   nameContact: null,

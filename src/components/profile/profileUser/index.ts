@@ -1,22 +1,16 @@
 import profileUserTemplate from "~src/components/profile/profileUser/profileUser.tmpl";
 import userAvatar from "~src/components/profile/userAvatar";
-import buttonTemplate, { TButton } from "~src/components/base/button";
-import labelTemplate, { TLabel } from "~src/components/base/label";
+import buttonTemplate from "~src/components/base/button";
+import { TButton } from "~src/components/base/button/types";
+import labelTemplate from "~src/components/base/label";
+import { TLabel } from "~src/components/base/label/types";
 import setDataToContext from "~src/utils/setDataToContext";
 import profilePageTemplate from "~src/pages/profile/profile.tmpl";
 import { contextProfile } from "~src/pages/profile";
-import constructor, { TRecordType } from "~src/modules/constructor";
-import blockTemplate, { TBlock } from "~src/components/base/block";
-
-export type TContextProfile = {
-  back: string,
-  avatar: string,
-  content: string[],
-  action?: string,
-  buttonChangeData?: string,
-  buttonChangePassword?: string,
-  buttonExit?: string,
-};
+import constructor from "~src/modules/constructor";
+import { TRecordType } from "~src/modules/types";
+import blockTemplate from "~src/components/base/block";
+import { TBlock } from "~src/components/base/block/types";
 
 const contextBlocks: TBlock[] = [
   {

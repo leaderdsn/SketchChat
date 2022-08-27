@@ -4,16 +4,8 @@ import clone from "~src/utils/clone";
 import { dataMessages } from "~src/modules/data";
 import setDataToContext from "~src/utils/setDataToContext";
 import constructor from "~src/modules/constructor"
-
-type TContextMessage = {
-  author: string | null,
-  content: string | null,
-  date: string | null,
-};
-
-type TContextMessagesList = {
-  messages: string[]
-}
+import { TContextMessage } from "~src/components/chat/message/types";
+import { TContextMessagesList } from "~src/components/chat/messagesList/types";
 
 const contextMessage: TContextMessage = {
   author: null,

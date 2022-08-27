@@ -1,10 +1,6 @@
 import userAvatarTemplate from "~src/components/profile/userAvatar/userAvatar.tmpl";
 import constructor from "~src/modules/constructor"
-
-type TUserAvatar = {
-  img: string, 
-  userName: string
-}
+import { TUserAvatar } from "~src/components/profile/userAvatar/types";
 
 const contextUserAvatar: TUserAvatar = {
   img: '', 

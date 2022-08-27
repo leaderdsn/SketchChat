@@ -1,12 +1,8 @@
 import errorTemplate from "~src/pages/error/error.tmpl";
-import linkTemplate, { TLink } from "~src/components/base/link";
+import linkTemplate from "~src/components/base/link";
+import { TLink } from "~src/components/base/link/types";
 import constructor from "~src/modules/constructor";
-
-type TContextError  = {
-  numberError: string,
-  textMessage: string,
-  content: string,
-};
+import { TContextError } from "~src/pages/error/types";
 
 const contextLinkToChats: TLink = {
   id: "linkGoChat",

@@ -1,8 +1,5 @@
 import guestLayoutTemplate from "~src/layouts/guestLayout/guestLayout.tmpl";
-
-export type TLayout = {
-  content: string
-}
+import { TLayout } from "~src/layouts/types";
 
 export const contextGuestLayout = (content: string):TLayout => {
   return {

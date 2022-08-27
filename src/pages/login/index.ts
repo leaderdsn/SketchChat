@@ -1,21 +1,16 @@
 import loginTemplate from "~src/pages/login/login.tmpl";
-import buttonTemplate, { TButton } from "~src/components/base/button";
-import inputTemplate, { TInput } from "~src/components/base/input";
-import labelTemplate, { TLabel } from "~src/components/base/label";
+import buttonTemplate from "~src/components/base/button";
+import { TButton } from "~src/components/base/button/types";
+import { TInput } from "~src/components/base/input/types";
+import { TLabel } from "~src/components/base/label/types";
+import { TLink } from "~src/components/base/link/types";
+import inputTemplate from "~src/components/base/input";
+import labelTemplate from "~src/components/base/label";
+import linkTemplate from "~src/components/base/link";
 import formTemplate from "~src/components/base/form";
-import linkTemplate, { TLink } from "~src/components/base/link";
 import constructor from "~src/modules/constructor";
-
-export type TForm = {
-  method: string,
-  className: string,
-  content: string,
-};
-
-export type TContextLoginAndSignIn = {
-  headerText: string,
-  form: string,
-};
+import { TForm } from "~src/components/base/form/types";
+import { TContextLoginAndSignIn } from "~src/pages/login/types";
 
 const contextButtonSubmit: TButton = {
   id: "goChat",
