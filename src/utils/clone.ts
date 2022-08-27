@@ -1,6 +1,4 @@
-
-import { TRecordType } from "~src/modules/constructor";
-import { TDataContacts, TDataMessage } from "~src/modules/data";
+import { TDataContacts, TDataMessage, TRecordType } from "~src/modules/types";
 
 const clone = (countClone: number, data: TDataMessage[] | TDataContacts[]): Record<string, TRecordType>[] => {
   const res = [];

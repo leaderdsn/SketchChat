@@ -1,4 +1,4 @@
-import { TRecordType } from "~src/modules/constructor";
+import { TRecordType } from "~src/modules/types";
 
 class Templator {
   TEMPLATE_REGEXP = /\{\{(.*?)\}\}/gi;

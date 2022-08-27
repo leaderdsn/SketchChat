@@ -1,4 +1,5 @@
-import constructor, { TRecordType } from "~src/modules/constructor";
+import constructor from "~src/modules/constructor";
+import { TRecordType } from "~src/modules/types";
 
 const setDataToContext = (context: Record<string, TRecordType>, template: string, data: Record<string, TRecordType>[] ) => {
   let res: string[] = [];
