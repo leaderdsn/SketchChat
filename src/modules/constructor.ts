@@ -1,6 +1,6 @@
 import Templator from "./templator";
 
-function constructor(context, template) {
+function constructor(context: Object, template: string) {
   return new Templator(template).compile(context);
 };
 

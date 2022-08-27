@@ -1,4 +1,19 @@
-export const dataMessages = [
+type TDataMessage = {
+  id: number,
+  author: string,
+  content: string | null,
+  date: Date | string | null
+}
+
+type TDataContacts = {
+  id: number,
+  nameContact: string,
+  descriptionContact: string | null,
+  dateTime: Date | string | null,
+  notificationCount: number | null,
+}
+
+export const dataMessages: TDataMessage[] = [
   {
     id: 1,
     author: "Андрей",
@@ -20,7 +35,7 @@ export const dataMessages = [
   },
 ];
 
-export const dataContacts = [
+export const dataContacts: TDataContacts[] = [
   {
     id: 1,
     nameContact: "Петя",

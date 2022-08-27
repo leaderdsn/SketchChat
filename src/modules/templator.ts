@@ -1,15 +1,18 @@
 class Templator {
   TEMPLATE_REGEXP = /\{\{(.*?)\}\}/gi;
 
-  constructor(template) {
+  _template: string
+
+
+  constructor(template: string) {
     this._template = template;
   }
 
-  compile(ctx) {
+  compile(ctx: Object) {
     return this._compileTemplate(this._template, ctx);
   }
 
-  get(obj, path, defaultValue) {
+  get(obj: Object, path: string, defaultValue: any) {
     const keys = path.split(".");
 
     let result = obj;
@@ -24,8 +27,9 @@ class Templator {
     return result ?? defaultValue;
   }
 
-  _compileTemplate(template, ctx) {
-    let tmpl = this._template;
+  _compileTemplate(template: string, ctx: Object) {
+    let tmpl: string = template
+    //let tmpl: string = this._template
     let key = null;
     const regExp = this.TEMPLATE_REGEXP;
 
@@ -35,7 +39,7 @@ class Templator {
         const data = this.get(ctx, tmplValue, "");
 
         if (typeof data === "function") {
-          window[tmplValue] = data;
+          // (window as any)[tmplValue] = data;
           tmpl = tmpl.replace(
             new RegExp(key[0], "gi"),
             `window.${key[1].trim()}()`
