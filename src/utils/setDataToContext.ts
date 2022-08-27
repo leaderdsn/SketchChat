@@ -1,7 +1,7 @@
 import constructor, { TRecordType } from "~src/modules/constructor";
 
 const setDataToContext = (context: Record<string, TRecordType>, template: string, data: Record<string, TRecordType>[] ) => {
-  const res: string[] = [];
+  let res: string[] = [];
   try {
     data.forEach((item: Record<string, TRecordType>) => {
       for (const keyData in item) {
@@ -24,7 +24,7 @@ const setDataToContext = (context: Record<string, TRecordType>, template: string
     return res;
   } catch (e) {
     if ((e as Error).name  === "TypeError") {
-      throw new Error("Ошибка типа данных, data не массив!");
+      throw new Error((e as Error).message);
     }
   }
 };
