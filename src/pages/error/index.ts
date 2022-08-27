@@ -14,12 +14,14 @@ const contextLinkToChats: TLink = {
   src: "#chatPage",
   textLink: "Назад к чатам",
 };
+
 const contextLinkToSignIn: TLink = {
   id: "linkGoSignIn",
   className: "text-link",
   src: "#signinPage",
   textLink: "Назад к регистрации",
 };
+
 const contextRequestError: TContextError = {
   numberError: "404",
   textMessage: "Не туда попали",

@@ -1,4 +1,4 @@
-const blockTemplate: string = `
+const blockTemplate = `
   <span class='{{className}}'>
     {{content}}
   </span>

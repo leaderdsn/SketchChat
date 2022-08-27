@@ -1,4 +1,4 @@
-const contactTemplate: string = `
+const contactTemplate = `
   <div class='y-contact-item'>
     <div class='y-contact-item__avatar'></div>
     <div class='y-contact-item__data'>

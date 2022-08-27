@@ -21,7 +21,7 @@ const contextButtonSubmit: TButton = {
   id: "goChat",
   className: "y-btn",
   typeButton: "button",
-  click: () => {},
+  click: () => null,
   text: "Вход",
 };
 
@@ -31,7 +31,7 @@ const contextInputLogin: TInput = {
   className: "y-field-control",
   inputName: "login",
   placeholder: "",
-  handleChange: () => {},
+  handleChange: () => null,
   value: "",
 };
 
@@ -41,7 +41,7 @@ const contextInputPassword: TInput = {
   className: "y-field-control",
   inputName: "password",
   placeholder: "",
-  handleChange: () => {},
+  handleChange: () => null,
   value: "",
 };
 

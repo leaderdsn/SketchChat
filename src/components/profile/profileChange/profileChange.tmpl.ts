@@ -1,4 +1,4 @@
-const profileChangeTemplate: string = `
+const profileChangeTemplate = `
   <div class='y-profile'>
     <div class='y-profile__back'>{{back}}</div>
     <div class='y-profile__content'>

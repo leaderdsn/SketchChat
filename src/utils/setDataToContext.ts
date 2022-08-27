@@ -1,11 +1,11 @@
-import constructor from "../modules/constructor";
+import constructor, { TRecordType } from "~src/modules/constructor";
 
-const setDataToContext = (context: object, template: string, data: any[]) => {
-  let res:string[] = [];
+const setDataToContext = (context: Record<string, TRecordType>, template: string, data: Record<string, TRecordType>[] ) => {
+  const res: string[] = [];
   try {
-    data.forEach((item: object) => {
-      for (let keyData in item) {
-        for (let key in context) {
+    data.forEach((item: Record<string, TRecordType>) => {
+      for (const keyData in item) {
+        for (const key in context) {
           if (key === keyData) {
             context[key] = item[keyData];
           }
@@ -22,8 +22,8 @@ const setDataToContext = (context: object, template: string, data: any[]) => {
       })
       .join("");
     return res;
-  } catch (e: any) {
-    if (e.name === "TypeError") {
+  } catch (e) {
+    if ((e as Error).name  === "TypeError") {
       throw new Error("Ошибка типа данных, data не массив!");
     }
   }

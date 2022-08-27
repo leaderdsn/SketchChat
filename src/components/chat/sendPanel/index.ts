@@ -17,7 +17,7 @@ const contextUploadButton: TButton = {
   id: "upload",
   className: "y-btn-upload",
   typeButton: 'Button',
-  click: () => {},
+  click: () => null,
   text: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" clip-rule="evenodd" d="M7.18662 13.5L14.7628 5.92389L15.7056 6.8667L8.12943 14.4428L7.18662 13.5Z" fill="#999999"/>
   <path fill-rule="evenodd" clip-rule="evenodd" d="M9.70067 16.0141L17.2768 8.43793L18.2196 9.38074L10.6435 16.9569L9.70067 16.0141Z" fill="#999999"/>
@@ -33,7 +33,7 @@ const contextSendButton: TButton = {
   id: "sendButton",
   className: "y-btn-send",
   typeButton: "Upload",
-  click: () => {},
+  click: () => null,
   text: `<svg xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate">
     <path d=" M 8.216 36.338 L 26.885 32.604 C 28.552 32.271 28.552 31.729 26.885 31.396 L 8.216 27.662 C 7.104 27.44 6.021 26.356 5.799 25.245 L 2.065 6.576 C 1.731 4.908 2.714 4.133 4.259 4.846 L 61.228 31.139 C 62.257 31.614 62.257 32.386 61.228 32.861 L 4.259 59.154 C 2.714 59.867 1.731 59.092 2.065 57.424 L 5.799 38.755 C 6.021 37.644 7.104 36.56 8.216 36.338 Z "/>
   </svg>`,
@@ -45,7 +45,6 @@ const contextSendTextarea: TTextarea = {
   name: "send",
   placeholder: "Сообщение",
 };
-
 
 const upload: string[] = [
   constructor(contextInputFile, inputTemplate),

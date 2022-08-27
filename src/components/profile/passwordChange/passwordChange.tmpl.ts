@@ -1,4 +1,4 @@
-const passwordChangeTemplate: string = `
+const passwordChangeTemplate = `
 <div class='y-profile'>
   <div class='y-profile__back'>{{back}}</div>
   <div class='y-profile__content'>

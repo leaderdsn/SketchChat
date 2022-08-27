@@ -15,7 +15,7 @@ export default function rangeRight(start: number, end: number, step: number) {
   return range(start, end, step, true);
 }
 
-function range(start: number = 0, end: number, step: number, isRight: boolean = false) {
+function range(start = 0, end: number, step: number, isRight = false) {
   if (end === undefined) {
     end = start;
     start = 0;

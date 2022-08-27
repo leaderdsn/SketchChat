@@ -6,7 +6,7 @@ export type TInput = {
   className: string,
   inputName?: string | null,
   placeholder?: string | null,
-  handleChange?: Function | null,
+  handleChange?: () => void | null,
   value?: string | null | undefined,
 };
 

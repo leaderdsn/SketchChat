@@ -1,4 +1,4 @@
-const chatAreaTemplate: string = `
+const chatAreaTemplate = `
   <div class='y-chat-area'>
     <div class='y-chat-area__header'>
       {{headerPanel}}

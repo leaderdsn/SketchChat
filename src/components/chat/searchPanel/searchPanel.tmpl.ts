@@ -1,4 +1,4 @@
-const searchPanelTemplate: string = `
+const searchPanelTemplate = `
   <div class='y-search-panel'>
     {{link}}
     {{input}}

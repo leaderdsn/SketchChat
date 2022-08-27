@@ -1,4 +1,4 @@
-const messagesListTemplate: string = `
+const messagesListTemplate = `
   <div class='y-messages-list'>
     {{messages}}
   </div>

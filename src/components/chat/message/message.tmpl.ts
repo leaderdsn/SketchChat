@@ -1,4 +1,4 @@
-const messageTemplate: string = `
+const messageTemplate = `
   <div class='y-message-item'>
     {{content}}
     <div class='y-message-item__date'>

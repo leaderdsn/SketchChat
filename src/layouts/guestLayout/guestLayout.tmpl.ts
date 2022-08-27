@@ -1,4 +1,4 @@
-const guestLayoutTemplate: string = `
+const guestLayoutTemplate = `
   <div class='guest-layout'>
     {{content}}
   </div>

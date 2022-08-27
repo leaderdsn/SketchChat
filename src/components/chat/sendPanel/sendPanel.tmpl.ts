@@ -1,4 +1,4 @@
-const sendPanelTemplate: string = `
+const sendPanelTemplate = `
   <div class='y-send-panel'>
     {{upload}}
     {{textArea}}

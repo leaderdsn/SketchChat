@@ -11,7 +11,7 @@ const contextButtonSubmit: TButton = {
   id: "buttonSignIn",
   className: "y-btn",
   typeButton: "button",
-  click: () => {},
+  click: () => null,
   text: "Зарегистрироваться",
 };
 
@@ -21,7 +21,7 @@ const contextInputEmail: TInput = {
   className: "y-field-control",
   inputName: "email",
   placeholder: "",
-  handleChange: () => {},
+  handleChange: () => null,
   value: "",
 };
 
@@ -31,7 +31,7 @@ const contextInputLogin: TInput = {
   className: "y-field-control",
   inputName: "login",
   placeholder: "",
-  handleChange: () => {},
+  handleChange: () => null,
   value: "",
 };
 
@@ -41,7 +41,7 @@ const contextInputFirstName: TInput = {
   className: "y-field-control",
   inputName: "firstName",
   placeholder: "",
-  handleChange: () => {},
+  handleChange: () => null,
   value: "",
 };
 
@@ -51,7 +51,7 @@ const contextInputLastName: TInput = {
   className: "y-field-control",
   inputName: "lastName",
   placeholder: "",
-  handleChange: () => {},
+  handleChange: () => null,
   value: "",
 };
 
@@ -61,7 +61,7 @@ const contextInputPhone: TInput = {
   className: "y-field-control",
   inputName: "phone",
   placeholder: "",
-  handleChange: () => {},
+  handleChange: () => null,
   value: "",
 };
 
@@ -71,7 +71,7 @@ const contextInputPassword: TInput = {
   className: "y-field-control",
   inputName: "password",
   placeholder: "",
-  handleChange: () => {},
+  handleChange: () => null,
   value: "",
 };
 
@@ -81,7 +81,7 @@ const contextInputRepeatPassword: TInput = {
   className: "y-field-control",
   inputName: "repeatPassword",
   placeholder: "",
-  handleChange: () => {},
+  handleChange: () => null,
   value: "",
 };
 

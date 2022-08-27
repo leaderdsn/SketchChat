@@ -1,7 +1,9 @@
-import Templator from "./templator";
+import Templator from "~src/modules/templator";
 
-function constructor(context: Object, template: string) {
+export type TRecordType = number | string | null | undefined | number[] | string[] | Record<string, unknown> | (() => void)
+
+function constructor(context: Record<string, TRecordType>, template: string) {
   return new Templator(template).compile(context);
-};
+}
 
 export default constructor;

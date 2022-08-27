@@ -1,4 +1,4 @@
-const headerPanelTemplate: string = `
+const headerPanelTemplate = `
   <div class='y-header-panel'>
     <div class='y-header-panel__avatar'>{{avatarContent}}</div>
     <strong>{{contactName}}</strong>

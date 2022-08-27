@@ -13,7 +13,7 @@ const contextInputSearch: TInput = {
   className: "y-search-panel__search-control",
   placeholder: "Поиск",
   typeInput: "text",
-  handleChange: () => {},
+  handleChange: () => null,
   value: "",
 };
 

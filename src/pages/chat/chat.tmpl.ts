@@ -1,4 +1,4 @@
-const chatTemplate: string = `
+const chatTemplate = `
   <div class='y-chat-page'>
     {{sidebar}}
     {{chatArea}}

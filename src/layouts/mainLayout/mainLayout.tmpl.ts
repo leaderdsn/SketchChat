@@ -1,4 +1,4 @@
-const mainLayoutTemplate: string = `
+const mainLayoutTemplate = `
   <div class='main-layout'>
     {{content}}
   </div>

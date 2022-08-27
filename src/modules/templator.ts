@@ -1,3 +1,5 @@
+import { TRecordType } from "~src/modules/constructor";
+
 class Templator {
   TEMPLATE_REGEXP = /\{\{(.*?)\}\}/gi;
 
@@ -8,16 +10,16 @@ class Templator {
     this._template = template;
   }
 
-  compile(ctx: Object) {
+  compile(ctx: Record<string, TRecordType>) {
     return this._compileTemplate(this._template, ctx);
   }
 
-  get(obj: Object, path: string, defaultValue: any) {
+  get(obj: Record<string, TRecordType>, path: string, defaultValue: string | null) {
     const keys = path.split(".");
 
-    let result = obj;
-    for (let key of keys) {
-      result = result[key];
+    let result: Record<string, TRecordType> = obj;
+    for (const key of keys) {
+      (result as unknown) = result[key];
 
       if (result === undefined) {
         return defaultValue;
@@ -27,11 +29,11 @@ class Templator {
     return result ?? defaultValue;
   }
 
-  _compileTemplate(template: string, ctx: Object) {
+  _compileTemplate(template: string, ctx: Record<string, TRecordType>):string {
     let tmpl: string = template
     //let tmpl: string = this._template
-    let key = null;
-    const regExp = this.TEMPLATE_REGEXP;
+    let key: RegExpExecArray = null;
+    const regExp: RegExp = this.TEMPLATE_REGEXP;
 
     while ((key = regExp.exec(tmpl))) {
       if (key[1]) {
@@ -47,7 +49,7 @@ class Templator {
           continue;
         }
 
-        tmpl = tmpl.replace(new RegExp(key[0], "gi"), data);
+        tmpl = tmpl.replace(new RegExp(key[0], "gi"), data as string);
       }
     }
 

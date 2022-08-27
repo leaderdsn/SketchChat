@@ -1,4 +1,4 @@
-const loginTemplate: string = `
+const loginTemplate = `
   <div class='y-login-page'>
     <div class='y-login-page__header'>
       {{headerText}}

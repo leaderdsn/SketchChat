@@ -1,4 +1,4 @@
-const formTemplate: string = `
+const formTemplate = `
   <form method='{{method}}' class='{{className}}'>
     {{content}}
   </form>

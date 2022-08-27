@@ -1,4 +1,4 @@
-const sidebarTemplate: string = `
+const sidebarTemplate = `
   <div class='y-sidebar'>
     <div class='y-sidebar__search-panel'>
       {{searchPanel}}

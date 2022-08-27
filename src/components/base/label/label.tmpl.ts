@@ -1,4 +1,4 @@
-const labelTemplate: string = `
+const labelTemplate = `
   <label for='{{forName}}' class='{{className}}'> 
     <span>{{labelName}}</span>
     {{input}}

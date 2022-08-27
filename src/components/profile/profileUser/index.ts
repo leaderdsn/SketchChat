@@ -1,11 +1,11 @@
 import profileUserTemplate from "~src/components/profile/profileUser/profileUser.tmpl";
 import userAvatar from "~src/components/profile/userAvatar";
-import buttonTemplate, { TButton } from "~src/components/base/button";;
+import buttonTemplate, { TButton } from "~src/components/base/button";
 import labelTemplate, { TLabel } from "~src/components/base/label";
 import setDataToContext from "~src/utils/setDataToContext";
 import profilePageTemplate from "~src/pages/profile/profile.tmpl";
 import { contextProfile } from "~src/pages/profile";
-import constructor from "~src/modules/constructor";
+import constructor, { TRecordType } from "~src/modules/constructor";
 import blockTemplate, { TBlock } from "~src/components/base/block";
 
 export type TContextProfile = {
@@ -89,30 +89,30 @@ const contextButton: TButton[] = [
     id: "changeData",
     className: "y-btn-link",
     typeButton: "button",
-    click: () => {},
+    click: () => null,
     text: "Изменить данные",
   },
   {
     id: "changePassword",
     className: "y-btn-link",
     typeButton: "button",
-    click: () => {},
+    click: () => null,
     text: "Изменить пароль",
   },
   {
     id: "exit",
     className: "y-btn-link",
     typeButton: "button",
-    click: () => {},
+    click: () => null,
     text: "Выйти",
   },
 ];
 
-const contextButtonBack: TButton = {
+const contextButtonBack: Record<string, TRecordType> = {
   id: "backProfileUser",
   className: "y-btn-back",
   typeButton: "button",
-  click: () => {},
+  click: () => null,
   text: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="14" cy="14" r="14" transform="rotate(-180 14 14)" fill="#3369F3"/>
     <rect x="20" y="14.8" width="11" height="1.6" transform="rotate(-180 20 14.8)" fill="white"/>
@@ -127,7 +127,7 @@ const contextLabel: TLabel = {
   input: null,
 };
 
-const contextUserInfo: TContextProfile = {
+const contextUserInfo: Record<string, TRecordType> = {
   back: constructor(contextButtonBack, buttonTemplate),
   avatar: userAvatar,
   content: setDataToContext(contextLabel, labelTemplate, dataLabels),

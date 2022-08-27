@@ -12,7 +12,7 @@ const baseRange = (start: number, end: number, step: number) => {
 };
 
 
-export default function range(start: number = 0, end: number, step: number): number[] {
+export default function range(start = 0, end: number, step: number): number[] {
   if (end === undefined) {
     end = start;
     start = 0;
