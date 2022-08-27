@@ -1,4 +1,4 @@
-const signInTemplate = `
+const signInTemplate: string = `
   <div class='y-signin-page'>
     <div class='y-signin-page__header'>
       {{headerText}}
