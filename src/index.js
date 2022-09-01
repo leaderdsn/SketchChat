@@ -12,36 +12,55 @@ import { requestError, serverError } from "~src/pages/error";
 import constructor from "~src/modules/constructor";
 import "~src/styles/main.sass";
 
-ready = () => {
-  const loginPage = document.querySelector("#loginPage");
-  const signinPage = document.querySelector("#signinPage");
-  const chatPage = document.querySelector("#chatPage");
-  const profileUserPage = document.querySelector("#profileUserPage");
-  const changeProfilePage = document.querySelector("#changeProfilePage");
-  const changePasswordPage = document.querySelector("#changePasswordPage");
-  const serverErrorPage = document.querySelector("#serverErrorPage");
-  const requestErrorPage = document.querySelector("#requestErrorPage");
+// ready = () => {
+//   const loginPage = document.querySelector("#loginPage");
+//   const signinPage = document.querySelector("#signinPage");
+//   const chatPage = document.querySelector("#chatPage");
+//   const profileUserPage = document.querySelector("#profileUserPage");
+//   const changeProfilePage = document.querySelector("#changeProfilePage");
+//   const changePasswordPage = document.querySelector("#changePasswordPage");
+//   const serverErrorPage = document.querySelector("#serverErrorPage");
+//   const requestErrorPage = document.querySelector("#requestErrorPage");
 
-  const render = (tmpl, context, query) => {
-    query.innerHTML = constructor(context, tmpl);
-  };
+//   const render = (tmpl, context, query) => {
+//     query.innerHTML = constructor(context, tmpl);
+//   };
 
-  render(guestLayoutTemplate, contextGuestLayout(login), loginPage);
-  render(guestLayoutTemplate, contextGuestLayout(signin), signinPage);
-  render(mainLayoutTemplate, contextMainLayout(chat), chatPage);
-  render(mainLayoutTemplate, contextMainLayout(profileUser), profileUserPage);
-  render(
-    mainLayoutTemplate,
-    contextMainLayout(profileChange),
-    changeProfilePage
-  );
-  render(
-    mainLayoutTemplate,
-    contextMainLayout(passwordChange),
-    changePasswordPage
-  );
-  render(mainLayoutTemplate, contextMainLayout(serverError), serverErrorPage);
-  render(mainLayoutTemplate, contextMainLayout(requestError), requestErrorPage);
-};
+//   render(guestLayoutTemplate, contextGuestLayout(login), loginPage);
+//   render(guestLayoutTemplate, contextGuestLayout(signin), signinPage);
+//   render(mainLayoutTemplate, contextMainLayout(chat), chatPage);
+//   render(mainLayoutTemplate, contextMainLayout(profileUser), profileUserPage);
+//   render(
+//     mainLayoutTemplate,
+//     contextMainLayout(profileChange),
+//     changeProfilePage
+//   );
+//   render(
+//     mainLayoutTemplate,
+//     contextMainLayout(passwordChange),
+//     changePasswordPage
+//   );
+//   render(mainLayoutTemplate, contextMainLayout(serverError), serverErrorPage);
+//   render(mainLayoutTemplate, contextMainLayout(requestError), requestErrorPage);
+// };
 
-document.addEventListener("DOMContentLoaded", ready);
+// document.addEventListener("DOMContentLoaded", ready);
+
+// У кнопки есть index.js, который экспортирует только нужное
+import Button from "~src/components/temp/Button";
+import UserProfile from "~src/components/temp2/UserProfile";
+import { render } from "~src/utils/renderDOM";
+
+const userProfile = new UserProfile({
+  buttonText: 'Change name 1',
+  userName: 'John Doe',
+});
+
+
+// app — это class дива в корне DOM
+render("#root", userProfile);
+
+userProfile.setProps({
+  buttonText: 'Change name 2'
+}); 
+
