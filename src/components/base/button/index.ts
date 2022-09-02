@@ -1,11 +1,3 @@
-import buttonTemplate from "~src/components/base/button/button.tmpl";
+import Button from "./button"
 
-export type TButton = {
-  id: number | string,
-  className: string,
-  typeButton?: string | null,
-  click: () => void,
-  text: string | null,
-}
-
-export default buttonTemplate;
+export default Button

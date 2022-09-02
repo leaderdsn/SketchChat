@@ -1,5 +1,5 @@
 import loginTemplate from "~src/pages/login/login.tmpl";
-import buttonTemplate from "~src/components/base/button";
+import buttonTemplate from "~src/components/base/button/button";
 import { TButton } from "~src/components/base/button/types";
 import { TInput } from "~src/components/base/input/types";
 import { TLabel } from "~src/components/base/label/types";

@@ -1,7 +1,7 @@
 export type TButton = {
-  id: number | string,
-  className: string,
+  id?: number | string,
+  className?: string,
   typeButton?: string | null,
-  click: () => void,
-  text: string | null,
+  click?: () => void,
+  text?: string | null,
 }

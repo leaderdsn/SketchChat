@@ -1,6 +1,6 @@
 import profileUserTemplate from "~src/components/profile/profileUser/profileUser.tmpl";
 import userAvatar from "~src/components/profile/userAvatar";
-import buttonTemplate from "~src/components/base/button";
+import buttonTemplate from "~src/components/base/button/button";
 import { TButton } from "~src/components/base/button/types";
 import labelTemplate from "~src/components/base/label";
 import { TLabel } from "~src/components/base/label/types";

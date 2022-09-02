@@ -4,7 +4,7 @@ import inputTemplate from "~src/components/base/input";
 import { TInput } from "~src/components/base/input/types";
 import setDataToContext from "~src/utils/setDataToContext";
 import labelTemplate from "~src/components/base/label/label.tmpl";
-import buttonTemplate from "~src/components/base/button";
+import buttonTemplate from "~src/components/base/button/button";
 import { TButton } from "~src/components/base/button/types";
 import userAvatar from "~src/components/profile/userAvatar";
 import { contextProfile } from "~src/pages/profile";

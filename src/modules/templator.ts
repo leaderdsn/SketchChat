@@ -1,5 +1,3 @@
-import { TRecordType } from "~src/modules/types";
-
 class Templator {
   TEMPLATE_REGEXP = /\{\{(.*?)\}\}/gi;
 
@@ -10,29 +8,29 @@ class Templator {
     this._template = template;
   }
 
-  compile(ctx: Record<string, TRecordType>) {
+  compile(ctx: string) {
     return this._compileTemplate(this._template, ctx);
   }
 
-  get(obj: Record<string, TRecordType>, path: string, defaultValue: string | null) {
-    const keys = path.split(".");
+  get(obj: string, path: string, defaultValue: string | null) {
+    const keys: string[] = path.split(".");
 
-    let result: Record<string, TRecordType> = obj;
+    let result: string = obj;
     for (const key of keys) {
-      (result as unknown) = result[key];
+      result = result[key as any];
 
       if (result === undefined) {
         return defaultValue;
       }
     }
-
+    console.log('compile', result)
     return result ?? defaultValue;
   }
 
-  _compileTemplate(template: string, ctx: Record<string, TRecordType>):string {
+  _compileTemplate(template: string, ctx: string):string {
     let tmpl: string = template
     //let tmpl: string = this._template
-    let key: RegExpExecArray = null;
+    let key = null;
     const regExp: RegExp = this.TEMPLATE_REGEXP;
 
     while ((key = regExp.exec(tmpl))) {
@@ -41,7 +39,6 @@ class Templator {
         const data = this.get(ctx, tmplValue, "");
 
         if (typeof data === "function") {
-          // (window as any)[tmplValue] = data;
           tmpl = tmpl.replace(
             new RegExp(key[0], "gi"),
             `window.${key[1].trim()}()`

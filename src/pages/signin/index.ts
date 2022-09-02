@@ -1,4 +1,4 @@
-import buttonTemplate from "~src/components/base/button";
+import buttonTemplate from "~src/components/base/button/button";
 import { TButton } from "~src/components/base/button/types";
 import inputTemplate from "~src/components/base/input";
 import { TInput } from "~src/components/base/input/types";
