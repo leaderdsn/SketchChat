@@ -11,7 +11,7 @@ export default class ContactsList extends Block<BlockContactsList> {
   init() {
     const contact = new Contact({
       nameContact: "Пётр",
-      descriptionContact: "Хай! Вай!",
+      descriptionContact: "Нажмите, для проврки страницы ошибки сервера",
       dateTime: "11:22",
       notificationCount: 5,
       events: {
@@ -19,9 +19,9 @@ export default class ContactsList extends Block<BlockContactsList> {
       },
     });
     const contact2 = new Contact({
-      nameContact: "Пётр",
-      descriptionContact: "Хай! Вай!",
-      dateTime: "11:22",
+      nameContact: "Андрей",
+      descriptionContact: "Нажмите, для проврки страницы ошибки запроса",
+      dateTime: "12:02",
       notificationCount: 1,
       events: {
         click: () => (document.location.pathname = "/error-request"),
