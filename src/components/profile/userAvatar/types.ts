@@ -1,4 +1,4 @@
-export type TUserAvatar = {
-  img: string, 
-  userName: string
-}
+export type BlockUserAvatar = {
+  img: string;
+  userName: string;
+};

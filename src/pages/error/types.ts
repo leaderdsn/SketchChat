@@ -1,5 +1,7 @@
-export type TContextError  = {
-  numberError: string,
-  textMessage: string,
-  content: string,
+import Block from "~src/utils/block";
+
+export type BlockErrorPage = {
+  numberError?: string;
+  textMessage?: string;
+  content?: Block;
 };

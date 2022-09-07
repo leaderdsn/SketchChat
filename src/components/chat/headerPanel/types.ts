@@ -1,5 +1,5 @@
-export type TContextHeaderPanel = {
-  avatarContent: string,
-  contactName: string,
-  controlButton: string | null,
-}
+export type BlockHeaderPanel = {
+  avatarContent?: string;
+  contactName?: string;
+  controlButton?: string | null;
+};

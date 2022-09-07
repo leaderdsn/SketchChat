@@ -1,5 +1,3 @@
-export type TRecordType = number | string | null | undefined | number[] | string[] | Record<string, unknown> | (() => void)
-
 export type TDataMessage = {
   id: number,
   author: string,

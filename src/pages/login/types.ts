@@ -1,4 +1,5 @@
-export type TContextLoginAndSignIn = {
-  headerText: string,
-  form: string,
+export type LoginFormData = {
+  [key: number]: string;
+  login: string | undefined | null;
+  password: string | undefined | null;
 };

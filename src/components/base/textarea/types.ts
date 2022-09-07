@@ -1,4 +1,4 @@
-export type TTextarea = {
+export type BlockTextarea = {
   id: number | string,
   className: string,
   rows?: number,
