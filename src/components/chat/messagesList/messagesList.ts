@@ -6,7 +6,6 @@ import Message from "~src/components/chat/message/message";
 export default class MessagesList extends Block<BlockMessagesList> {
   constructor(props: BlockMessagesList) {
     super(props as P);
-    console.log("props", props);
   }
 
   init() {
