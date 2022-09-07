@@ -1,3 +1,3 @@
-import textareaTemplate from "~src/components/base/textarea/textarea.tmpl";
+import Textarea from "~src/components/base/textarea/textarea";
 
-export default textareaTemplate;
+export default Textarea;

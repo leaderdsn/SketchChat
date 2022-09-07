@@ -1,3 +1,3 @@
-import labelTemplate from "~src/components/base/label/label.tmpl";
+import Label from "~src/components/base/label/label";
 
-export default labelTemplate;
+export default Label;

@@ -1,3 +1,3 @@
-import linkTemplate from "~src/components/base/link/link.tmpl";
+import Link from "~src/components/base/link/link";
 
-export default linkTemplate;
+export default Link;

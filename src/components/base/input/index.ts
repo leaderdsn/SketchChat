@@ -1,3 +1,3 @@
-import inputTemplate from "~src/components/base/input/input.tmpl";
+import Input from "~src/components/base/input/input";
 
-export default inputTemplate;
+export default Input;

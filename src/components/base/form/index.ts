@@ -1,3 +1,3 @@
-import formTemplate from "~src/components/base/form/form.tmpl";
+import Form from "~src/components/base/form/form";
 
-export default formTemplate;
+export default Form;
