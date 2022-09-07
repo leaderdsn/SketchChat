@@ -1,4 +1,4 @@
-function isLength(value) {
+function isLength(value: any) {
   return (
     typeof value === "number" &&
     value > -1 &&
@@ -7,19 +7,19 @@ function isLength(value) {
   );
 }
 
-function isNil(value) {
+function isNil(value: any) {
   return value === null || value === undefined;
 }
 
-function isArrayLike(value) {
+function isArrayLike(value: any) {
   return !isNil(value) && typeof value !== "function" && isLength(value.length);
 }
 
-function isObjectLike(value) {
+function isObjectLike(value: any) {
   return typeof value === "object" && value !== null;
 }
 
-function getTag(value) {
+function getTag(value: any) {
   if (value === null) {
     return value === undefined ? "[object Undefined]" : "[object Null]";
   }
@@ -27,18 +27,18 @@ function getTag(value) {
 }
 
 const objectProto = Object.prototype;
-function isPrototype(value) {
+function isPrototype(value: any) {
   const ctor = value && value.constructor;
   const proto = (typeof ctor === "function" && ctor.prototype) || objectProto;
 
   return value === proto;
 }
 
-function isArguments(value) {
+function isArguments(value: any) {
   return isObjectLike(value) && getTag(value) === "[object Arguments]";
 }
 
-export default function isEmpty(value) {
+export default function isEmpty(value: any) {
   if (value === null) {
     return true;
   }
@@ -48,8 +48,6 @@ export default function isEmpty(value) {
     (Array.isArray(value) ||
       typeof value === "string" ||
       typeof value.splice === "function" ||
-      isBuffer(value) ||
-      isTypedArray(value) ||
       isArguments(value))
   ) {
     return !value.length;
@@ -62,12 +60,6 @@ export default function isEmpty(value) {
 
   if (isPrototype(value)) {
     return !Object.keys(value).length;
-  }
-
-  for (const key in value) {
-    if (hasOwnProperty.call(value, key)) {
-      return false;
-    }
   }
 
   return true;
