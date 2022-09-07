@@ -1,10 +1,48 @@
+import { GuestLayout } from "~src/layouts/guestLayout/guestLayout";
+import { MainLayout } from "~src/layouts/mainLayout/mainLayout";
 
-export default function render(query: any, block: any) {
+export default function render(query: any) {
   const root = document.querySelector(query);
-  // Можно завязаться на реализации вашего класса Block
-  root.append(block.getContent());
+  
+  const guest = new GuestLayout({});
+  const main = new MainLayout({});
 
-  block.dispatchComponentDidMount();
+  const path = document.location.pathname;
 
-  return root;
+  switch (path) {
+    case "/":
+      document.location.pathname = "/login";
+      return;
+    case "/login":
+      root.append(guest.getContent());
+      return guest.dispatchComponentDidMount();
+    case "/signin":
+      root.append(guest.getContent());
+      return guest.dispatchComponentDidMount();
+    case "/chat":
+      root.append(main.getContent());
+      return main.dispatchComponentDidMount();
+    case "/profile":
+      document.location.pathname = "/profile/profile-user";
+      root.append(main.getContent());
+      return main.dispatchComponentDidMount();
+    case "/profile/profile-user":
+      root.append(main.getContent());
+      return main.dispatchComponentDidMount();
+    case "/profile/profile-change":
+      root.append(main.getContent());
+      return main.dispatchComponentDidMount();
+    case "/profile/password-change":
+      root.append(main.getContent());
+      return main.dispatchComponentDidMount();
+    case "/error-server":
+      root.append(main.getContent());
+      return main.dispatchComponentDidMount();
+    case "/error-request":
+      root.append(main.getContent());
+      return main.dispatchComponentDidMount();
+    default:
+      document.location.pathname = "/";
+      return root;
+  }
 }
