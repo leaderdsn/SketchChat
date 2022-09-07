@@ -148,7 +148,6 @@ export default class ProfileUser extends Block<BlockProfileUser> {
     this.children = {
       back: buttonBack,
       avatar: avatar,
-      //@ts-ignore
       content: [
         labelEmail,
         labelLogin,

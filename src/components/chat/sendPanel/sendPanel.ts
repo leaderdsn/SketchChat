@@ -63,7 +63,6 @@ export default class SendPanel extends Block<BlockSendPanel> {
     });
 
     this.children = {
-      //@ts-ignore
       upload: [inputFile, uploadButton],
       textArea: sendTextarea,
       sendButton: sendButton,

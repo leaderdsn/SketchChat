@@ -1,6 +1,6 @@
 import { P } from "~src/types";
 import Block from "~src/utils/block";
-import { BlockMessagesList } from "~src/components/chat/messagesList//types";
+import { BlockMessagesList } from "~src/components/chat/messagesList/types";
 import Message from "~src/components/chat/message/message";
 
 export default class MessagesList extends Block<BlockMessagesList> {
