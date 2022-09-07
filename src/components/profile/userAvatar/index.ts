@@ -1,10 +1,3 @@
-import userAvatarTemplate from "~src/components/profile/userAvatar/userAvatar.tmpl";
-import constructor from "~src/modules/constructor"
-import { TUserAvatar } from "~src/components/profile/userAvatar/types";
+import UserAvatar from "~src/components/profile/userAvatar/userAvatar";
 
-const contextUserAvatar: TUserAvatar = {
-  img: '', 
-  userName: 'Иван',
-}
-
-export default constructor(contextUserAvatar, userAvatarTemplate);
+export default UserAvatar;

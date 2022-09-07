@@ -1,3 +1,3 @@
-import messageTemplate from "~src/components/chat/message/message.tmpl";
+import Message from "~src/components/chat/message/message";
 
-export default messageTemplate;
+export default Message;

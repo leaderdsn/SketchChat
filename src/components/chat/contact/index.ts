@@ -1,3 +1,3 @@
-import contactTemplate from "~src/components/chat/contact/contact.tmpl";
+import Contact from "~src/components/chat/contact/contact";
 
-export default contactTemplate;
+export default Contact;
