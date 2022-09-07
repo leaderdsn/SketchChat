@@ -23,22 +23,21 @@ class Templator {
         return defaultValue;
       }
     }
-    console.log('compile', result)
     return result ?? defaultValue;
   }
 
   _compileTemplate(template: string, ctx: string):string {
     let tmpl: string = template
-    //let tmpl: string = this._template
     let key = null;
     const regExp: RegExp = this.TEMPLATE_REGEXP;
 
     while ((key = regExp.exec(tmpl))) {
       if (key[1]) {
         const tmplValue = key[1].trim();
-        const data = this.get(ctx, tmplValue, "");
-
-        if (typeof data === "function") {
+        let data = this.get(ctx, tmplValue, "");
+        if (Array.isArray(data)) {
+          data = data.join('')
+        } else if (typeof data === "function") {
           tmpl = tmpl.replace(
             new RegExp(key[0], "gi"),
             `window.${key[1].trim()}()`
@@ -49,7 +48,6 @@ class Templator {
         tmpl = tmpl.replace(new RegExp(key[0], "gi"), data as string);
       }
     }
-
     return tmpl;
   }
 }
