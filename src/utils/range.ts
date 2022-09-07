@@ -11,7 +11,6 @@ const baseRange = (start: number, end: number, step: number) => {
   return result;
 };
 
-
 export default function range(start = 0, end: number, step: number): number[] {
   if (end === undefined) {
     end = start;
