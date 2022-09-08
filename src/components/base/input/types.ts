@@ -5,7 +5,8 @@ export type BlockInput = {
   inputName?: string | null;
   placeholder?: string | null;
   events?: {
-    input: (e: Event) => void;
+    input?: (e: Event) => void;
+    blur?: () => void;
   };
   inputValue?: string | null | undefined;
 };
