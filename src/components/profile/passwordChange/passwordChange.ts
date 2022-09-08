@@ -51,12 +51,15 @@ export default class PasswordChange extends Block<BlockProfileChange> {
       });
     };
 
-    const submit = () => {
+    const blurValidate = () => {
       Object.entries(formData).forEach(([key, value]) => {
-        errorData[key as unknown as number] = validate(value, key);
-      });
+        errorData[key as unknown as number] = validate(value, key)
+      })
+      setErrorData()
+    }
 
-      setErrorData();
+    const submit = () => {
+      console.log('form-data: ', formData)
 
       const isValid: Boolean = Object.entries(errorData).every(
         ([_, value]) => value === null
@@ -98,6 +101,7 @@ export default class PasswordChange extends Block<BlockProfileChange> {
       placeholder: "",
       events: {
         input: (event) => inputHandler(event, "oldPassword"),
+        blur: blurValidate,
       },
     });
 
@@ -109,6 +113,7 @@ export default class PasswordChange extends Block<BlockProfileChange> {
       placeholder: "",
       events: {
         input: (event) => inputHandler(event, "password"),
+        blur: blurValidate,
       },
     });
 
@@ -120,6 +125,7 @@ export default class PasswordChange extends Block<BlockProfileChange> {
       placeholder: "",
       events: {
         input: (event) => inputHandler(event, "repeatPassword"),
+        blur: blurValidate,
       },
     });
 

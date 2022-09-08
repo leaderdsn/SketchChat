@@ -72,13 +72,16 @@ export default class Signin extends Block<LoginAndSignIn> {
       });
     };
 
-    const submit = () => {
+    const blurValidate = () => {
       Object.entries(formData).forEach(([key, value]) => {
-        errorData[key as unknown as number] = validate(value, key);
-      });
+        errorData[key as unknown as number] = validate(value, key)
+      })
+      setErrorData()
+    }
 
-      setErrorData();
-
+    const submit = () => {
+      console.log('form-data: ', formData)
+      
       const isValid: Boolean = Object.entries(errorData).every(
         ([_, value]) => value === null
       );
@@ -135,6 +138,7 @@ export default class Signin extends Block<LoginAndSignIn> {
       inputName: "email",
       events: {
         input: (event) => inputHandler(event, "email"),
+        blur: blurValidate
       },
     });
 
@@ -145,6 +149,7 @@ export default class Signin extends Block<LoginAndSignIn> {
       inputName: "login",
       events: {
         input: (event) => inputHandler(event, "login"),
+        blur: blurValidate
       },
     });
 
@@ -155,6 +160,7 @@ export default class Signin extends Block<LoginAndSignIn> {
       inputName: "firstName",
       events: {
         input: (event) => inputHandler(event, "firstName"),
+        blur: blurValidate
       },
     });
 
@@ -165,6 +171,7 @@ export default class Signin extends Block<LoginAndSignIn> {
       inputName: "lastName",
       events: {
         input: (event) => inputHandler(event, "lastName"),
+        blur: blurValidate
       },
     });
 
@@ -175,6 +182,7 @@ export default class Signin extends Block<LoginAndSignIn> {
       inputName: "phone",
       events: {
         input: (event) => inputHandler(event, "phone"),
+        blur: blurValidate
       },
     });
 
@@ -185,6 +193,7 @@ export default class Signin extends Block<LoginAndSignIn> {
       inputName: "password",
       events: {
         input: (event) => inputHandler(event, "password"),
+        blur: blurValidate
       },
     });
 
@@ -195,6 +204,7 @@ export default class Signin extends Block<LoginAndSignIn> {
       inputName: "repeatPassword",
       events: {
         input: (event) => inputHandler(event, "repeatPassword"),
+        blur: blurValidate
       },
     });
 

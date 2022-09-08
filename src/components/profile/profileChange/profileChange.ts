@@ -89,28 +89,31 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       content: errorData.phone,
     });
 
-    const submit = () => {
+    const blurValidate = () => {
       Object.entries(formData).forEach(([key, value]) => {
-        errorData[key as unknown as number] = validate(value, key);
-      });
+        errorData[key as unknown as number] = validate(value, key)
+      })
+      setErrorData()
+    };
 
-      setErrorData();
-
+    const submit = () => {
+      console.log('form-data: ', formData)
       const isValid: Boolean = Object.entries(errorData).every(
         ([_, value]) => value === null
       );
+
       if (isValid) {
         alert("Пороль успешно изменён!");
       } else {
         alert("Проверьте правильность заполнения полей!");
       }
-    };
-
+    };  
+        
     const inputHandler = (e: Event, key: string) => {
       formData[key as unknown as number] = (
         e.target! as HTMLInputElement
       ).value;
-    };
+    }; 
 
     const inputEmail = new Input({
       id: "emailProfile",
@@ -120,6 +123,7 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       inputValue: formData.email,
       events: {
         input: (event) => inputHandler(event, "email"),
+        blur: blurValidate,
       },
     });
 
@@ -131,6 +135,7 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       inputValue: formData.login,
       events: {
         input: (event) => inputHandler(event, "login"),
+        blur: blurValidate,
       },
     });
 
@@ -142,6 +147,7 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       inputValue: formData.firstName,
       events: {
         input: (event) => inputHandler(event, "firstName"),
+        blur: blurValidate,
       },
     });
 
@@ -153,6 +159,7 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       inputValue: formData.lastName,
       events: {
         input: (event) => inputHandler(event, "lastNmae"),
+        blur: blurValidate,
       },
     });
 
@@ -164,6 +171,7 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       inputValue: formData.chatName,
       events: {
         input: (event) => inputHandler(event, "chatName"),
+        blur: blurValidate,
       },
     });
 
@@ -175,12 +183,13 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       inputValue: formData.phone,
       events: {
         input: (event) => inputHandler(event, "phone"),
+        blur: blurValidate,
       },
     });
 
     const labelEmail = new Label({
       forName: "email",
-      className: "y-field-profile-text",
+      className: "y-field-p rofile-text",
       labelName: "Почта",
       input: inputEmail,
     });
