@@ -1,6 +1,8 @@
+import { Nullable } from "~src/utils/types";
+
 export type P = any;
 
 export type LoginAndSignIn = {
-  headerText?: string;
-  form?: string;
-};
+  headerText: Nullable<string>;
+  form?: Nullable<string>;
+} | {};

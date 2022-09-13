@@ -1,10 +1,7 @@
 import EventBus from "~src/utils/eventBus";
 import constructor from "~src/modules/constructor";
 import { Nullable, Values } from "./types";
-
-type TMeta<P = any> = {
-  props: P;
-};
+import idGenerator from "~src/utils/idGenerator";
 
 type TEvents = Values<typeof Block.EVENTS>;
 
@@ -17,7 +14,6 @@ export default class Block<P = any> {
   } as const;
 
   public _id: string;
-  private readonly _meta: TMeta;
   protected _element: Nullable<HTMLElement> = null;
 
   protected readonly props: P;
@@ -28,10 +24,6 @@ export default class Block<P = any> {
   public constructor(propsAndChildren?: Record<string, Block>) {
     const { children, props } = this._getChildren(propsAndChildren!);
     const eventBus = new EventBus();
-
-    this._meta = {
-      props,
-    };
 
     this._id = this.createNewUUID();
 
@@ -201,22 +193,7 @@ export default class Block<P = any> {
   }
 
   private _generateUUID() {
-    let d = new Date().getTime();
-    if (
-      typeof performance !== "undefined" &&
-      typeof performance.now === "function"
-    ) {
-      d += performance.now();
-    }
-    const newGuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
-      /[xy]/g,
-      function (c) {
-        const r = (d + Math.random() * 16) % 16 | 0;
-        d = Math.floor(d / 16);
-        return (c === "x" ? r : (r & 0x3) | 0x8).toString(16);
-      }
-    );
-    return newGuid;
+    return idGenerator();
   }
 
   protected compile(template: string, context: any) {

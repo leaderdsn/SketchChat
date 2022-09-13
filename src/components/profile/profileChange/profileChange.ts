@@ -97,7 +97,6 @@ export default class ProfileChange extends Block<BlockProfileChange> {
     };
 
     const submit = () => {
-      console.log('form-data: ', formData)
       const isValid: Boolean = Object.entries(errorData).every(
         ([_, value]) => value === null
       );
@@ -120,6 +119,7 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       typeInput: "text",
       className: "y-field-profile-control",
       inputName: "email",
+      placeholder: "",
       inputValue: formData.email,
       events: {
         input: (event) => inputHandler(event, "email"),
@@ -132,6 +132,7 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       typeInput: "text",
       className: "y-field-profile-control",
       inputName: "login",
+      placeholder: "",
       inputValue: formData.login,
       events: {
         input: (event) => inputHandler(event, "login"),
@@ -144,6 +145,7 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       typeInput: "text",
       className: "y-field-profile-control",
       inputName: "firstName",
+      placeholder: "",
       inputValue: formData.firstName,
       events: {
         input: (event) => inputHandler(event, "firstName"),
@@ -156,6 +158,7 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       typeInput: "text",
       className: "y-field-profile-control",
       inputName: "lastName",
+      placeholder: "",
       inputValue: formData.lastName,
       events: {
         input: (event) => inputHandler(event, "lastNmae"),
@@ -168,6 +171,7 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       typeInput: "text",
       className: "y-field-profile-control",
       inputName: "chatName",
+      placeholder: "",
       inputValue: formData.chatName,
       events: {
         input: (event) => inputHandler(event, "chatName"),
@@ -180,6 +184,7 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       typeInput: "text",
       className: "y-field-profile-control",
       inputName: "phone",
+      placeholder: "",
       inputValue: formData.phone,
       events: {
         input: (event) => inputHandler(event, "phone"),
@@ -192,6 +197,7 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       className: "y-field-p rofile-text",
       labelName: "Почта",
       input: inputEmail,
+      error: null,
     });
 
     const labelLogin = new Label({
@@ -199,6 +205,7 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       className: "y-field-profile-text",
       labelName: "Логин",
       input: inputLogin,
+      error: null,
     });
 
     const labelFirstName = new Label({
@@ -206,6 +213,7 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       className: "y-field-profile-text",
       labelName: "Имя",
       input: inputFirstName,
+      error: null,
     });
 
     const labelLastName = new Label({
@@ -213,6 +221,7 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       className: "y-field-profile-text",
       labelName: "Фамилия",
       input: inputLastName,
+      error: null,
     });
 
     const labelChatName = new Label({
@@ -220,6 +229,7 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       className: "y-field-profile-text",
       labelName: "Имя в чате",
       input: inputChatName,
+      error: null,
     });
 
     const labelPhone = new Label({
@@ -227,9 +237,11 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       className: "y-field-profile-text",
       labelName: "Телефон",
       input: inputPhone,
+      error: null,
     });
 
     const buttonBack = new Button({
+      id: null,
       className: "y-btn-back",
       typeButton: "button",
       text: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -243,6 +255,7 @@ export default class ProfileChange extends Block<BlockProfileChange> {
     });
 
     const buttonSave = new Button({
+      id: null,
       className: "y-btn",
       typeButton: "button",
       text: "Сохранить",

@@ -1,12 +1,14 @@
+import { Nullable } from "~src/utils/types";
+
 export type BlockInput = {
-  id?: number | string;
-  typeInput?: string;
-  className?: string;
-  inputName?: string | null;
-  placeholder?: string | null;
-  events?: {
-    input?: (e: Event) => void;
-    blur?: () => void;
-  };
-  inputValue?: string | null | undefined;
+  id: Nullable<number | string>;
+  typeInput: Nullable<string>;
+  className: Nullable<string>;
+  inputName: Nullable<string>;
+  placeholder: Nullable<string>;
+  events: {
+    input: (e: Event) => Nullable<void>;
+    blur: () => Nullable<void> | void;
+  } | Nullable<() => {}>;
+  inputValue: Nullable<string>;
 };

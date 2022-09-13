@@ -6,9 +6,9 @@ import Block from "~src/utils/block";
 import Button from "~src/components/base/button/button";
 import { LoginAndSignIn } from "~src/types";
 import { P } from "~src/types";
-import validate from "~src/utils/validate";
+import { blurValidate } from "~src/utils/validate";
 import Piece from "~src/components/base/piece";
-import { LoginFormData } from "~src/pages/login/types";
+import { FormData } from "~src/pages/types";
 
 export default class Login extends Block<LoginAndSignIn> {
   constructor(props: LoginAndSignIn) {
@@ -16,7 +16,7 @@ export default class Login extends Block<LoginAndSignIn> {
   }
 
   init() {
-    const formData: LoginFormData = {
+    const formData: FormData = {
       login: null,
       password: null,
     };
@@ -42,16 +42,7 @@ export default class Login extends Block<LoginAndSignIn> {
       });
     };
 
-    const blurValidate = () => {
-      Object.entries(formData).forEach(([key, value]) => {
-        errorData[key as unknown as number] = validate(value, key);
-      });
-      setErrorData();
-    };
-
     const submit = () => {
-      console.log("form-data: ", formData);
-
       const isValid: Boolean = Object.entries(errorData).every(
         ([_, value]) => value === null
       );
@@ -81,10 +72,12 @@ export default class Login extends Block<LoginAndSignIn> {
       typeInput: "text",
       className: "y-field-control",
       inputName: "login",
+      placeholder: null,
       events: {
         input: (event) => inputHandler(event, "login"),
-        blur: blurValidate,
+        blur: () => blurValidate(formData, errorData, setErrorData),
       },
+      inputValue: null
     });
 
     const inputPassword = new Input({
@@ -92,10 +85,12 @@ export default class Login extends Block<LoginAndSignIn> {
       typeInput: "password",
       className: "y-field-control",
       inputName: "password",
+      placeholder: null,
       events: {
         input: (event) => inputHandler(event, "password"),
-        blur: blurValidate,
+        blur: () => blurValidate(formData, errorData, setErrorData),
       },
+      inputValue: null
     });
 
     const labelLogin = new Label({
@@ -115,6 +110,7 @@ export default class Login extends Block<LoginAndSignIn> {
     });
 
     const buttonSign = new Button({
+      id: null,
       className: "y-btn",
       typeButton: "button",
       events: {
@@ -131,6 +127,7 @@ export default class Login extends Block<LoginAndSignIn> {
     });
 
     this.children.form = new Form({
+      method: "POST",
       className: "y-login-page__form",
       content: [labelLogin, labelPassword, buttonSign, linkSignIn],
     });

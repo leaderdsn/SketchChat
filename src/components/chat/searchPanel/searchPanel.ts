@@ -22,10 +22,13 @@ export default class SearchPanel extends Block<BlockSearchPanel> {
       placeholder: "Поиск",
       events: {
         input: searchContact,
+        blur: () => null,
       },
+      inputValue: null
     });
 
     const linkToProfile = new Link({
+      id: null,
       className: "link-text",
       src: "/profile/profile-user",
       textLink: "Профиль",

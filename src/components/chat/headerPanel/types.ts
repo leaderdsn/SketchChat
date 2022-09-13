@@ -1,5 +1,7 @@
+import { Nullable } from "~src/utils/types";
+
 export type BlockHeaderPanel = {
-  avatarContent?: string;
-  contactName?: string;
-  controlButton?: string | null;
-};
+  avatarContent: Nullable<string>;
+  contactName: Nullable<string>;
+  controlButton: Nullable<string>;
+} | {};

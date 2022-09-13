@@ -1,4 +1,13 @@
-import { Options, OptionsWithoutMethod } from "~src/utils/types";
+import { Nullable } from "~src/utils/types";
+
+export type Options = {
+  method: METHODS;
+  data?: Nullable<any>;
+  timeout?: Nullable<number>;
+  headers?: Nullable<{}>;
+};
+
+export type OptionsWithoutMethod = Omit<Options, "method">;
 
 export enum METHODS {
   GET = "GET",

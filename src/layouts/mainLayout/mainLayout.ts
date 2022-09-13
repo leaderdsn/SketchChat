@@ -21,6 +21,7 @@ export class MainLayout extends Block<BlockLayout> {
       numberError: "500",
       textMessage: "Мы уже фиксим",
       content: new Link({
+        id: null,
         className: "text-link",
         src: "/chat",
         textLink: "Назад к чатам",
@@ -31,6 +32,7 @@ export class MainLayout extends Block<BlockLayout> {
       numberError: "404",
       textMessage: "Не туда попали",
       content: new Link({
+        id: null,
         className: "text-link",
         src: "/chat",
         textLink: "Назад к чатам",

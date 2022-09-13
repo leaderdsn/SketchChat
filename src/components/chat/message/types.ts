@@ -1,5 +1,7 @@
+import { Nullable } from "~src/utils/types";
+
 export type BlockMessage = {
-  author: string | null;
-  content: string | null;
-  date: string | null;
+  author:  Nullable<string>;
+  content:  Nullable<string>;
+  date:  Nullable<string>;
 };

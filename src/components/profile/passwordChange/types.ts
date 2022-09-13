@@ -1,17 +1,8 @@
-import { BlockLabel } from "~src/components/base/label/types";
-import { BlockUserAvatar } from "src/components/profile/userAvatar/types";
-import { BlockButton } from "~src/components/base/button/types";
-
-export type BlockPasswordChange = {
-  back?: BlockButton;
-  avatar?: BlockUserAvatar;
-  content?: BlockLabel[];
-  action?: BlockButton;
-};
+import { Nullable } from "~src/utils/types";
 
 export type PasswordChangeFormData = {
-  [key: number]: string | undefined | null;
-  oldPassword: string | undefined | null;
-  password: string | undefined | null;
-  repeatPassword: string | undefined | null;
+  [key: number]:  Nullable<string>;
+  oldPassword:  Nullable<string>;
+  password:  Nullable<string>;
+  repeatPassword:  Nullable<string>;
 };

@@ -1,4 +1,6 @@
+import { Nullable } from "~src/utils/types";
+
 export type BlockPiece = {
-  className?: string;
-  content?: string | null | undefined;
+  className?: Nullable<string>;
+  content: Nullable<string>;
 };

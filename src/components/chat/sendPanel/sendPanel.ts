@@ -21,8 +21,12 @@ export default class SendPanel extends Block<BlockSendPanel> {
 
     const inputFile = new Input({
       id: "file",
-      className: "y-file-control",
       typeInput: "file",
+      className: "y-file-control",
+      inputName: null,
+      placeholder: null,
+      events: null,
+      inputValue: null,
     });
 
     const uploadButton = new Button({
@@ -46,6 +50,9 @@ export default class SendPanel extends Block<BlockSendPanel> {
     const sendTextarea = new Textarea({
       id: "send",
       className: "y-send-control",
+      rows: null,
+      cols: null,
+      maxLength: null,
       name: "send",
       placeholder: "Сообщение",
     });

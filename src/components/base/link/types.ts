@@ -1,6 +1,8 @@
+import { Nullable } from "~src/utils/types";
+
 export type BlockLink = {
-  id?: number | string;
-  className?: string;
-  src?: string;
-  textLink?: string;
+  id: Nullable<number | string>;
+  className: Nullable<string>;
+  src: Nullable<string>;
+  textLink: Nullable<string>;
 };

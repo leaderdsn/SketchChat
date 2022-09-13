@@ -1,3 +1,6 @@
+import { FormData } from "~src/pages/types";
+import { Nullable } from "./types";
+
 type Value = string | undefined | null;
 
 const REGEXP_EMAIL = /^$|\S+@\S+\.\S+/;
@@ -62,6 +65,13 @@ const validate = (value: Value, type: string) => {
         return "Поле должно содержать минимум 3 символа";
       } else return null;
   }
+};
+
+export const blurValidate = (form: FormData, error: FormData, callback: () => void) => {
+  Object.entries(form).forEach(([key, value]) => {
+    error[key as unknown as number] = validate(value, key);
+  });
+  callback();
 };
 
 export default validate;

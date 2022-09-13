@@ -15,6 +15,7 @@ export class GuestLayout extends Block<BlockLayout> {
     const login: Block = new Login({});
 
     const linkError = new Link({
+      id: null,
       className: "text-link",
       src: "/chat",
       textLink: "Назад к авторизации",

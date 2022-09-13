@@ -1,7 +1,8 @@
 import Block from "~src/utils/block";
+import { Nullable } from "~src/utils/types";
 
 export type BlockForm = {
-  method?: string;
-  className?: string;
-  content?: Block[];
+  method: Nullable<string>;
+  className: Nullable<string>;
+  content: Nullable<Block[]>;
 };

@@ -1,9 +1,11 @@
+import { Nullable } from "~src/utils/types";
+
 export type BlockTextarea = {
-  id: number | string,
-  className: string,
-  rows?: number,
-  cols?: number,
-  maxLength?: number,
-  name?: string | null,
-  placeholder?: string | null,
-};
+  id: Nullable<number | string>;
+  className: string;
+  rows: Nullable<number>;
+  cols: Nullable<number>;
+  maxLength: Nullable<number>;
+  name: Nullable<string>;
+  placeholder: Nullable<string>;
+}

@@ -9,7 +9,14 @@ export default class Input extends Block<BlockInput> {
 
   render() {
     return `
-    <input id='{{id}}' type='{{typeInput}}' class='{{className}}' name='{{inputName}}' value='{{inputValue}}' placeholder='{{placeholder}}'>
+    <input 
+      id='{{id}}'
+      type='{{typeInput}}'
+      class='{{className}}'
+      name='{{inputName}}'
+      value='{{inputValue}}'
+      placeholder='{{placeholder}}'
+    >
     `;
   }
 }

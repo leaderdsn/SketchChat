@@ -59,11 +59,10 @@ export default class PasswordChange extends Block<BlockProfileChange> {
     }
 
     const submit = () => {
-      console.log('form-data: ', formData)
-
       const isValid: Boolean = Object.entries(errorData).every(
         ([_, value]) => value === null
       );
+      
       if (isValid) {
         alert("Пороль успешно изменён!");
         resetForm();
@@ -103,6 +102,7 @@ export default class PasswordChange extends Block<BlockProfileChange> {
         input: (event) => inputHandler(event, "oldPassword"),
         blur: blurValidate,
       },
+      inputValue: null,
     });
 
     const inputNewPassword = new Input({
@@ -115,6 +115,7 @@ export default class PasswordChange extends Block<BlockProfileChange> {
         input: (event) => inputHandler(event, "password"),
         blur: blurValidate,
       },
+      inputValue: null,
     });
 
     const inputRepeatNewPassword = new Input({
@@ -127,6 +128,7 @@ export default class PasswordChange extends Block<BlockProfileChange> {
         input: (event) => inputHandler(event, "repeatPassword"),
         blur: blurValidate,
       },
+      inputValue: null,
     });
 
     const labelOldPassword = new Label({
@@ -134,6 +136,7 @@ export default class PasswordChange extends Block<BlockProfileChange> {
       className: "y-field-profile-text",
       labelName: "Старый пароль",
       input: inputOldPassword,
+      error: null,
     });
 
     const labelNewPassword = new Label({
@@ -141,6 +144,7 @@ export default class PasswordChange extends Block<BlockProfileChange> {
       className: "y-field-profile-text",
       labelName: "Новый пароль",
       input: inputNewPassword,
+      error: null,
     });
 
     const labelRepeatNewPassword = new Label({
@@ -148,9 +152,11 @@ export default class PasswordChange extends Block<BlockProfileChange> {
       className: "y-field-profile-text",
       labelName: "Повторите новый пароль",
       input: inputRepeatNewPassword,
+      error: null,
     });
 
     const buttonBack = new Button({
+      id: null,
       className: "y-btn-back",
       typeButton: "button",
       text: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -164,6 +170,7 @@ export default class PasswordChange extends Block<BlockProfileChange> {
     });
 
     const buttonSave = new Button({
+      id: null,
       className: "y-btn",
       typeButton: "button",
       text: "Сохранить",

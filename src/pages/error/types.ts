@@ -1,7 +1,8 @@
 import Block from "~src/utils/block";
+import { Nullable } from "~src/utils/types";
 
 export type BlockErrorPage = {
-  numberError?: string;
-  textMessage?: string;
-  content?: Block;
+  numberError: Nullable<string>;
+  textMessage: Nullable<string>;
+  content: Nullable<Block>;
 };

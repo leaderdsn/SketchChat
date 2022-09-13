@@ -63,6 +63,7 @@ export default class ProfileUser extends Block<BlockProfileUser> {
       className: "y-field-profile-text",
       labelName: "Почта",
       input: pieceEmail,
+      error: null
     });
 
     const labelLogin = new Label({
@@ -70,6 +71,7 @@ export default class ProfileUser extends Block<BlockProfileUser> {
       className: "y-field-profile-text",
       labelName: "Логин",
       input: pieceLogin,
+      error: null
     });
 
     const labelFirstName = new Label({
@@ -77,6 +79,7 @@ export default class ProfileUser extends Block<BlockProfileUser> {
       className: "y-field-profile-text",
       labelName: "Имя",
       input: pieceFirstName,
+      error: null
     });
 
     const labelLastName = new Label({
@@ -84,6 +87,7 @@ export default class ProfileUser extends Block<BlockProfileUser> {
       className: "y-field-profile-text",
       labelName: "Фамилия",
       input: pieceLastName,
+      error: null
     });
 
     const labelChatName = new Label({
@@ -91,6 +95,7 @@ export default class ProfileUser extends Block<BlockProfileUser> {
       className: "y-field-profile-text",
       labelName: "Имя в чате",
       input: pieceChatName,
+      error: null
     });
 
     const labelPhone = new Label({
@@ -98,9 +103,11 @@ export default class ProfileUser extends Block<BlockProfileUser> {
       className: "y-field-profile-text",
       labelName: "Телефон",
       input: piecePhone,
+      error: null
     });
 
     const buttonBack = new Button({
+      id: null,
       className: "y-btn-back",
       typeButton: "button",
       text: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -114,6 +121,7 @@ export default class ProfileUser extends Block<BlockProfileUser> {
     });
 
     const buttonChangeData = new Button({
+      id: null,
       className: "y-btn-link",
       typeButton: "button",
       text: "Изменить данные",
@@ -123,6 +131,7 @@ export default class ProfileUser extends Block<BlockProfileUser> {
     });
 
     const buttonChangePassword = new Button({
+      id: null,
       className: "y-btn-link",
       typeButton: "button",
       text: "Изменить пароль",
@@ -132,6 +141,7 @@ export default class ProfileUser extends Block<BlockProfileUser> {
     });
 
     const buttonExit = new Button({
+      id: null,
       className: "y-btn-link",
       typeButton: "button",
       text: "Выйти",

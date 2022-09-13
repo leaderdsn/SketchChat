@@ -1,8 +1,10 @@
+import { Nullable } from "~src/utils/types";
+
 export type BlockContact = {
-  nameContact?: string | null;
-  descriptionContact?: string | null;
-  dateTime?: Date | string | null;
-  notificationCount?: number | null;
+  nameContact: Nullable<string>;
+  descriptionContact: Nullable<string>;
+  dateTime: Nullable<Date | string>;
+  notificationCount: Nullable<number>;
   events?: {
     click: () => void;
   };

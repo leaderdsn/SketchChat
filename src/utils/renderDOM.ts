@@ -2,7 +2,12 @@ import { GuestLayout } from "~src/layouts/guestLayout/guestLayout";
 import { MainLayout } from "~src/layouts/mainLayout/mainLayout";
 
 export default function render(query: any) {
-  const root = document.querySelector(query);
+  let root
+  try {
+    root = document.querySelector(query);
+  } catch (error: any) {
+    throw new Error(error)
+  }
   
   const guest = new GuestLayout({});
   const main = new MainLayout({});

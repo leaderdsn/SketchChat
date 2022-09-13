@@ -1,9 +1,11 @@
+import { Nullable } from "~src/utils/types";
+
 export type BlockButton = {
-  id?: number | string;
-  className?: string;
-  typeButton?: string | null;
+  id: Nullable<number | string>;
+  className: Nullable<string>;
+  typeButton: Nullable<string>;
   events?: {
     click: () => void;
   };
-  text?: string | null;
+  text: Nullable<string>;
 };
