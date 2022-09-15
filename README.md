@@ -2,6 +2,8 @@
 
 This is a project of my own chat that will be carried out as part of my training on **yandex.practicum**. An up-to-date demonstration of the project can be viewed at this address: https://sketch-chat.netlify.app/
 
+LINK TO PULL REQUEST: https://github.com/leaderdsn/SketchChat/pull/2
+
 ## Requirements
 
 - [npm](https://www.npmjs.com/package/npm)

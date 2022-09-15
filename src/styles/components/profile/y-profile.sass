@@ -1,11 +1,13 @@
 .y-profile
   display: grid
-  grid-template-columns: max-content
+  grid-template-columns: 1fr
   justify-content: center
   align-items: center
-  position: relative
+  width: 100%
+  min-width: 510px
+  max-width: 510px
   &__back
-    position: absolute
+    position: fixed
     top: 0
     left: 0
     display: grid
@@ -27,9 +29,7 @@
   &__content
     display: grid
     grid-template-columns: 1fr
-    width: calc(100% - 64px)
-    min-width: 510px
-    margin-left: 64px
+    width: 100%
     .y-field-profile
       &-text
         display: grid
