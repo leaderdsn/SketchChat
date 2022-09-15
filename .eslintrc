@@ -1,0 +1,29 @@
+{
+	"env": {
+		"browser": true,
+		"es6": true
+	},
+	"extends": [
+		"airbnb",
+		"plugin:unicorn/recommended",
+    "plugin:prettier/recommended",
+		"plugin:@typescript-eslint/recommended",
+    "prettier",
+    "prettier/unicorn",
+		"prettier/@typescript-eslint"
+	],
+	"overrides": [],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaVersion": 6,
+		"sourceType": "module"
+	},
+	"plugins": [
+		"@typescript-eslint",
+		"eslint-plugin-prettier",
+		"eslint-plugin-unicorn"
+	],
+	"rules": {
+		"unicorn/prevent-abbreviations": "off"
+	}
+}
