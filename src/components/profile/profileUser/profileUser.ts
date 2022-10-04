@@ -4,10 +4,9 @@ import Label from "~src/components/base/label";
 import UserAvatar from "~src/components/profile/userAvatar";
 import Link from "~src/components/base/link";
 import Button from "~src/components/base/button";
-import AuthController from "~src/controllers/auth";
 import Profile, { withProfile } from "~src/pages/profile/profile";
 import { P } from "~src/types";
-
+import ExitChat from "~src/components/modals/exitChat";
 
 export class ProfileUserPage extends Profile {
   constructor() {
@@ -137,7 +136,7 @@ class ProfileUserBase extends Block {
       typeButton: "button",
       text: "Выйти",
       events: {
-        click: () => AuthController.logout(),
+        click: () => ExitChat.show(),
       },
     });
 
