@@ -1,61 +1,61 @@
-import { P } from "~src/types";
 import Block from "~src/utils/block";
-import { BlockProfileUser } from "src/components/profile/profileUser/types";
-import Button from "~src/components/base/button";
 import Piece from "~src/components/base/piece";
 import Label from "~src/components/base/label";
 import UserAvatar from "~src/components/profile/userAvatar";
+import Link from "~src/components/base/link";
+import Button from "~src/components/base/button";
+import AuthController from "~src/controllers/auth";
+import Profile, { withProfile } from "~src/pages/profile/profile";
+import { P } from "~src/types";
 
-export default class ProfileUser extends Block<BlockProfileUser> {
-  constructor(props: BlockProfileUser) {
-    super(props as P);
+
+export class ProfileUserPage extends Profile {
+  constructor() {
+    super({
+      profile: new ProfileUser({}),
+    });
+  }
+}
+
+class ProfileUserBase extends Block {
+  protected init() {
+    this.children = this.createProfileUser(this.props);
   }
 
-  init() {
-    const backHandler = () => {
-      document.location.pathname = "/chat";
-    };
+  protected componentDidUpdate(_: P, user: P) {
+    this.children = this.createProfileUser(user);
+    return true;
+  }
 
-    const changeProfileHandler = () => {
-      document.location.pathname = "/profile/profile-change";
-    };
-
-    const changePasswordHandler = () => {
-      document.location.pathname = "/profile/password-change";
-    };
-
-    const changeExitHandler = () => {
-      document.location.pathname = "/login";
-    };
-
+  private createProfileUser(user: P) {
     const pieceEmail = new Piece({
       className: "description",
-      content: "pochta@yandex.ru",
+      content: user.email,
     });
 
     const pieceLogin = new Piece({
       className: "description",
-      content: "ivanivanov",
+      content: user.login,
     });
 
     const pieceFirstName = new Piece({
       className: "description",
-      content: "Иван",
+      content: user.first_name,
     });
 
-    const pieceLastName = new Piece({
+    const pieceSecondName = new Piece({
       className: "description",
-      content: "Иванов",
+      content: user.second_name,
     });
 
-    const pieceChatName = new Piece({
+    const pieceDisplayName = new Piece({
       className: "description",
-      content: "Иван",
+      content: user.display_name,
     });
 
     const piecePhone = new Piece({
       className: "description",
-      content: "+7 (909) 967 30 30",
+      content: user.phone,
     });
 
     const labelEmail = new Label({
@@ -63,7 +63,7 @@ export default class ProfileUser extends Block<BlockProfileUser> {
       className: "y-field-profile-text",
       labelName: "Почта",
       input: pieceEmail,
-      error: null
+      error: null,
     });
 
     const labelLogin = new Label({
@@ -71,7 +71,7 @@ export default class ProfileUser extends Block<BlockProfileUser> {
       className: "y-field-profile-text",
       labelName: "Логин",
       input: pieceLogin,
-      error: null
+      error: null,
     });
 
     const labelFirstName = new Label({
@@ -79,23 +79,23 @@ export default class ProfileUser extends Block<BlockProfileUser> {
       className: "y-field-profile-text",
       labelName: "Имя",
       input: pieceFirstName,
-      error: null
+      error: null,
     });
 
     const labelLastName = new Label({
       forName: "lastName",
       className: "y-field-profile-text",
       labelName: "Фамилия",
-      input: pieceLastName,
-      error: null
+      input: pieceSecondName,
+      error: null,
     });
 
     const labelChatName = new Label({
       forName: "chatName",
       className: "y-field-profile-text",
       labelName: "Имя в чате",
-      input: pieceChatName,
-      error: null
+      input: pieceDisplayName,
+      error: null,
     });
 
     const labelPhone = new Label({
@@ -103,7 +103,7 @@ export default class ProfileUser extends Block<BlockProfileUser> {
       className: "y-field-profile-text",
       labelName: "Телефон",
       input: piecePhone,
-      error: null
+      error: null,
     });
 
     const buttonBack = new Button({
@@ -115,9 +115,6 @@ export default class ProfileUser extends Block<BlockProfileUser> {
       <rect x="20" y="14.8" width="11" height="1.6" transform="rotate(-180 20 14.8)" fill="white"/>
       <path d="M13 19L9 14L13 9" stroke="white" stroke-width="1.6"/>
       </svg>`,
-      events: {
-        click: backHandler,
-      },
     });
 
     const buttonChangeData = new Button({
@@ -125,9 +122,6 @@ export default class ProfileUser extends Block<BlockProfileUser> {
       className: "y-btn-link",
       typeButton: "button",
       text: "Изменить данные",
-      events: {
-        click: changeProfileHandler,
-      },
     });
 
     const buttonChangePassword = new Button({
@@ -135,29 +129,44 @@ export default class ProfileUser extends Block<BlockProfileUser> {
       className: "y-btn-link",
       typeButton: "button",
       text: "Изменить пароль",
-      events: {
-        click: changePasswordHandler,
-      },
     });
 
     const buttonExit = new Button({
       id: null,
-      className: "y-btn-link",
+      className: "y-btn-link exit",
       typeButton: "button",
       text: "Выйти",
       events: {
-        click: changeExitHandler,
+        click: () => AuthController.logout(),
       },
     });
 
     const avatar = new UserAvatar({
-      img: "",
-      userName: "Иван",
+      src: user.avatar,
     });
 
-    this.children = {
-      back: buttonBack,
+    const linkBack = new Link({
+      className: "y-nav-link",
+      content: buttonBack,
+      to: "/chat",
+    });
+
+    const linkPasswordChange = new Link({
+      className: "y-nav-link",
+      content: buttonChangePassword,
+      to: "/profile/password-change",
+    });
+
+    const linkProfileChange = new Link({
+      className: "y-nav-link",
+      content: buttonChangeData,
+      to: "/profile/profile-change",
+    });
+
+    return {
+      back: linkBack,
       avatar: avatar,
+      userName: user.first_name,
       content: [
         labelEmail,
         labelLogin,
@@ -166,26 +175,29 @@ export default class ProfileUser extends Block<BlockProfileUser> {
         labelChatName,
         labelPhone,
       ],
-      buttonChangeData: buttonChangeData,
-      buttonChangePassword: buttonChangePassword,
+      buttonChangeData: linkProfileChange,
+      buttonChangePassword: linkPasswordChange,
       buttonExit: buttonExit,
     };
   }
 
   render() {
     return `
-    <div class='y-profile'>
-      <div class='y-profile__back'>{{back}}</div>
-      <div class='y-profile__content'>
-        <div class='y-profile__avatar'>{{avatar}}</div>
-        <div class='y-profile__data'>{{content}}</div>
-        <div class='y-profile__action-list'>
-          <div class='y-profile__action-item'>{{buttonChangeData}}</div>
-          <div class='y-profile__action-item'>{{buttonChangePassword}}</div>
-          <div class='y-profile__action-item'>{{buttonExit}}</div>
+    <div class='y-profile-user'>
+      <div class='y-profile-user__back'>{{back}}</div>
+      <div class='y-profile-user__content'>
+        <div class='y-profile-user__avatar'>{{avatar}}</div>
+        <div class='y-profile-user__username'>{{userName}}</div>
+        <div class='y-profile-user__data'>{{content}}</div>
+        <div class='y-profile-user__action-list'>
+          <div class='y-profile-user__action-item'>{{buttonChangeData}}</div>
+          <div class='y-profile-user__action-item'>{{buttonChangePassword}}</div>
+          <div class='y-profile-user__action-item'>{{buttonExit}}</div>
         </div>
       </div>
     </div>
     `;
   }
 }
+
+export const ProfileUser = withProfile(ProfileUserBase);
