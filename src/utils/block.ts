@@ -1,7 +1,7 @@
 import EventBus from "~src/utils/eventBus";
 import constructor from "~src/modules/constructor";
 import { Nullable, Values } from "./types";
-import idGenerator from "~src/utils/idGenerator";
+import idGenerator from "~src/utils/myLodash/idGenerator";
 
 type TEvents = Values<typeof Block.EVENTS>;
 
@@ -245,7 +245,7 @@ export default class Block<P = any> {
   }
 
   public show() {
-    this.getContent().style.display = "block";
+    this.getContent().style.display = "grid";
   }
 
   public hide() {
