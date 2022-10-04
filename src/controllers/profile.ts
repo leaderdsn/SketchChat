@@ -16,7 +16,6 @@ class ProfileController {
     await this.api.changeAvatar(data)
       .then((res) => {
         if (res.status < 400) {
-          console.log('ava', res.response.avatar)
           store.set("avatar", res.response.avatar);
           alert("Аватар успешно изменён!");
         } else {
