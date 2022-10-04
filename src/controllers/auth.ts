@@ -25,6 +25,7 @@ class AuthController {
     await this.api.create(data).then((res) => {
       if (res.status < 400) {
         Router.go("/");
+        this.logout()
       } else {
         alert(res.response.reason);
       }

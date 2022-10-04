@@ -18,8 +18,8 @@ export default class Chat extends Block<BlockChat> {
   }
 
   init() {
-    (this.children.sidebar = new Sidebar({})),
-    (this.children.chatArea = new ChatArea({}));
+    this.children.sidebar = new Sidebar({});
+    this.children.chatArea = new ChatArea({});
   }
 
   render() {
