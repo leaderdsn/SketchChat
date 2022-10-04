@@ -4,5 +4,5 @@ import { Nullable } from "~src/utils/types";
 export type BlockForm = {
   method: Nullable<string>;
   className: Nullable<string>;
-  content: Nullable<Block[]>;
+  content: Nullable<Block[] | string>;
 };

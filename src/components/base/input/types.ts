@@ -7,8 +7,9 @@ export type BlockInput = {
   inputName: Nullable<string>;
   placeholder: Nullable<string>;
   events: {
-    input: (e: Event) => Nullable<void>;
-    blur: () => Nullable<void> | void;
+    input?: (e: Event) => Nullable<void> | Promise<void>;
+    blur?: () => Nullable<void> | void;
+    onchange?: (e: Event) => Nullable<void> | Promise<void>;
   } | Nullable<() => {}>;
   inputValue: Nullable<string>;
 };
