@@ -5,6 +5,8 @@ import ProfileController from "~src/controllers/profile";
 import Button from "~src/components/base/button";
 import Form from "~src/components/base/form";
 import { Nullable } from "~src/utils/types";
+import store from "~src/utils/store";
+import { ProfileData } from "~src/api/profileAPI";
 type TargetFiles<T> = { files: T };
 
 export class ChangeUserAvatar extends Block {
@@ -26,6 +28,9 @@ export class ChangeUserAvatar extends Block {
 
     const submit = async () => {
       await ProfileController.changeAvatar(formData);
+      await ProfileController.changeProfile(
+        store.getState().user as unknown as ProfileData
+      );
       file = null;
       this.hide();
     };
@@ -82,5 +87,6 @@ export class ChangeUserAvatar extends Block {
     `;
   }
 }
+
 
 export default new ChangeUserAvatar({});
