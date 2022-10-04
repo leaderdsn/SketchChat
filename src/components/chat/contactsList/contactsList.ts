@@ -1,41 +1,49 @@
 import Block from "~src/utils/block";
+import { Contact } from "~src/components/chat/contact/contact";
+import withStore from "~src/utils/HOC/withStore";
+import { ChatsData } from "~src/api/chatsAPI";
 import { P } from "~src/types";
-import { BlockContactsList } from "~src/components/chat/contactsList/types";
-import Contact from "~src/components/chat/contact/contact";
+import ChatsController from "~src/controllers/chats";
+import Piece from "~src/components/base/piece/piece";
 
-export default class ContactsList extends Block<BlockContactsList> {
-  constructor(props: BlockContactsList) {
-    super(props as P);
+class ContactsListBase extends Block {
+  init() {
+    this.children.contacts = this.props.chats
+      ? this.createChats(this.props)
+      : new Piece({
+          className: "y-text-info",
+          content: "Добавьте чат",
+        });
   }
 
-  init() {
-    const contact = new Contact({
-      nameContact: "Пётр",
-      descriptionContact: "Нажмите, для проврки страницы ошибки сервера",
-      dateTime: "11:22",
-      notificationCount: 5,
-      events: {
-        click: () => (document.location.pathname = "/error-server"),
-      },
-    });
-    const contact2 = new Contact({
-      nameContact: "Андрей",
-      descriptionContact: "Нажмите, для проврки страницы ошибки запроса",
-      dateTime: "12:02",
-      notificationCount: 1,
-      events: {
-        click: () => (document.location.pathname = "/error-request"),
-      },
-    });
+  componentDidUpdate(_: P, newProps: P) {
+    this.children.contacts = this.createChats(newProps);
+    return true;
+  }
 
-    this.children.contacts = [contact, contact2];
+  private createChats({ chats }: P) {
+    chats.reverse();
+    return chats.map((chat: ChatsData) => {
+      return new Contact({
+        ...chat,
+        events: {
+          click: () => {
+            ChatsController.selectChat(chat.id);
+          },
+        },
+      });
+    });
   }
 
   render() {
     return `
-    <div class='y-contacts-list'>
-      {{contacts}}
-    </div>
+      <div class='y-contacts-list'>
+        {{contacts}}
+      </div>
     `;
   }
 }
+
+const withChats = withStore((state) => ({ chats: [...(state.chats || [])] }));
+
+export const ContactsList = withChats(ContactsListBase);
