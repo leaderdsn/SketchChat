@@ -33,15 +33,15 @@ export class ProfileAPI {
     this.http = new HTTPTransport("/user");
   }
 
-  changeAvatar(data: FormData): Promise<unknown> {
+  changeAvatar(data: FormData): Promise<XMLHttpRequest> {
     return this.http.put("/profile/avatar", { data });
   }
 
-  changeProfile(data: ProfileData): Promise<unknown> {
+  changeProfile(data: ProfileData): Promise<XMLHttpRequest> {
     return this.http.put("/profile", { data });
   }
 
-  changePassword(data: PasswordData): Promise<unknown> {
+  changePassword(data: PasswordData): Promise<XMLHttpRequest> {
     return this.http.put("/password", { data });
   }
 }

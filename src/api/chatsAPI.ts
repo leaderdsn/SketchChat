@@ -45,7 +45,7 @@ export class ChatsAPI {
     this.http = new HTTPTransport("/chats");
   }
 
-  create(data: ChatsData): Promise<unknown> {
+  create(data: ChatsData): Promise<XMLHttpRequest> {
     return this.http.post("/", { data });
   }
 
@@ -53,11 +53,11 @@ export class ChatsAPI {
     return this.http.get("/");
   }
 
-  deleteChat(data: ChatDelete): Promise<unknown> {
+  deleteChat(data: ChatDelete): Promise<XMLHttpRequest> {
     return this.http.delete("/", { data });
   }
 
-  getTokenChat(id: number): Promise<unknown> {
+  getTokenChat(id: number): Promise<XMLHttpRequest> {
     return this.http.post(`/token/${id}`);
   }
 }

@@ -45,19 +45,19 @@ export class AuthAPI {
   }
 
 
-  public signin(data: SigninData): Promise<unknown> {
+  public signin(data: SigninData): Promise<XMLHttpRequest> {
     return this.http.post("/signin", { data });
   }
 
-  public create(data: SignupData): Promise<unknown> {
+  public create(data: SignupData): Promise<XMLHttpRequest> {
     return this.http.post("/signup", { data });
   }
 
-  public read(): Promise<unknown> {
+  public read(): Promise<XMLHttpRequest> {
     return this.http.get("/user");
   }
 
-  public logout(): Promise<unknown> {
+  public logout(): Promise<XMLHttpRequest> {
     return this.http.post("/logout");
   }
 }
