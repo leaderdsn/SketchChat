@@ -49,7 +49,7 @@ export class ChatsAPI {
     return this.http.post("/", { data });
   }
 
-  read(): Promise<unknown> {
+  read(): Promise<XMLHttpRequest> {
     return this.http.get("/");
   }
 
