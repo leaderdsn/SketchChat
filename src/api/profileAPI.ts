@@ -1,4 +1,4 @@
-import BaseAPI from "~src/api/baseAPI";
+import HTTPTransport from "~src/utils/HTTPTransport";
 import { Nullable } from "~src/utils/types";
 
 export interface PasswordData {
@@ -26,27 +26,24 @@ export interface ProfileUserData {
   avatar: string;
 }
 
-export class ProfileAPI extends BaseAPI {
-  constructor() {
-    super("/user");
+export class ProfileAPI {
+  protected http: HTTPTransport;
+
+  public constructor() {
+    this.http = new HTTPTransport("/user");
   }
 
-  changeAvatar(data: FormData) {
+  changeAvatar(data: FormData): Promise<unknown> {
     return this.http.put("/profile/avatar", { data });
   }
 
-  changeProfile(data: ProfileData) {
+  changeProfile(data: ProfileData): Promise<unknown> {
     return this.http.put("/profile", { data });
   }
 
-  changePassword(data: PasswordData) {
+  changePassword(data: PasswordData): Promise<unknown> {
     return this.http.put("/password", { data });
   }
-
-  read = undefined;
-  create = undefined;
-  update = undefined;
-  delete = undefined;
 }
 
 export default new ProfileAPI();

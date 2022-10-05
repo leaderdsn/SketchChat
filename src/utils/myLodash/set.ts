@@ -3,7 +3,6 @@ import merge from "~src/utils/myLodash/merge";
 import { Indexed } from '~src/utils/myLodash/types';
 
 function set(object: Nullable<Indexed>, paths: string, value: unknown): Indexed | unknown {
-  // Код
 
   if (typeof object !== 'object' || object === null) {
     return object

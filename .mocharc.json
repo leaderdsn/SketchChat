@@ -2,4 +2,4 @@
   "extension": ["ts"],
   "spec": "src/tests/**/*.spec.ts",
   "require": "src/tests/babel-register.js"
-} 
+}

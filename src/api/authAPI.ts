@@ -1,4 +1,4 @@
-import BaseAPI from "~src/api/baseAPI";
+import HTTPTransport from "~src/utils/HTTPTransport";
 
 export interface SigninData {
   login: string;
@@ -37,29 +37,29 @@ export interface ChatInfo {
   };
 }
 
-export class AuthAPI extends BaseAPI {
-  constructor() {
-    super("/auth");
+export class AuthAPI {
+  protected http: HTTPTransport;
+
+  public constructor() {
+    this.http = new HTTPTransport("/auth");
   }
 
-  signin(data: SigninData) {
+
+  public signin(data: SigninData): Promise<unknown> {
     return this.http.post("/signin", { data });
   }
 
-  create(data: SignupData) {
+  public create(data: SignupData): Promise<unknown> {
     return this.http.post("/signup", { data });
   }
 
-  read() {
+  public read(): Promise<unknown> {
     return this.http.get("/user");
   }
 
-  logout() {
+  public logout(): Promise<unknown> {
     return this.http.post("/logout");
   }
-
-  update = undefined;
-  delete = undefined;
 }
 
 export default new AuthAPI();

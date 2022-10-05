@@ -1,5 +1,5 @@
 import "~src/styles/main.sass";
-import Router from "~src/utils/router";
+import Router from "~src/utils/router/router";
 import AuthController from "~src/controllers/auth";
 import ChatsController from "~src/controllers/chats";
 import { ProfileUserPage } from "./components/profile/profileUser/profileUser";

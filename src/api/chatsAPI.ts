@@ -1,6 +1,6 @@
-import BaseAPI from "~src/api/baseAPI";
 import { Nullable } from "~src/utils/types";
 import { User } from "~src/api/authAPI";
+import HTTPTransport from "~src/utils/HTTPTransport";
 
 export interface ChatsData {
   id: number;
@@ -38,29 +38,28 @@ export interface ChatDelete {
   chatId: number;
 }
 
-export class ChatsAPI extends BaseAPI {
-  constructor() {
-    super("/chats");
+export class ChatsAPI {
+  protected http: HTTPTransport;
+
+  public constructor() {
+    this.http = new HTTPTransport("/chats");
   }
 
-  create(data: ChatsData) {
+  create(data: ChatsData): Promise<unknown> {
     return this.http.post("/", { data });
   }
 
-  read() {
+  read(): Promise<unknown> {
     return this.http.get("/");
   }
 
-  deleteChat(data: ChatDelete) {
+  deleteChat(data: ChatDelete): Promise<unknown> {
     return this.http.delete("/", { data });
   }
 
-  getTokenChat(id: number) {
+  getTokenChat(id: number): Promise<unknown> {
     return this.http.post(`/token/${id}`);
   }
-
-  update = undefined;
-  delete = undefined;
 }
 
 export default new ChatsAPI();
