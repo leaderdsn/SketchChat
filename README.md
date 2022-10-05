@@ -5,7 +5,7 @@ This is a project of my own chat that will be carried out as part of my training
 **What's new?**
 In the 3rd sprint, its Router and Store were implemented
 
-LINK TO PULL REQUEST: https://github.com/leaderdsn/SketchChat/pull/2
+LINK TO PULL REQUEST: https://github.com/leaderdsn/SketchChat/pull/3
 
 ## Requirements
 
