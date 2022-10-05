@@ -7,5 +7,5 @@ export type BlockLabel = {
   className: Nullable<string>;
   labelName: Nullable<string>;
   input: Nullable<Input> | Nullable<Piece>;
-  error: Nullable<Piece>;
+  error?: Nullable<Piece>;
 };

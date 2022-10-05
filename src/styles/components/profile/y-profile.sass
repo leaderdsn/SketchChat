@@ -1,4 +1,6 @@
-.y-profile
+.y-profile-user,
+.y-profile-change,
+.y-profile-password-change
   display: grid
   grid-template-columns: 1fr
   justify-content: center
@@ -20,11 +22,25 @@
     background-color: var(--content-color)
     border-right: 1px solid var(--border-color)
     cursor: pointer
+    .y-nav-link
+      display: grid
     .y-btn-back
       height: 100%
       &:hover
         background-color: var(--hover-color)
   &__avatar
+    width: 100%
+    height: 130px
+    margin-bottom: 21px
+    display: grid
+    grid-template-columns: max-content
+    justify-content: center
+    .y-user-avatar
+      width: 130px
+      height: 130px
+  &__username
+    font-size: 16px
+    text-align: center
     margin-bottom: 61px
   &__content
     display: grid
@@ -40,8 +56,6 @@
         border-bottom: 1px solid var(--border-color)
         .description
           color: var(--description-color)
-        &:nth-child(7)
-          border-bottom: 0
       &-control
         height: 33px
         text-align: right
@@ -53,7 +67,7 @@
     display: grid
     grid-template-columns: max-content
     justify-content: center
-    .y-btn
+    .y-btn-primary
       min-width: 280px
       text-align: center
     &__list
@@ -68,5 +82,26 @@
       border-bottom: 1px solid var(--border-color)
       &:last-child
         border-bottom: 0
-      #exit
+      .exit
         color: var(--error-color)
+
+.y-profile-change
+  .y-user-avatar__img
+    &::before
+      display: grid
+      content: 'Поменять аватар'
+      width: 130px
+      height: 130px
+      border-radius: 50%
+      text-align: center
+      color: var(--background-color)
+      line-height: 130px
+      position: absolute
+      background: #000000
+      opacity: 0
+      transition: 0.3s
+      top: 0
+      left: 0
+    &:hover::before
+      opacity: 0.7
+      cursor: pointer

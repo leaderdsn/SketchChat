@@ -7,6 +7,18 @@ export default class Input extends Block<BlockInput> {
     super(props as P);
   }
 
+  public setValue(value: string) {
+    return ((this.element as HTMLInputElement).value = value);
+  }
+
+  public getName() {
+    return (this.element as HTMLInputElement).name;
+  }
+
+  public getValue() {
+    return (this.element as HTMLInputElement).value;
+  }
+
   render() {
     return `
     <input 

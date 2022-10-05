@@ -1,6 +1,5 @@
-import { BlockMessage } from "~src/components/chat/message/types";
-import { Nullable } from "~src/utils/types";
+import { MessageInfo } from "~src/controllers/messages";
 
 export type BlockMessagesList = {
-  messages: Nullable<BlockMessage[]>;
-} | {};
+  messages: MessageInfo[];
+};

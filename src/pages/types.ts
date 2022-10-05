@@ -8,9 +8,9 @@ export type FormData = {
   [key: number]: Nullable<string>;
   email: Nullable<string>;
   login: Nullable<string>;
-  firstName: Nullable<string>;
-  lastName: Nullable<string>;
+  first_name: Nullable<string>;
+  second_name: Nullable<string>;
   phone: Nullable<string>;
-  repeatPassword: Nullable<string>;
   password: Nullable<string>;
+  repeat_password: Nullable<string>;
 };

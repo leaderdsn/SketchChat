@@ -3,6 +3,6 @@ import Link from "~src/components/base/link";
 import { Nullable } from "~src/utils/types";
 
 export type BlockSearchPanel = {
-  link: Nullable<Link>;
+  link: Nullable<typeof Link>;
   input: Nullable<Input>;
 } | {};

@@ -1,11 +1,11 @@
 import EventBus from "~src/utils/eventBus";
 import constructor from "~src/modules/constructor";
 import { Nullable, Values } from "./types";
-import idGenerator from "~src/utils/idGenerator";
+import idGenerator from "~src/utils/myLodash/idGenerator";
 
 type TEvents = Values<typeof Block.EVENTS>;
 
-export default class Block<P = any> {
+export default class Block<P extends Record<string, any> = any> {
   static EVENTS = {
     INIT: "init",
     FLOW_CDM: "flow:component-did-mount",
@@ -21,14 +21,14 @@ export default class Block<P = any> {
 
   private eventBus: () => EventBus<TEvents>;
 
-  public constructor(propsAndChildren?: Record<string, Block>) {
+  public constructor(propsAndChildren?: P) {
     const { children, props } = this._getChildren(propsAndChildren!);
     const eventBus = new EventBus();
 
     this._id = this.createNewUUID();
 
     this.children = children;
-    this.props = this._makePropsProxy({ ...props, __id: this._id } as P);
+    this.props = this._makePropsProxy({ ...props, __id: this._id } as unknown as P);
 
     this.eventBus = () => eventBus;
 
@@ -245,7 +245,7 @@ export default class Block<P = any> {
   }
 
   public show() {
-    this.getContent().style.display = "block";
+    this.getContent().style.display = "grid";
   }
 
   public hide() {

@@ -1,6 +1,6 @@
 import { P } from "~src/types";
 import Block from "~src/utils/block";
-import { BlockButton } from "./types";
+import { BlockButton } from "~src/components/base/button/types";
 
 export default class Button extends Block<BlockButton> {
   constructor(props: BlockButton) {
@@ -13,7 +13,6 @@ export default class Button extends Block<BlockButton> {
         id='{{id}}' 
         class='{{className}}' 
         type='{{typeButton}}' 
-        onClick='{{click}}'
       >
         {{text}}
       </button>

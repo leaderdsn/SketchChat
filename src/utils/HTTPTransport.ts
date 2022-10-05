@@ -1,8 +1,9 @@
 import { Nullable } from "~src/utils/types";
+import queryStringify from "~src/utils/myLodash/queryStringify";
 
 export type Options = {
   method: METHODS;
-  data?: Nullable<any>;
+  data?: Nullable<unknown>;
   timeout?: Nullable<number>;
   headers?: Nullable<{}>;
 };
@@ -16,48 +17,72 @@ export enum METHODS {
   PATCH = "PATCH",
   DELETE = "DELETE",
 }
-
-function queryStringify(data: Record<string, unknown>) {
-  if (typeof data !== "object") {
-    throw new Error("Data must be object");
-  }
-  const keys = Object.keys(data);
-  return keys.reduce((result, key, index) => {
-    return `${result}${key}=${data[key]}${index < keys.length - 1 ? "&" : ""}`;
-  }, "?");
-}
-
 export default class HTTPTransport {
-  get(
-    url: string,
-    options: OptionsWithoutMethod = {}
-  ): Promise<XMLHttpRequest> {
-    return this.request(url, { ...options, method: METHODS.GET });
-  }
-  post(
-    url: string,
-    options: OptionsWithoutMethod = {}
-  ): Promise<XMLHttpRequest> {
-    return this.request(url, { ...options, method: METHODS.POST });
-  }
-  put(
-    url: string,
-    options: OptionsWithoutMethod = {}
-  ): Promise<XMLHttpRequest> {
-    return this.request(url, { ...options, method: METHODS.PUT });
-  }
-  delete(
-    url: string,
-    options: OptionsWithoutMethod = {}
-  ): Promise<XMLHttpRequest> {
-    return this.request(url, { ...options, method: METHODS.DELETE });
+  static API_URL = "https://ya-praktikum.tech/api/v2";
+  protected endpoint: string;
+
+  constructor(endpoint: string) {
+    this.endpoint = `${HTTPTransport.API_URL}${endpoint}`;
   }
 
-  request(
+  public get(
+    url: string = "/",
+    options: OptionsWithoutMethod = {}
+  ): Promise<XMLHttpRequest> {
+    return this.request(this.endpoint + url, {
+      ...options,
+      method: METHODS.GET,
+    });
+  }
+
+  public post(
+    url: string,
+    options: OptionsWithoutMethod = {}
+  ): Promise<XMLHttpRequest> {
+    return this.request(this.endpoint + url, {
+      ...options,
+      method: METHODS.POST,
+      data: options.data,
+    });
+  }
+
+  public put(
+    url: string,
+    options: OptionsWithoutMethod = {}
+  ): Promise<XMLHttpRequest> {
+    return this.request(this.endpoint + url, {
+      ...options,
+      method: METHODS.PUT,
+      data: options.data,
+    });
+  }
+
+  public patch(
+    url: string,
+    options: OptionsWithoutMethod = {}
+  ): Promise<XMLHttpRequest> {
+    return this.request(this.endpoint + url, {
+      ...options,
+      method: METHODS.PATCH,
+      data: options.data,
+    });
+  }
+
+  public delete(
+    url: string,
+    options: OptionsWithoutMethod = {}
+  ): Promise<XMLHttpRequest> {
+    return this.request(this.endpoint + url, {
+      ...options,
+      method: METHODS.DELETE,
+    });
+  }
+
+  private request(
     url: string,
     options: Options = { method: METHODS.GET }
   ): Promise<XMLHttpRequest> {
-    const { headers = {}, method, data, timeout } = options;
+    const { headers = null, method, data, timeout } = options;
 
     return new Promise((resolve, reject) => {
       if (!method) {
@@ -74,23 +99,38 @@ export default class HTTPTransport {
         Object.entries(headers).forEach(([key, value]) => {
           xhr.setRequestHeader(key, value as string);
         });
+      } else {
+        if (!(data instanceof FormData)) {
+          xhr.setRequestHeader("Content-Type", "application/json");
+          xhr.responseType = "json";
+        }
       }
 
       xhr.onload = function () {
         resolve(xhr);
       };
 
-      xhr.onabort = reject;
-      xhr.onerror = reject;
+      xhr.onabort = () => reject({ reason: "abort" });
+      xhr.onerror = () => reject({ reason: "network error" });
       if (timeout) {
         xhr.timeout = timeout;
       }
-      xhr.ontimeout = reject;
+      xhr.ontimeout = () => reject({ reason: "timeout" });
+
+      xhr.withCredentials = true;
 
       if (isGet || !data) {
         xhr.send();
       } else {
-        xhr.send(data);
+        if (headers) {
+          xhr.send(data as Nullable<Document | XMLHttpRequestBodyInit>);
+        } else {
+          if (!(data instanceof FormData)) {
+            xhr.send(JSON.stringify(data));
+          } else {
+            xhr.send(data as Nullable<Document | XMLHttpRequestBodyInit>);
+          }
+        }
       }
     });
   }

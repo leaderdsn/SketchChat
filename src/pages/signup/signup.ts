@@ -4,14 +4,25 @@ import Link from "~src/components/base/link";
 import Form from "~src/components/base/form";
 import Block from "~src/utils/block";
 import Button from "~src/components/base/button/button";
-import { LoginAndSignIn } from "~src/types";
+import { LoginAndSignup } from "~src/types";
 import { P } from "~src/types";
 import { blurValidate } from "~src/utils/validate";
 import Piece from "~src/components/base/piece";
 import { FormData } from "~src/pages/types";
+import AuthController from "~src/controllers/auth";
+import { SignupData } from "~src/api/authAPI";
+import GuestLayout from "~src/layouts/guestLayout/guestLayout";
 
-export default class Signin extends Block<LoginAndSignIn> {
-  constructor(props: LoginAndSignIn) {
+export class SignupPage extends GuestLayout {
+  constructor() {
+    super({
+      content: new Signup({}),
+    });
+  }
+}
+
+export default class Signup extends Block<LoginAndSignup> {
+  constructor(props: LoginAndSignup) {
     super(props as P);
   }
 
@@ -19,27 +30,27 @@ export default class Signin extends Block<LoginAndSignIn> {
     const formData: FormData = {
       email: null,
       login: null,
-      firstName: null,
-      lastName: null,
+      first_name: null,
+      second_name: null,
       phone: null,
-      repeatPassword: null,
       password: null,
+      repeat_password: null,
     };
 
     const errorData: FormData = {
       email: null,
       login: null,
-      firstName: null,
-      lastName: null,
+      first_name: null,
+      second_name: null,
       phone: null,
-      repeatPassword: null,
       password: null,
+      repeat_password: null,
     };
 
     const inputHandler = (e: Event, key: string) => {
       formData[key as unknown as number] = (
         e.target! as HTMLInputElement
-      ).value;
+      ).value.trim();
     };
 
     const setErrorData = () => {
@@ -52,11 +63,11 @@ export default class Signin extends Block<LoginAndSignIn> {
       });
 
       errorFirstName.setProps({
-        content: errorData.firstName,
+        content: errorData.first_name,
       });
 
       errorLastName.setProps({
-        content: errorData.lastName,
+        content: errorData.second_name,
       });
 
       errorPhone.setProps({
@@ -68,18 +79,19 @@ export default class Signin extends Block<LoginAndSignIn> {
       });
 
       errorRepeatPassword.setProps({
-        content: errorData.repeatPassword,
+        content: errorData.repeat_password,
       });
     };
 
-    const submit = () => {
+    const submit = async () => {
+      blurValidate(formData, errorData, setErrorData);
+
       const isValid: Boolean = Object.entries(errorData).every(
         ([_, value]) => value === null
       );
 
       if (isValid) {
-        document.location.pathname = "/login";
-        alert("Пользователь успешно зарегистрирован!");
+        await AuthController.signup(formData as SignupData);
       } else {
         alert("Проверьте правильность заполнения полей!");
       }
@@ -99,12 +111,12 @@ export default class Signin extends Block<LoginAndSignIn> {
 
     const errorFirstName = new Piece({
       className: "y-field-error",
-      content: errorData.firstName,
+      content: errorData.first_name,
     });
 
     const errorLastName = new Piece({
       className: "y-field-error",
-      content: errorData.lastName,
+      content: errorData.second_name,
     });
 
     const errorPhone = new Piece({
@@ -119,7 +131,7 @@ export default class Signin extends Block<LoginAndSignIn> {
 
     const errorRepeatPassword = new Piece({
       className: "y-field-error",
-      content: errorData.repeatPassword,
+      content: errorData.repeat_password,
     });
 
     const inputEmail = new Input({
@@ -128,10 +140,10 @@ export default class Signin extends Block<LoginAndSignIn> {
       className: "y-field-control",
       inputName: "email",
       inputValue: null,
-      placeholder: '',
+      placeholder: "",
       events: {
         input: (event) => inputHandler(event, "email"),
-        blur: () => blurValidate(formData, errorData, setErrorData)
+        blur: () => blurValidate(formData, errorData, setErrorData),
       },
     });
 
@@ -141,10 +153,10 @@ export default class Signin extends Block<LoginAndSignIn> {
       className: "y-field-control",
       inputName: "login",
       inputValue: null,
-      placeholder: '',
+      placeholder: "",
       events: {
         input: (event) => inputHandler(event, "login"),
-        blur: () => blurValidate(formData, errorData, setErrorData)
+        blur: () => blurValidate(formData, errorData, setErrorData),
       },
     });
 
@@ -154,10 +166,10 @@ export default class Signin extends Block<LoginAndSignIn> {
       className: "y-field-control",
       inputName: "firstName",
       inputValue: null,
-      placeholder: '',
+      placeholder: "",
       events: {
-        input: (event) => inputHandler(event, "firstName"),
-        blur: () => blurValidate(formData, errorData, setErrorData)
+        input: (event) => inputHandler(event, "first_name"),
+        blur: () => blurValidate(formData, errorData, setErrorData),
       },
     });
 
@@ -167,10 +179,10 @@ export default class Signin extends Block<LoginAndSignIn> {
       className: "y-field-control",
       inputName: "lastName",
       inputValue: null,
-      placeholder: '',
+      placeholder: "",
       events: {
-        input: (event) => inputHandler(event, "lastName"),
-        blur: () => blurValidate(formData, errorData, setErrorData)
+        input: (event) => inputHandler(event, "second_name"),
+        blur: () => blurValidate(formData, errorData, setErrorData),
       },
     });
 
@@ -180,10 +192,10 @@ export default class Signin extends Block<LoginAndSignIn> {
       className: "y-field-control",
       inputName: "phone",
       inputValue: null,
-      placeholder: '',
+      placeholder: "",
       events: {
         input: (event) => inputHandler(event, "phone"),
-        blur: () => blurValidate(formData, errorData, setErrorData)
+        blur: () => blurValidate(formData, errorData, setErrorData),
       },
     });
 
@@ -193,10 +205,10 @@ export default class Signin extends Block<LoginAndSignIn> {
       className: "y-field-control",
       inputName: "password",
       inputValue: null,
-      placeholder: '',
+      placeholder: "",
       events: {
         input: (event) => inputHandler(event, "password"),
-        blur: () => blurValidate(formData, errorData, setErrorData)
+        blur: () => blurValidate(formData, errorData, setErrorData),
       },
     });
 
@@ -206,10 +218,10 @@ export default class Signin extends Block<LoginAndSignIn> {
       className: "y-field-control",
       inputName: "repeatPassword",
       inputValue: null,
-      placeholder: '',
+      placeholder: "",
       events: {
-        input: (event) => inputHandler(event, "repeatPassword"),
-        blur: () => blurValidate(formData, errorData, setErrorData)
+        input: (event) => inputHandler(event, "repeat_password"),
+        blur: () => blurValidate(formData, errorData, setErrorData),
       },
     });
 
@@ -271,7 +283,7 @@ export default class Signin extends Block<LoginAndSignIn> {
 
     const buttonSubmit = new Button({
       id: null,
-      className: "y-btn",
+      className: "y-btn-primary",
       typeButton: "button",
       events: {
         click: submit,
@@ -280,10 +292,9 @@ export default class Signin extends Block<LoginAndSignIn> {
     });
 
     const linkToLogin = new Link({
-      id: "goLogin",
       className: "text-link",
-      src: "/login",
-      textLink: "Войти",
+      content: "Войти",
+      to: "/",
     });
 
     this.children.form = new Form({
