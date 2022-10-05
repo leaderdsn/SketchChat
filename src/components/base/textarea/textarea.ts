@@ -1,10 +1,10 @@
 import Block from "~src/utils/block";
 import { BlockTextarea } from "~src/components/base/textarea/types";
-import { P } from "~src/types";
 
 export default class Textarea extends Block<BlockTextarea> {
   constructor(props: BlockTextarea) {
-    super(props as P);
+    console.log(props)
+    super(props as unknown as  Record<string, Block<BlockTextarea>>);
   }
 
   public setValue(value: string) {
