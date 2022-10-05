@@ -3,7 +3,7 @@ import render from "~src/utils/render";
 import { Nullable } from "~src/utils/types";
 
 interface BlockConstructable<P = any> {
-  new (props: P): Block<P>;
+  new (props: P): Block<any>;
 }
 
 export default class Route {
