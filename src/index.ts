@@ -1,15 +1,15 @@
-import "~src/styles/main.sass";
-import Router from "~src/utils/router/router";
+import { ProfilePasswordChangePage } from "~src/components/profile/passwordChange/passwordChange";
+import { ProfileChangePage } from "~src/components/profile/profileChange/profileChange";
+import { ProfileUserPage } from "~src/components/profile/profileUser/profileUser";
 import AuthController from "~src/controllers/auth";
 import ChatsController from "~src/controllers/chats";
-import { ProfileUserPage } from "./components/profile/profileUser/profileUser";
-import store from "~src/utils/store";
-import { ProfileChangePage } from "~src/components/profile/profileChange/profileChange";
-import { ProfilePasswordChangePage } from "~src/components/profile/passwordChange/passwordChange";
 import { ChatPage } from "~src/pages/chat/chat";
 import { LoginPage } from "~src/pages/login/login";
-import { SignupPage } from "~src/pages/signup/signup";
 import { ProfilePage } from "~src/pages/profile/profile";
+import { SignupPage } from "~src/pages/signup/signup";
+import Router from "~src/utils/router/router";
+import store from "~src/utils/store";
+import "~src/styles/main.sass";
 
 enum Routes {
   Index = "/",
