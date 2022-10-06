@@ -1,10 +1,12 @@
-import Block from "~src/utils/block";
-import { Contact } from "~src/components/chat/contact/contact";
-import withStore from "~src/utils/HOC/withStore";
 import { ChatsData } from "~src/api/chatsAPI";
-import { P } from "~src/types";
 import ChatsController from "~src/controllers/chats";
 import Piece from "~src/components/base/piece/piece";
+import Time from "~src/components/base/time/time";
+import { Contact } from "~src/components/chat/contact/contact";
+import UserAvatar from "~src/components/profile/userAvatar";
+import withStore from "~src/utils/HOC/withStore";
+import Block from "~src/utils/block";
+import { P } from "~src/types";
 
 class ContactsListBase extends Block {
   init() {
@@ -22,10 +24,14 @@ class ContactsListBase extends Block {
   }
 
   private createChats({ chats }: P) {
-    chats.reverse();
-    return chats.map((chat: ChatsData) => {
+    return chats.reverse().map((chat: ChatsData) => {
       return new Contact({
         ...chat,
+        avatar: new UserAvatar({src: chat.avatar}),
+        dateTime: new Time({
+          time: chat.last_message ? chat.last_message.time : null
+        }),
+        content: chat.last_message ? chat.last_message.content : null,
         events: {
           click: () => {
             ChatsController.selectChat(chat.id);

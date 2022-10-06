@@ -1,19 +1,9 @@
 import { MessageInfo } from "~src/controllers/messages";
-import { P } from "~src/types";
 import Block from "~src/utils/block";
-import getTime from "~src/utils/getTime";
 
 export default class Message extends Block<MessageInfo> {
   constructor(props: MessageInfo) {
-    super(props as P);
-  }
-
-  init() {
-    const { time } = this.props;
-    this.setProps({
-      ...this.props,
-      time: time ? getTime(time as unknown as Date) : null,
-    });
+    super(props as MessageInfo);
   }
 
   render() {

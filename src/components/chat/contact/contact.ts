@@ -1,47 +1,29 @@
-import Block from "~src/utils/block";
-import withStore from "~src/utils/HOC/withStore";
-import getTime from "~src/utils/getTime";
 import { ChatsData } from "~src/api/chatsAPI";
+import { BlockContact } from "~src/components/chat/contact/types";
+import withStore from "~src/utils/HOC/withStore";
+import Block from "~src/utils/block";
+import { P } from "~src/types";
 
-class ContactBase extends Block {
-  init() {
-    const { avatar, last_message } = this.props;
-    const url = "https://ya-praktikum.tech/api/v2/resources";
-
-    this.setProps({
-      ...this.props,
-      avatar: avatar ? url + avatar : null,
-      dateTime: last_message
-        ? getTime(last_message.time as unknown as Date)
-        : null,
-      content: last_message ? last_message.content : null,
-    });
+class ContactBase extends Block<BlockContact> {
+  constructor(props: BlockContact) {
+    super(props as BlockContact);
   }
 
   render() {
-    const { avatar, unread_count, selectedChat, id } = this.props;
+    const { unread_count, selectedChat, id } = this.props;
 
     return `
         <div class='y-contact-item
             ${id === selectedChat?.id ? " is-selected" : ""}'>
           <div class='y-contact-item__avatar'>
-            ${
-              avatar
-                ? `<img src='{{avatar}}' alt='{{title}}'>`
-                : `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-                    <rect width="256" height="256" fill="none"/>
-                    <circle cx="128" cy="96" r="64" fill="none" stroke="#999999" stroke-miterlimit="10" stroke-width="16"/>
-                    <path fill="none" stroke="#999999" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M30.989,215.99064a112.03731,112.03731,0,0,1,194.02311.002"/>
-                  </svg>
-                `
-            }
+            {{avatar}}
           </div>
           <div class='y-contact-item__data'>
             <strong class='y-contact-item__name'>{{title}}</strong>
-            <p class='y-contact-item__description'>{{description}}</p>
+            <p class='y-contact-item__description'>{{content}}</p>
           </div>
           <div class='y-contact-item__info'>
-            <span class='y-contact-item__date-time'>{{dateTime}}</span>
+            {{dateTime}}
             ${
               unread_count > 0
                 ? `<span class='y-contact-item__notification-count'>{{unread_count}}</span>`
@@ -61,4 +43,4 @@ export const withSelectedContact = withStore((state) => {
   };
 });
 
-export const Contact = withSelectedContact(ContactBase);
+export const Contact = withSelectedContact(ContactBase as P);
