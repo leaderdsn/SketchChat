@@ -45,7 +45,7 @@ class ExitChat extends Block {
 
   render() {
     return `
-    <div class='y-modal y-modal--exit-chat'>
+    <div class='y-modal'>
       <div class='y-modal__content'>
         <div class='y-modal__header'>
           {{headerText}}
@@ -53,7 +53,7 @@ class ExitChat extends Block {
         <div class='y-modal__body'>
           {{form}}
         </div>
-        <div class='y-modal__footer'>
+        <div class='y-modal__footer two-column'>
           {{content}}
         </div>
       </div>

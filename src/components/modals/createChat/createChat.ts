@@ -38,6 +38,7 @@ class CreateChat extends Block {
     const submit = async () => {
       await ChatsController.createChat(formData as ChatsData);
       clearForm();
+      this.hide();
     };
 
     const inputTitle = new Input({
@@ -92,7 +93,7 @@ class CreateChat extends Block {
 
   render() {
     return `
-    <div class='y-modal y-modal--create-chat'>
+    <div class='y-modal'>
       <div class='y-modal__content'>
         <div class='y-modal__header'>
           {{headerText}}
@@ -100,7 +101,7 @@ class CreateChat extends Block {
         <div class='y-modal__body'>
           {{form}}
         </div>
-        <div class='y-modal__footer'>
+        <div class='y-modal__footer two-column'>
           {{content}}
         </div>
       </div>

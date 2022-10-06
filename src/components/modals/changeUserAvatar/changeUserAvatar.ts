@@ -71,7 +71,7 @@ export class ChangeUserAvatar extends Block {
 
   render() {
     return `
-    <div class='y-modal y-modal--chang-user'>
+    <div class='y-modal'>
       <div class='y-modal__content'>
         <div class='y-modal__header'>
           {{headerText}}
