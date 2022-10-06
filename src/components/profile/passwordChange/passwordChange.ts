@@ -1,15 +1,16 @@
-import Block from "~src/utils/block";
+import ProfileController from "~src/controllers/profile";
 import Button from "~src/components/base/button";
+import Input from "~src/components/base/input";
 import Label from "~src/components/base/label";
+import Link from "~src/components/base/link";
+import BackIcon from "~src/components/icons/back";
+import Piece from "~src/components/base/piece";
 import UserAvatar from "~src/components/profile/userAvatar";
 import { PasswordChangeFormData } from "~src/components/profile/passwordChange/types";
-import Input from "~src/components/base/input";
-import { blurValidate } from "~src/utils/validate";
-import Piece from "~src/components/base/piece";
 import Profile, { withProfile } from "~src/pages/profile/profile";
-import Link from "~src/components/base/link";
+import Block from "~src/utils/block";
+import { blurValidate } from "~src/utils/validate";
 import { P } from "~src/types";
-import ProfileController from "~src/controllers/profile";
 
 export class ProfilePasswordChangePage extends Profile {
   constructor() {
@@ -182,11 +183,7 @@ class ProfilePasswordChangeBase extends Block {
       id: null,
       className: "y-btn-back",
       typeButton: "button",
-      text: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="14" cy="14" r="14" transform="rotate(-180 14 14)" fill="#3369F3"/>
-        <rect x="20" y="14.8" width="11" height="1.6" transform="rotate(-180 20 14.8)" fill="white"/>
-        <path d="M13 19L9 14L13 9" stroke="white" stroke-width="1.6"/>
-      </svg>`,
+      text: BackIcon,
     });
 
     const linkBack = new Link({
