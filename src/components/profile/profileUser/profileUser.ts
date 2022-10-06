@@ -1,12 +1,12 @@
-import Block from "~src/utils/block";
+import Button from "~src/components/base/button";
 import Piece from "~src/components/base/piece";
 import Label from "~src/components/base/label";
-import UserAvatar from "~src/components/profile/userAvatar";
 import Link from "~src/components/base/link";
-import Button from "~src/components/base/button";
-import Profile, { withProfile } from "~src/pages/profile/profile";
-import { P } from "~src/types";
+import UserAvatar from "~src/components/profile/userAvatar";
 import ExitChat from "~src/components/modals/exitChat";
+import Profile, { withProfile } from "~src/pages/profile/profile";
+import Block from "~src/utils/block";
+import { P } from "~src/types";
 
 export class ProfileUserPage extends Profile {
   constructor() {

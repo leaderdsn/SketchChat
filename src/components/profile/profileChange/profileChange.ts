@@ -1,17 +1,18 @@
-import Block from "~src/utils/block";
-import Button from "~src/components/base/button";
-import Label from "~src/components/base/label";
-import UserAvatar from "~src/components/profile/userAvatar";
-import Input from "~src/components/base/input";
-import { blurValidate } from "~src/utils/validate";
-import Piece from "~src/components/base/piece";
-import { ProfileChangeFormData } from "~src/components/profile/profileChange/types";
-import Profile, { withProfile } from "~src/pages/profile/profile";
-import Link from "~src/components/base/link";
-import ChangeUserAvatar from "~src/components/modals/changeUserAvatar";
-import { P } from "~src/types";
 import { ProfileData } from "~src/api/profileAPI";
 import ProfileController from "~src/controllers/profile";
+import Button from "~src/components/base/button";
+import Input from "~src/components/base/input";
+import Piece from "~src/components/base/piece";
+import Label from "~src/components/base/label";
+import Link from "~src/components/base/link";
+import BackIcon from "~src/components/icons/back";
+import { ProfileChangeFormData } from "~src/components/profile/profileChange/types";
+import UserAvatar from "~src/components/profile/userAvatar";
+import ChangeUserAvatar from "~src/components/modals/changeUserAvatar";
+import Profile, { withProfile } from "~src/pages/profile/profile";
+import Block from "~src/utils/block";
+import { blurValidate } from "~src/utils/validate";
+import { P } from "~src/types";
 
 export class ProfileChangePage extends Profile {
   constructor() {
@@ -258,11 +259,7 @@ class ProfileChangeBase extends Block {
       id: null,
       className: "y-btn-back",
       typeButton: "button",
-      text: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="14" cy="14" r="14" transform="rotate(-180 14 14)" fill="#3369F3"/>
-      <rect x="20" y="14.8" width="11" height="1.6" transform="rotate(-180 20 14.8)" fill="white"/>
-      <path d="M13 19L9 14L13 9" stroke="white" stroke-width="1.6"/>
-      </svg>`,
+      text: BackIcon,
     });
 
     const linkBack = new Link({
