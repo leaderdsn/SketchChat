@@ -1,10 +1,9 @@
-import { P } from "~src/types";
-import Block from "~src/utils/block";
-import { BlockProfile } from "~src/pages/profile/types";
-import withStore from "~src/utils/HOC/withStore";
-import MainLayout from "~src/layouts/mainLayout/mainLayout";
 import ExitChat from "~src/components/modals/exitChat/exitChat";
 import ChangeUserAvatar from "~src/components/modals/changeUserAvatar";
+import MainLayout from "~src/layouts/mainLayout/mainLayout";
+import { BlockProfile } from "~src/pages/profile/types";
+import Block from "~src/utils/block";
+import withStore from "~src/utils/HOC/withStore";
 
 export class ProfilePage extends MainLayout {
   constructor() {
@@ -15,7 +14,7 @@ export class ProfilePage extends MainLayout {
 }
 export default class Profile extends Block {
   constructor(props: BlockProfile) {
-    super(props as P);
+    super(props as BlockProfile);
   }
 
   init() {

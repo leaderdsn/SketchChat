@@ -1,17 +1,16 @@
+import { SigninData } from "~src/api/authAPI";
+import AuthController from "~src/controllers/auth";
+import Button from "~src/components/base/button/button";
 import Input from "~src/components/base/input";
+import Form from "~src/components/base/form";
+import Piece from "~src/components/base/piece";
 import Label from "~src/components/base/label";
 import Link from "~src/components/base/link";
-import Form from "~src/components/base/form";
-import Button from "~src/components/base/button/button";
-import { LoginAndSignup } from "~src/types";
-import { P } from "~src/types";
-import { blurValidate } from "~src/utils/validate";
-import Piece from "~src/components/base/piece";
-import { FormData } from "~src/pages/types";
-import AuthController from "~src/controllers/auth";
-import { SigninData } from "~src/api/authAPI";
-import Block from "~src/utils/block";
 import GuestLayout from "~src/layouts/guestLayout/guestLayout";
+import { FormData } from "~src/pages/types";
+import Block from "~src/utils/block";
+import { blurValidate } from "~src/utils/validate";
+import { LoginAndSignup } from "~src/types";
 
 export class LoginPage extends GuestLayout {
   constructor() {
@@ -22,7 +21,7 @@ export class LoginPage extends GuestLayout {
 }
 export default class Login extends Block {
   constructor(props: LoginAndSignup) {
-    super(props as P);
+    super(props as LoginAndSignup);
   }
 
   init() {
@@ -31,7 +30,7 @@ export default class Login extends Block {
       password: null,
     };
 
-    const errorData: any = {
+    const errorData: FormData = {
       login: null,
       password: null,
     };
