@@ -1,12 +1,11 @@
-import { P } from "~src/types";
-import Block from "~src/utils/block";
-import { BlockHeaderPanel } from "~src/components/chat/headerPanel/types";
 import Button from "~src/components/base/button";
+import { BlockHeaderPanel } from "~src/components/chat/headerPanel/types";
 import ExitChat from "~src/components/modals/exitChat/exitChat";
+import Block from "~src/utils/block";
 
 export default class HeaderPanel extends Block<BlockHeaderPanel> {
   constructor(props: BlockHeaderPanel) {
-    super(props as P);
+    super(props as BlockHeaderPanel);
   }
 
   init() {

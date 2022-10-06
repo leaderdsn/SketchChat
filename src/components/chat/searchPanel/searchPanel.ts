@@ -1,14 +1,12 @@
-import Block from "~src/utils/block";
-import { P } from "~src/types";
 import Input from "~src/components/base/input";
 import Link from "~src/components/base/link";
-import { BlockSearchPanel } from "~src/components/chat/searchPanel/types";
 import Button from "~src/components/base/button";
+import { BlockSearchPanel } from "~src/components/chat/searchPanel/types";
 import CreateChat from "~src/components/modals/createChat";
-
+import Block from "~src/utils/block";
 export default class SearchPanel extends Block<BlockSearchPanel> {
   constructor(props: BlockSearchPanel) {
-    super(props as P);
+    super(props as BlockSearchPanel);
   }
 
   init() {
