@@ -1,9 +1,9 @@
-import store from "~src/utils/store";
 import API, {
   ProfileAPI,
   ProfileData,
   PasswordData,
 } from "~src/api/profileAPI";
+import store from "~src/utils/store";
 
 class ProfileController {
   private readonly api: ProfileAPI;

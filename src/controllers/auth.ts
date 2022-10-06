@@ -1,7 +1,7 @@
 import API, { AuthAPI, SigninData, SignupData } from "~src/api/authAPI";
+import MessagesController from "~src/controllers/messages";
 import store from "~src/utils/store";
 import Router from "~src/utils/router/router";
-import MessagesController from "~src/controllers/messages";
 
 class AuthController {
   private readonly api: AuthAPI;

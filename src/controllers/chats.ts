@@ -1,6 +1,6 @@
 import API, { ChatsAPI, ChatsData, ChatDelete } from "~src/api/chatsAPI";
-import store from "~src/utils/store";
 import MessagesController from "~src/controllers/messages";
+import store from "~src/utils/store";
 
 class ChatsController {
   private readonly api: ChatsAPI;

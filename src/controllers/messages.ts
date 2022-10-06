@@ -1,10 +1,11 @@
+import Time from "~src/components/base/time/time";
 import store from "~src/utils/store";
 import { Nullable } from "~src/utils/types";
 import WSTransport, { WSTransportEvents } from "~src/utils/WSTransport";
 
 export interface MessageInfo {
   chat_id: number;
-  time: Nullable<string>;
+  time: Nullable<Time>;
   type: string;
   user_id: number;
   content: string;
