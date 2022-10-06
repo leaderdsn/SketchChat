@@ -1,12 +1,12 @@
-import { LoginAndSignup, P } from "~src/types";
-import Block from "~src/utils/block";
+import auth from "~src/controllers/auth";
 import Button from "~src/components/base/button";
 import Piece from "~src/components/base/piece";
-import auth from "~src/controllers/auth";
+import Block from "~src/utils/block";
+import { LoginAndSignup } from "~src/types";
 
 class ExitChat extends Block {
   constructor(props: LoginAndSignup) {
-    super(props as P);
+    super(props as LoginAndSignup);
   }
 
   init() {
@@ -45,15 +45,15 @@ class ExitChat extends Block {
 
   render() {
     return `
-    <div class='y-exit-chat-modal'>
-      <div class='y-create-chat-modal__content'>
-        <div class='y-create-chat-modal__header'>
+    <div class='y-modal y-modal--exit-chat'>
+      <div class='y-modal__content'>
+        <div class='y-modal__header'>
           {{headerText}}
         </div>
-        <div class='y-create-chat-modal__body'>
+        <div class='y-modal__body'>
           {{form}}
         </div>
-        <div class='y-create-chat-modal__footer'>
+        <div class='y-modal__footer'>
           {{content}}
         </div>
       </div>

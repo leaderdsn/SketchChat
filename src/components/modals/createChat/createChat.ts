@@ -1,15 +1,15 @@
 import { ChatsData, FormChatsData } from "~src/api/chatsAPI";
-import Input from "~src/components/base/input";
-import { LoginAndSignup, P } from "~src/types";
-import Block from "~src/utils/block";
 import ChatsController from "~src/controllers/chats";
-import Label from "~src/components/base/label";
 import Button from "~src/components/base/button";
+import Input from "~src/components/base/input";
 import Form from "~src/components/base/form";
+import Label from "~src/components/base/label";
+import Block from "~src/utils/block";
+import { LoginAndSignup } from "~src/types";
 
 class CreateChat extends Block {
   constructor(props: LoginAndSignup) {
-    super(props as P);
+    super(props as LoginAndSignup);
   }
 
   init() {
@@ -92,15 +92,15 @@ class CreateChat extends Block {
 
   render() {
     return `
-    <div class='y-create-chat-modal'>
-      <div class='y-create-chat-modal__content'>
-        <div class='y-create-chat-modal__header'>
+    <div class='y-modal y-modal--create-chat'>
+      <div class='y-modal__content'>
+        <div class='y-modal__header'>
           {{headerText}}
         </div>
-        <div class='y-create-chat-modal__body'>
+        <div class='y-modal__body'>
           {{form}}
         </div>
-        <div class='y-create-chat-modal__footer'>
+        <div class='y-modal__footer'>
           {{content}}
         </div>
       </div>

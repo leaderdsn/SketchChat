@@ -1,17 +1,17 @@
-import Input from "~src/components/base/input";
-import { LoginAndSignup, P } from "~src/types";
-import Block from "~src/utils/block";
+import { ProfileData } from "~src/api/profileAPI";
 import ProfileController from "~src/controllers/profile";
+import Input from "~src/components/base/input";
 import Button from "~src/components/base/button";
 import Form from "~src/components/base/form";
-import { Nullable } from "~src/utils/types";
+import { TargetFiles } from "~src/components/modals/changeUserAvatar/types";
+import Block from "~src/utils/block";
 import store from "~src/utils/store";
-import { ProfileData } from "~src/api/profileAPI";
-type TargetFiles<T> = { files: T };
+import { Nullable } from "~src/utils/types";
+import { LoginAndSignup } from "~src/types";
 
 export class ChangeUserAvatar extends Block {
   constructor(props: LoginAndSignup) {
-    super(props as P);
+    super(props as LoginAndSignup);
   }
 
   init() {
@@ -71,15 +71,15 @@ export class ChangeUserAvatar extends Block {
 
   render() {
     return `
-    <div class='y-change-user-avatar-modal'>
-      <div class='y-change-user-avatar-modal__content'>
-        <div class='y-change-user-avatar-modal__header'>
+    <div class='y-modal y-modal--chang-user'>
+      <div class='y-modal__content'>
+        <div class='y-modal__header'>
           {{headerText}}
         </div>
-        <div class='y-change-user-avatar-modal__body'>
+        <div class='y-modal__body'>
           {{form}}
         </div>
-        <div class='y-change-user-avatar-modal__footer'>
+        <div class='y-modal__footer'>
           {{content}}
         </div>
       </div>
