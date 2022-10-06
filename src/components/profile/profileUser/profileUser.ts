@@ -7,6 +7,7 @@ import ExitChat from "~src/components/modals/exitChat";
 import Profile, { withProfile } from "~src/pages/profile/profile";
 import Block from "~src/utils/block";
 import { P } from "~src/types";
+import BackIcon from "~src/components/icons/back";
 
 export class ProfileUserPage extends Profile {
   constructor() {
@@ -109,11 +110,7 @@ class ProfileUserBase extends Block {
       id: null,
       className: "y-btn-back",
       typeButton: "button",
-      text: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="14" cy="14" r="14" transform="rotate(-180 14 14)" fill="#3369F3"/>
-      <rect x="20" y="14.8" width="11" height="1.6" transform="rotate(-180 20 14.8)" fill="white"/>
-      <path d="M13 19L9 14L13 9" stroke="white" stroke-width="1.6"/>
-      </svg>`,
+      text: BackIcon,
     });
 
     const buttonChangeData = new Button({
