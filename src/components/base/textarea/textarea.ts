@@ -1,9 +1,8 @@
-import Block from "~src/utils/block";
 import { BlockTextarea } from "~src/components/base/textarea/types";
+import Block from "~src/utils/block";
 
 export default class Textarea extends Block<BlockTextarea> {
   constructor(props: BlockTextarea) {
-    console.log(props)
     super(props as BlockTextarea);
   }
 

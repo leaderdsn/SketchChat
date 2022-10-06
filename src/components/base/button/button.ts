@@ -1,10 +1,9 @@
-import { P } from "~src/types";
-import Block from "~src/utils/block";
 import { BlockButton } from "~src/components/base/button/types";
+import Block from "~src/utils/block";
 
 export default class Button extends Block<BlockButton> {
   constructor(props: BlockButton) {
-    super(props as P);
+    super(props as BlockButton);
   }
 
   render() {

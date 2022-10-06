@@ -1,5 +1,5 @@
-import Block from "~src/utils/block";
 import { BlockBaseLink } from "~src/components/base/link/types";
+import Block from "~src/utils/block";
 import { withRouter } from "~src/utils/HOC/withRouter";
 
 class BaseLink extends Block<BlockBaseLink> {
@@ -9,7 +9,7 @@ class BaseLink extends Block<BlockBaseLink> {
       events: {
         click: () => this.navigate()
       },
-    });
+    } as BlockBaseLink);
   }
 
   navigate() {
