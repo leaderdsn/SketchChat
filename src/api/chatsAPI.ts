@@ -1,17 +1,19 @@
-import { Nullable } from "~src/utils/types";
 import { User } from "~src/api/authAPI";
+import Time from "~src/components/base/time/time";
 import HTTPTransport from "~src/utils/HTTPTransport";
+import { Nullable } from "~src/utils/types";
 
+export interface ChatsMessage {
+  user: User;
+  time: Nullable<Time>;
+  content: string;
+}
 export interface ChatsData {
   id: number;
   title: Nullable<string>;
   avatar?: Nullable<string>;
   unread_count?: Nullable<number>;
-  last_message?: {
-    user: User;
-    time: string;
-    content: string;
-  };
+  last_message?: ChatsMessage;
 }
 
 export interface FormChatsData {
