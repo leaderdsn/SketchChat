@@ -1,7 +1,7 @@
-import store, { StoreEvents } from "~src/utils/store";
 import Block from "~src/utils/block";
-import { P } from "~src/types";
 import isEqual from "~src/utils/myLodash/isEqual";
+import store, { StoreEvents } from "~src/utils/store";
+import { P } from "~src/types";
 
 export default function withStore(mapStateToProps: (state: any) => any) {
 

@@ -1,5 +1,5 @@
-import { Nullable } from "~src/utils/types";
 import queryStringify from "~src/utils/myLodash/queryStringify";
+import { Nullable } from "~src/utils/types";
 
 export type Options = {
   method: METHODS;

@@ -1,6 +1,6 @@
-import { Nullable } from "~src/utils/types";
 import merge from "~src/utils/myLodash/merge";
 import { Indexed } from '~src/utils/myLodash/types';
+import { Nullable } from "~src/utils/types";
 
 function set(object: Nullable<Indexed>, paths: string, value: unknown): Indexed | unknown {
 

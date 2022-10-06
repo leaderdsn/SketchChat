@@ -1,7 +1,7 @@
-import EventBus from "~src/utils/eventBus";
 import constructor from "~src/modules/constructor";
-import { Nullable, Values } from "./types";
+import EventBus from "~src/utils/eventBus";
 import idGenerator from "~src/utils/myLodash/idGenerator";
+import { Nullable, Values } from "~src/utils/types";
 
 type TEvents = Values<typeof Block.EVENTS>;
 

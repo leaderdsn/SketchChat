@@ -1,6 +1,6 @@
 import Block from "~src/utils/block";
-import { Nullable } from "~src/utils/types";
 import Route from "~src/utils/router/route"
+import { Nullable } from "~src/utils/types";
 
 class Router {
   private static __instance: Router;
