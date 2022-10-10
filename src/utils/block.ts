@@ -89,7 +89,7 @@ export default class Block<P extends Record<string, any> = any> {
     }
   }
 
-  public componentDidMount(oldProps: P) {}
+  public componentDidMount(_oldProps: P) {}
 
   public dispatchComponentDidMount() {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
@@ -102,7 +102,7 @@ export default class Block<P extends Record<string, any> = any> {
     }
   }
 
-  protected componentDidUpdate(oldProps: P, newProps: P) {
+  protected componentDidUpdate(_oldProps: P, _newProps: P) {
     return true;
   }
 
