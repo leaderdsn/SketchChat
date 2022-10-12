@@ -14,7 +14,7 @@ const config: Configuration & Record<string, any> = {
   },
   target: ['web', 'es2015'],
   resolve: {
-    extensions: ['.ts', '.js', '.json'],
+    extensions: ['.ts'],
     alias: {
       '~src': path.resolve(__dirname, './src'),
     },
@@ -27,6 +27,7 @@ const config: Configuration & Record<string, any> = {
     compress: true,
     port: 3000,
     hot: false,
+    historyApiFallback: true,
   },
   module: {
     rules: [
@@ -35,13 +36,18 @@ const config: Configuration & Record<string, any> = {
         loader: 'ts-loader'
       },
       {
-        test: /\.(sa|sc|c)ss$/i,
+        test: /\.s[ac]ss$/i,
         use: [
           { 
             loader: MiniCssExtractPlugin.loader,
             options: {},
           },
-          'css-loader',
+          {
+            loader: "css-loader",
+            options: {
+              url: false,
+            },
+          },
           'sass-loader',
         ],
       },
@@ -52,9 +58,9 @@ const config: Configuration & Record<string, any> = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: '**/*',
-          context: path.resolve(__dirname, 'assets'),
-          to: './assets',
+          from: path.resolve(__dirname, './src/assets/fonts'),
+          to: path.resolve(__dirname, './dist'),
+          noErrorOnMissing: true,
         },
       ],
     }),
