@@ -1,8 +1,9 @@
-import merge from "~src/utils/myLodash/merge";
+import merge from "./merge";
+//import merge from "~src/utils/myLodash/merge";
 import { Indexed } from '~src/utils/myLodash/types';
 import { Nullable } from "~src/utils/types";
 
-function set(object: Nullable<Indexed>, paths: string, value: unknown): Indexed | unknown {
+function set(object: Nullable<Indexed> | unknown, paths: string, value: unknown): Indexed | unknown {
 
   if (typeof object !== 'object' || object === null) {
     return object
