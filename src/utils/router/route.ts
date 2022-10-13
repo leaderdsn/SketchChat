@@ -1,8 +1,10 @@
-import Block from "~src/utils/block";
-import render from "~src/utils/render";
+import Block from "../block";
+import render from "../render";
+// import Block from "~src/utils/block";
+// import render from "~src/utils/render";
 import { Nullable } from "~src/utils/types";
 
-interface BlockConstructable<P = any> {
+export interface BlockConstructable<P = any> {
   new (props: P): Block<any>;
 }
 
