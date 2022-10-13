@@ -5,15 +5,21 @@
   "compilerOptions": {
     "target": "es5",                               
     "lib": [
-      "es2017",
+      "esnext",
       "DOM"
       ],                                        
-    "experimentalDecorators": true,                  
-    "module": "commonjs",                               
+    "experimentalDecorators": true,  
+    "emitDecoratorMetadata": true,                
+    "module": "commonjs",
+    "moduleResolution": "node",                             
     "baseUrl": ".",                                  
     "paths": {
       "~src/*": ["src/*"],
-    },          
+    }, 
+    "typeRoots": [
+      "node_modules/@types",
+      "typings/index.d.ts"
+    ],          
     "sourceMap": true,                                
     "esModuleInterop": true,                             
     "forceConsistentCasingInFileNames": true,           
@@ -23,5 +29,7 @@
     "noUnusedLocals": true,                           
     "noUnusedParameters": true,                                     
     "skipLibCheck": true                                
-  }
+  },
+  "include": ["src/**/*", "/webpack.config.ts"],
+  "exclude": ["node_modules", "src/**/*.spec.ts"]
 }
