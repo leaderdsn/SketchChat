@@ -1,6 +1,9 @@
-import constructor from "~src/modules/constructor";
-import EventBus from "~src/utils/eventBus";
-import idGenerator from "~src/utils/myLodash/idGenerator";
+import constructor from "../modules/constructor";
+//import constructor from "~src/modules/constructor";
+import EventBus from "../utils/eventBus";
+//import EventBus from "~src/utils/eventBus";
+import idGenerator from "../utils/myLodash/idGenerator";
+//import idGenerator from "~src/utils/myLodash/idGenerator";
 import { Nullable, Values } from "~src/utils/types";
 
 type TEvents = Values<typeof Block.EVENTS>;
@@ -89,7 +92,7 @@ export default class Block<P extends Record<string, any> = any> {
     }
   }
 
-  public componentDidMount(oldProps: P) {}
+  public componentDidMount(_oldProps: P) {}
 
   public dispatchComponentDidMount() {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
@@ -102,7 +105,7 @@ export default class Block<P extends Record<string, any> = any> {
     }
   }
 
-  protected componentDidUpdate(oldProps: P, newProps: P) {
+  protected componentDidUpdate(_oldProps: P, _newProps: P) {
     return true;
   }
 
