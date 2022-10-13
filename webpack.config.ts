@@ -9,20 +9,17 @@ const config: Configuration & Record<string, any> = {
   mode: 'development',
   entry: './src/index.ts',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, './dist'),
     filename: 'bundle-[hash].js'
   },
   target: ['web', 'es2015'],
   resolve: {
-    extensions: ['.ts'],
+    extensions: ['.tsx','.ts','.js'],
     alias: {
       '~src': path.resolve(__dirname, './src'),
     },
   },
   devServer: {
-    static: {
-      directory: path.resolve(__dirname, 'public'),
-    },
     liveReload: true,
     compress: true,
     port: 3000,
@@ -58,8 +55,9 @@ const config: Configuration & Record<string, any> = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, './src/assets/fonts'),
-          to: path.resolve(__dirname, './dist'),
+          from: '**/*',
+          context: path.resolve(__dirname, 'src', 'assets'),
+          to: './assets',
           noErrorOnMissing: true,
         },
       ],
