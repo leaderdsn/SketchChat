@@ -1,5 +1,6 @@
 import { BlockInput } from "~src/components/base/input/types";
-import Block from "~src/utils/block";
+//import Block from "~src/utils/block";
+import Block from "../../../utils/block";
 
 export default class Input extends Block<BlockInput> {
   constructor(props: BlockInput) {
