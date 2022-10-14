@@ -1,7 +1,5 @@
-import Block from "../block";
-import Route from "./route"
-// import Block from "~src/utils/block";
-// import Route from "~src/utils/router/route"
+import Block from "~src/utils/block";
+import Route from "~src/utils/router/route"
 import { Nullable } from "~src/utils/types";
 
 class Router {

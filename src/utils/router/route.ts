@@ -1,7 +1,5 @@
-import Block from "../block";
-import render from "../render";
-// import Block from "~src/utils/block";
-// import render from "~src/utils/render";
+import Block from "~src/utils/block";
+import render from "~src/utils/render";
 import { Nullable } from "~src/utils/types";
 
 export interface BlockConstructable<P = any> {

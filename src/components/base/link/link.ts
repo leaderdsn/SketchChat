@@ -1,9 +1,6 @@
 import { BlockBaseLink } from "~src/components/base/link/types";
-// import Block from "~src/utils/block";
-import Block from "../../../utils/block";
-
-import { withRouter } from "../../../utils/HOC/withRouter";
-//import { withRouter } from "~src/utils/HOC/withRouter";
+import Block from "~src/utils/block";
+import { withRouter } from "~src/utils/HOC/withRouter";
 
 class BaseLink extends Block<BlockBaseLink> {
   constructor(props: BlockBaseLink) {

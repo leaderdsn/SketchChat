@@ -1,5 +1,4 @@
-import Templator from "./templator";
-//import Templator from "~src/modules/templator";
+import Templator from "~src/modules/templator";
 
 
 function constructor(context: string, template: string) {
