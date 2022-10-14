@@ -1,25 +1,46 @@
+import { ChatsData } from "~src/api/chatsAPI";
+import { BlockContact } from "~src/components/chat/contact/types";
+import withStore from "~src/utils/HOC/withStore";
 import Block from "~src/utils/block";
 import { P } from "~src/types";
-import { BlockContact } from "~src/components/chat/contact/types";
 
-export default class Contact extends Block<BlockContact> {
+class ContactBase extends Block<BlockContact> {
   constructor(props: BlockContact) {
-    super(props as P);
+    super(props as BlockContact);
   }
 
   render() {
+    const { unread_count, selectedChat, id } = this.props;
+
     return `
-    <div class='y-contact-item'>
-    <div class='y-contact-item__avatar'></div>
-    <div class='y-contact-item__data'>
-      <strong class='y-contact-item__name'>{{nameContact}}</strong>
-      <p class='y-contact-item__description'>{{descriptionContact}}</p>
-    </div>
-    <div class='y-contact-item__info'>
-      <span class='y-contact-item__date-time'>{{dateTime}}</span>
-      <span class='y-contact-item__notification-count'>{{notificationCount}}</span>
-    </div>
-  </div>
-    `;
+        <div class='y-contact-item
+            ${id === selectedChat?.id ? " is-selected" : ""}'>
+          <div class='y-contact-item__avatar'>
+            {{avatar}}
+          </div>
+          <div class='y-contact-item__data'>
+            <strong class='y-contact-item__name'>{{title}}</strong>
+            <p class='y-contact-item__description'>{{content}}</p>
+          </div>
+          <div class='y-contact-item__info'>
+            {{dateTime}}
+            ${
+              unread_count > 0
+                ? `<span class='y-contact-item__notification-count'>{{unread_count}}</span>`
+                : ""
+            }
+          </div>
+        </div>
+        `;
   }
 }
+
+export const withSelectedContact = withStore((state) => {
+  return {
+    selectedChat: (state.chats || []).find(({ id }: ChatsData) => {
+      return id === state.selectedChat;
+    }),
+  };
+});
+
+export const Contact = withSelectedContact(ContactBase as P);

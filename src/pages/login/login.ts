@@ -1,18 +1,27 @@
+import { SigninData } from "~src/api/authAPI";
+import AuthController from "~src/controllers/auth";
+import Button from "~src/components/base/button/button";
 import Input from "~src/components/base/input";
+import Form from "~src/components/base/form";
+import Piece from "~src/components/base/piece";
 import Label from "~src/components/base/label";
 import Link from "~src/components/base/link";
-import Form from "~src/components/base/form";
-import Block from "~src/utils/block";
-import Button from "~src/components/base/button/button";
-import { LoginAndSignIn } from "~src/types";
-import { P } from "~src/types";
-import { blurValidate } from "~src/utils/validate";
-import Piece from "~src/components/base/piece";
+import GuestLayout from "~src/layouts/guestLayout/guestLayout";
 import { FormData } from "~src/pages/types";
+import Block from "~src/utils/block";
+import { blurValidate } from "~src/utils/validate";
+import { LoginAndSignup } from "~src/types";
 
-export default class Login extends Block<LoginAndSignIn> {
-  constructor(props: LoginAndSignIn) {
-    super(props as P);
+export class LoginPage extends GuestLayout {
+  constructor() {
+    super({
+      content: new Login({}),
+    });
+  }
+}
+export default class Login extends Block {
+  constructor(props: LoginAndSignup) {
+    super(props as LoginAndSignup);
   }
 
   init() {
@@ -21,7 +30,7 @@ export default class Login extends Block<LoginAndSignIn> {
       password: null,
     };
 
-    const errorData: any = {
+    const errorData: FormData = {
       login: null,
       password: null,
     };
@@ -42,14 +51,15 @@ export default class Login extends Block<LoginAndSignIn> {
       });
     };
 
-    const submit = () => {
+    const submit = async () => {
+      blurValidate(formData, errorData, setErrorData);
+
       const isValid: Boolean = Object.entries(errorData).every(
         ([_, value]) => value === null
       );
 
       if (isValid) {
-        alert("Пользователь успешно авторизован!");
-        document.location.pathname = "/chat";
+        await AuthController.signin(formData as SigninData);
       } else {
         alert("Проверьте правильность логина и пароля!");
       }
@@ -77,7 +87,7 @@ export default class Login extends Block<LoginAndSignIn> {
         input: (event) => inputHandler(event, "login"),
         blur: () => blurValidate(formData, errorData, setErrorData),
       },
-      inputValue: null
+      inputValue: null,
     });
 
     const inputPassword = new Input({
@@ -90,7 +100,7 @@ export default class Login extends Block<LoginAndSignIn> {
         input: (event) => inputHandler(event, "password"),
         blur: () => blurValidate(formData, errorData, setErrorData),
       },
-      inputValue: null
+      inputValue: null,
     });
 
     const labelLogin = new Label({
@@ -111,7 +121,7 @@ export default class Login extends Block<LoginAndSignIn> {
 
     const buttonSign = new Button({
       id: null,
-      className: "y-btn",
+      className: "y-btn-primary",
       typeButton: "button",
       events: {
         click: submit,
@@ -120,10 +130,9 @@ export default class Login extends Block<LoginAndSignIn> {
     });
 
     const linkSignIn = new Link({
-      id: "goSignin",
       className: "text-link",
-      src: "/signin",
-      textLink: "Нет аккаунта?",
+      content: "Нет аккаунта?",
+      to: "/signup",
     });
 
     this.children.form = new Form({

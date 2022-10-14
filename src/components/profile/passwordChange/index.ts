@@ -1,3 +1,3 @@
-import PasswordChange from "src/components/profile/passwordChange/passwordChange";
+import { ProfilePasswordChange } from "src/components/profile/passwordChange/passwordChange";
 
-export default PasswordChange;
+export default ProfilePasswordChange;

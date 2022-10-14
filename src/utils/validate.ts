@@ -1,5 +1,6 @@
+import { PasswordChangeFormData } from "~src/components/profile/passwordChange/types";
+import { ProfileChangeFormData } from "~src/components/profile/profileChange/types";
 import { FormData } from "~src/pages/types";
-import { Nullable } from "./types";
 
 type Value = string | undefined | null;
 
@@ -48,7 +49,7 @@ const validate = (value: Value, type: string) => {
       if (!isValidPassword(value as string)) {
         return "Пароль должен содержать от 6 до 20 символов, латинские буквы верхнего и нижнего регистра";
       } else return null;
-    case "repeatPassword":
+    case "repeat_password":
       if (!isValidRepeatPassword(value as string)) {
         return "Пароли не совпадают";
       } else return null;
@@ -67,7 +68,9 @@ const validate = (value: Value, type: string) => {
   }
 };
 
-export const blurValidate = (form: FormData, error: FormData, callback: () => void) => {
+type Form = FormData | ProfileChangeFormData | PasswordChangeFormData;
+
+export const blurValidate = (form: Form, error: Form, callback: () => void) => {
   Object.entries(form).forEach(([key, value]) => {
     error[key as unknown as number] = validate(value, key);
   });

@@ -1,10 +1,9 @@
-import Block from "~src/utils/block";
 import { BlockLabel } from "~src/components/base/label/types";
-import { P } from "~src/types";
+import Block from "~src/utils/block";
 
 export default class Label extends Block<BlockLabel> {
   constructor(props: BlockLabel) {
-    super(props as P);
+    super(props as BlockLabel);
   }
 
   render() {

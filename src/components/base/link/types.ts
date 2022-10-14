@@ -1,8 +1,11 @@
+import { PropsWithRouter } from "~src/utils/HOC/withRouter";
 import { Nullable } from "~src/utils/types";
 
-export type BlockLink = {
-  id: Nullable<number | string>;
+export interface BlockBaseLink extends PropsWithRouter {
   className: Nullable<string>;
-  src: Nullable<string>;
-  textLink: Nullable<string>;
+  content: Nullable<string>;
+  to: string;
+  events?: {
+    click: () => void;
+  }
 };

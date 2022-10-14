@@ -1,40 +1,54 @@
-import { P } from "~src/types";
-import Block from "~src/utils/block";
+import { ProfileData } from "~src/api/profileAPI";
+import ProfileController from "~src/controllers/profile";
 import Button from "~src/components/base/button";
-import Label from "~src/components/base/label";
-import UserAvatar from "~src/components/profile/userAvatar";
 import Input from "~src/components/base/input";
-import validate from "~src/utils/validate";
 import Piece from "~src/components/base/piece";
-import { BlockProfileChange } from "~src/components/profile/types";
+import Label from "~src/components/base/label";
+import Link from "~src/components/base/link";
+import BackIcon from "~src/components/icons/back";
 import { ProfileChangeFormData } from "~src/components/profile/profileChange/types";
+import UserAvatar from "~src/components/profile/userAvatar";
+import ChangeUserAvatar from "~src/components/modals/changeUserAvatar";
+import Profile, { withProfile } from "~src/pages/profile/profile";
+import Block from "~src/utils/block";
+import { blurValidate } from "~src/utils/validate";
+import { P } from "~src/types";
 
-export default class ProfileChange extends Block<BlockProfileChange> {
-  constructor(props: BlockProfileChange) {
-    super(props as P);
+export class ProfileChangePage extends Profile {
+  constructor() {
+    super({
+      profile: new ProfileChange({}),
+    });
+  }
+}
+
+class ProfileChangeBase extends Block {
+  protected init() {
+    this.children = this.createProfileChange(this.props);
   }
 
-  init() {
+  protected componentDidUpdate(_: P, user: P) {
+    this.children = this.createProfileChange(user);
+    return true;
+  }
+
+  private createProfileChange(user: P) {
     const formData: ProfileChangeFormData = {
-      email: "pochta@yandex.ru",
-      login: "ivanivanov",
-      firstName: "Иван",
-      lastName: "Иванов",
-      chatName: "Иван",
-      phone: "+7(909)967-30-30",
+      email: user.email,
+      login: user.login,
+      first_name: user.first_name,
+      second_name: user.second_name,
+      display_name: user.display_name,
+      phone: user.phone,
     };
 
     const errorData: ProfileChangeFormData = {
       email: null,
       login: null,
-      firstName: null,
-      lastName: null,
-      chatName: null,
+      first_name: null,
+      second_name: null,
+      display_name: null,
       phone: null,
-    };
-
-    const backHandler = () => {
-      document.location.pathname = "/profile/profile-user";
     };
 
     const setErrorData = () => {
@@ -47,11 +61,15 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       });
 
       errorFirstName.setProps({
-        content: errorData.firstName,
+        content: errorData.first_name,
       });
 
       errorLastName.setProps({
-        content: errorData.lastName,
+        content: errorData.second_name,
+      });
+
+      errorDisplayName.setProps({
+        content: errorData.display_name,
       });
 
       errorPhone.setProps({
@@ -71,17 +89,17 @@ export default class ProfileChange extends Block<BlockProfileChange> {
 
     const errorFirstName = new Piece({
       className: "y-field-error",
-      content: errorData.firstName,
+      content: errorData.first_name,
     });
 
     const errorLastName = new Piece({
       className: "y-field-error",
-      content: errorData.lastName,
+      content: errorData.second_name,
     });
 
-    const errorChatName = new Piece({
+    const errorDisplayName = new Piece({
       className: "y-field-error",
-      content: errorData.chatName,
+      content: errorData.display_name,
     });
 
     const errorPhone = new Piece({
@@ -89,30 +107,27 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       content: errorData.phone,
     });
 
-    const blurValidate = () => {
-      Object.entries(formData).forEach(([key, value]) => {
-        errorData[key as unknown as number] = validate(value, key)
-      })
-      setErrorData()
-    };
+    const submit = async () => {
+      blurValidate(formData, errorData, setErrorData);
 
-    const submit = () => {
       const isValid: Boolean = Object.entries(errorData).every(
         ([_, value]) => value === null
       );
 
       if (isValid) {
-        alert("Пороль успешно изменён!");
+        await ProfileController.changeProfile(
+          formData as unknown as ProfileData
+        );
       } else {
         alert("Проверьте правильность заполнения полей!");
       }
-    };  
-        
+    };
+
     const inputHandler = (e: Event, key: string) => {
       formData[key as unknown as number] = (
         e.target! as HTMLInputElement
       ).value;
-    }; 
+    };
 
     const inputEmail = new Input({
       id: "emailProfile",
@@ -123,7 +138,7 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       inputValue: formData.email,
       events: {
         input: (event) => inputHandler(event, "email"),
-        blur: blurValidate,
+        blur: () => blurValidate(formData, errorData, setErrorData),
       },
     });
 
@@ -136,7 +151,7 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       inputValue: formData.login,
       events: {
         input: (event) => inputHandler(event, "login"),
-        blur: blurValidate,
+        blur: () => blurValidate(formData, errorData, setErrorData),
       },
     });
 
@@ -146,36 +161,36 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       className: "y-field-profile-control",
       inputName: "firstName",
       placeholder: "",
-      inputValue: formData.firstName,
+      inputValue: formData.first_name,
       events: {
-        input: (event) => inputHandler(event, "firstName"),
-        blur: blurValidate,
+        input: (event) => inputHandler(event, "first_name"),
+        blur: () => blurValidate(formData, errorData, setErrorData),
       },
     });
 
-    const inputLastName = new Input({
+    const inputSecondName = new Input({
       id: "lastNameProfile",
       typeInput: "text",
       className: "y-field-profile-control",
-      inputName: "lastName",
+      inputName: "secondName",
       placeholder: "",
-      inputValue: formData.lastName,
+      inputValue: formData.second_name,
       events: {
-        input: (event) => inputHandler(event, "lastNmae"),
-        blur: blurValidate,
+        input: (event) => inputHandler(event, "second_name"),
+        blur: () => blurValidate(formData, errorData, setErrorData),
       },
     });
 
-    const inputChatName = new Input({
+    const inputDisplayName = new Input({
       id: "chatNameProfile",
       typeInput: "text",
       className: "y-field-profile-control",
-      inputName: "chatName",
+      inputName: "displayName",
       placeholder: "",
-      inputValue: formData.chatName,
+      inputValue: formData.display_name,
       events: {
-        input: (event) => inputHandler(event, "chatName"),
-        blur: blurValidate,
+        input: (event) => inputHandler(event, "display_name"),
+        blur: () => blurValidate(formData, errorData, setErrorData),
       },
     });
 
@@ -188,13 +203,13 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       inputValue: formData.phone,
       events: {
         input: (event) => inputHandler(event, "phone"),
-        blur: blurValidate,
+        blur: () => blurValidate(formData, errorData, setErrorData),
       },
     });
 
     const labelEmail = new Label({
       forName: "email",
-      className: "y-field-p rofile-text",
+      className: "y-field-profile-text",
       labelName: "Почта",
       input: inputEmail,
       error: null,
@@ -216,19 +231,19 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       error: null,
     });
 
-    const labelLastName = new Label({
-      forName: "lastName",
+    const labelSecondName = new Label({
+      forName: "secondName",
       className: "y-field-profile-text",
       labelName: "Фамилия",
-      input: inputLastName,
+      input: inputSecondName,
       error: null,
     });
 
-    const labelChatName = new Label({
-      forName: "chatName",
+    const labelDisplayName = new Label({
+      forName: "displayName",
       className: "y-field-profile-text",
       labelName: "Имя в чате",
-      input: inputChatName,
+      input: inputDisplayName,
       error: null,
     });
 
@@ -244,19 +259,18 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       id: null,
       className: "y-btn-back",
       typeButton: "button",
-      text: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="14" cy="14" r="14" transform="rotate(-180 14 14)" fill="#3369F3"/>
-        <rect x="20" y="14.8" width="11" height="1.6" transform="rotate(-180 20 14.8)" fill="white"/>
-        <path d="M13 19L9 14L13 9" stroke="white" stroke-width="1.6"/>
-      </svg>`,
-      events: {
-        click: backHandler,
-      },
+      text: BackIcon,
+    });
+
+    const linkBack = new Link({
+      className: "y-nav-link",
+      content: buttonBack,
+      to: "/profile/profile-user",
     });
 
     const buttonSave = new Button({
       id: null,
-      className: "y-btn",
+      className: "y-btn-primary",
       typeButton: "button",
       text: "Сохранить",
       events: {
@@ -264,14 +278,21 @@ export default class ProfileChange extends Block<BlockProfileChange> {
       },
     });
 
+    const showChangeAvatarModal = () => {
+      ChangeUserAvatar.show();
+    };
+
     const avatar = new UserAvatar({
-      img: "",
-      userName: "Иван",
+      src: user.avatar,
+      events: {
+        click: () => showChangeAvatarModal(),
+      },
     });
 
-    this.children = {
-      back: buttonBack,
+    return {
+      back: linkBack,
       avatar: avatar,
+      userName: user.first_name,
       content: [
         labelEmail,
         errorEmail,
@@ -279,10 +300,10 @@ export default class ProfileChange extends Block<BlockProfileChange> {
         errorLogin,
         labelFirstName,
         errorFirstName,
-        labelLastName,
+        labelSecondName,
         errorLastName,
-        labelChatName,
-        errorChatName,
+        labelDisplayName,
+        errorDisplayName,
         labelPhone,
         errorPhone,
       ],
@@ -292,14 +313,17 @@ export default class ProfileChange extends Block<BlockProfileChange> {
 
   render() {
     return `
-    <div class='y-profile'>
-      <div class='y-profile__back'>{{back}}</div>
-      <div class='y-profile__content'>
-        <div class='y-profile__avatar'>{{avatar}}</div>
-        <div class='y-profile__data'>{{content}}</div>
-        <div class='y-profile__action'>{{action}}</div>
+    <div class='y-profile-change'>
+      <div class='y-profile-change__back'>{{back}}</div>
+      <div class='y-profile-change__content'>
+        <div class='y-profile-change__avatar'>{{avatar}}</div>
+        <div class='y-profile-change__username'>{{userName}}</div>
+        <div class='y-profile-change__data'>{{content}}</div>
+        <div class='y-profile-change__action'>{{action}}</div>
       </div>
     </div>
     `;
   }
 }
+
+export const ProfileChange = withProfile(ProfileChangeBase);

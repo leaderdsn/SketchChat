@@ -1,43 +1,34 @@
-import { P } from "~src/types";
-import Block from "~src/utils/block";
+import ExitChat from "~src/components/modals/exitChat/exitChat";
+import ChangeUserAvatar from "~src/components/modals/changeUserAvatar";
+import MainLayout from "~src/layouts/mainLayout/mainLayout";
 import { BlockProfile } from "~src/pages/profile/types";
-import ProfileUser from "~src/components/profile/profileUser/profileUser";
-import PasswordChange from "~src/components/profile/passwordChange/passwordChange";
-import ProfileChange from "~src/components/profile/profileChange/profileChange";
+import Block from "~src/utils/block";
+import withStore from "~src/utils/HOC/withStore";
 
-export default class Profile extends Block<BlockProfile> {
+export class ProfilePage extends MainLayout {
+  constructor() {
+    super({
+      content: new Profile({}),
+    });
+  }
+}
+export default class Profile extends Block {
   constructor(props: BlockProfile) {
-    super(props as P);
+    super(props as BlockProfile);
   }
 
   init() {
-    const path = document.location.pathname;
-
-    const passwordChange = new PasswordChange({});
-    const profileChange = new ProfileChange({});
-    const profileUser = new ProfileUser({});
-
-    const changeProfile = (path: string) => {
-      switch (path) {
-        case "/profile/profile-user":
-          return profileUser;
-        case "/profile/profile-change":
-          return profileChange;
-        case "/profile/password-change":
-          return passwordChange;
-        default:
-          return profileUser;
-      }
-    };
-
-    this.children.profile = changeProfile(path);
+    this.children.models = [ExitChat, ChangeUserAvatar]
   }
 
   render() {
     return `
     <div class='y-profile-page'>
       {{profile}}
+      {{models}}
     </div>
     `;
   }
 }
+
+export const withProfile = withStore((state) => ({ ...state.user }));

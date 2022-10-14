@@ -11,11 +11,24 @@
   &__search-control
     margin-bottom: 14px
     box-sizing: border-box
-  .link-text
+  &__action
+    display: grid
+    grid-template-columns: max-content 1fr
+    grid-gap: 10px
+
+  .y-btn
+    position: absolute
+    top: 0
+    left: 0
+
+  .y-link-text
     position: absolute
     top: 0
     right: 0
     width: max-content
     color: var(--description-color)
+    cursor: pointer
+    &:hover
+      opacity: 0.7
     &:after
       content: '>'

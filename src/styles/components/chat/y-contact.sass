@@ -9,12 +9,16 @@
   transition: 0.3s
   cursor: pointer
   &:hover
-    background-color: var(--hover-color)
+    background-color: var(--background-layout-color)
   &__avatar
     width: 41px
     height: 41px
     border-radius: 50%
     background-color: var( --input-color)
+    .y-user-avatar__img
+      width: 41px
+      height: 41px
+      padding: 0
   &__data
     display: grid
     grid-template-columns: 1fr
@@ -46,3 +50,5 @@
     color: var(--notification-text-color)
     border-radius: 50%
     background-color: var(--primary-color)
+  &.is-selected
+    background-color: var(--hover-color)

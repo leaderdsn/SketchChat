@@ -1,6 +1,6 @@
-import { BlockContact } from "src/components/chat/contact/types";
+import { ChatsData } from "~src/api/chatsAPI";
 import { Nullable } from "~src/utils/types";
 
 export type BlockContactsList = {
-  contacts: Nullable<BlockContact[]>;
+  contacts: Nullable<ChatsData[]>;
 } | {};

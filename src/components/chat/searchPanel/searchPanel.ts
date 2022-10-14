@@ -1,12 +1,12 @@
-import Block from "~src/utils/block";
-import { P } from "~src/types";
 import Input from "~src/components/base/input";
 import Link from "~src/components/base/link";
+import Button from "~src/components/base/button";
 import { BlockSearchPanel } from "~src/components/chat/searchPanel/types";
-
+import CreateChat from "~src/components/modals/createChat";
+import Block from "~src/utils/block";
 export default class SearchPanel extends Block<BlockSearchPanel> {
   constructor(props: BlockSearchPanel) {
-    super(props as P);
+    super(props as BlockSearchPanel);
   }
 
   init() {
@@ -24,19 +24,28 @@ export default class SearchPanel extends Block<BlockSearchPanel> {
         input: searchContact,
         blur: () => null,
       },
-      inputValue: null
+      inputValue: null,
     });
 
     const linkToProfile = new Link({
+      className: "y-link-text",
+      content: "Профиль",
+      to: "/profile/profile-user",
+    });
+
+    const buttonAddChat = new Button({
       id: null,
-      className: "link-text",
-      src: "/profile/profile-user",
-      textLink: "Профиль",
+      className: "y-btn-primary y-btn-add",
+      typeButton: "button",
+      events: {
+        click: () => CreateChat.show(),
+      },
+      text: "+",
     });
 
     this.children = {
       link: linkToProfile,
-      input: inputSearch,
+      input: [buttonAddChat, inputSearch],
     };
   }
 
@@ -44,7 +53,9 @@ export default class SearchPanel extends Block<BlockSearchPanel> {
     return `
     <div class='y-search-panel'>
       {{link}}
-      {{input}}
+      <div class='y-search-panel__action'>
+        {{input}}
+      </div>
     </div>
     `;
   }

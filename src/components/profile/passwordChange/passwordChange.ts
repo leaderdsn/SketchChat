@@ -1,34 +1,45 @@
-import { P } from "~src/types";
-import Block from "~src/utils/block";
+import ProfileController from "~src/controllers/profile";
 import Button from "~src/components/base/button";
+import Input from "~src/components/base/input";
 import Label from "~src/components/base/label";
+import Link from "~src/components/base/link";
+import BackIcon from "~src/components/icons/back";
+import Piece from "~src/components/base/piece";
 import UserAvatar from "~src/components/profile/userAvatar";
 import { PasswordChangeFormData } from "~src/components/profile/passwordChange/types";
-import Input from "~src/components/base/input";
-import validate from "~src/utils/validate";
-import Piece from "~src/components/base/piece";
-import { BlockProfileChange } from "~src/components/profile/types";
+import Profile, { withProfile } from "~src/pages/profile/profile";
+import Block from "~src/utils/block";
+import { blurValidate } from "~src/utils/validate";
+import { P } from "~src/types";
 
-export default class PasswordChange extends Block<BlockProfileChange> {
-  constructor(props: BlockProfileChange) {
-    super(props as P);
+export class ProfilePasswordChangePage extends Profile {
+  constructor() {
+    super({
+      profile: new ProfilePasswordChange({}),
+    });
+  }
+}
+class ProfilePasswordChangeBase extends Block {
+  protected init() {
+    this.children = this.createProfilePasswordChange(this.props);
   }
 
-  init() {
+  protected componentDidUpdate(_: P, user: P) {
+    this.children = this.createProfilePasswordChange(user);
+    return true;
+  }
+
+  private createProfilePasswordChange(user: P) {
     const formData: PasswordChangeFormData = {
       oldPassword: null,
-      password: null,
+      newPassword: null,
       repeatPassword: null,
     };
 
     const errorData: PasswordChangeFormData = {
       oldPassword: null,
-      password: null,
+      newPassword: null,
       repeatPassword: null,
-    };
-
-    const backHandler = () => {
-      document.location.pathname = "/profile/profile-user";
     };
 
     const setErrorData = () => {
@@ -37,7 +48,7 @@ export default class PasswordChange extends Block<BlockProfileChange> {
       });
 
       errorNewPassword.setProps({
-        content: errorData.password,
+        content: errorData.newPassword,
       });
 
       errorRepeatNewPassword.setProps({
@@ -49,22 +60,35 @@ export default class PasswordChange extends Block<BlockProfileChange> {
       Object.entries(formData).map(([key, _]) => {
         formData[key as unknown as number] = null;
       });
+      inputOldPassword.setProps({
+        ...this.props,
+        inputValue: null,
+      });
+      inputNewPassword.setProps({
+        ...this.props,
+        inputValue: null,
+      });
+      inputRepeatNewPassword.setProps({
+        ...this.props,
+        inputValue: null,
+      });
     };
 
-    const blurValidate = () => {
-      Object.entries(formData).forEach(([key, value]) => {
-        errorData[key as unknown as number] = validate(value, key)
-      })
-      setErrorData()
-    }
+    const submit = async () => {
+      blurValidate(formData, errorData, setErrorData);
 
-    const submit = () => {
       const isValid: Boolean = Object.entries(errorData).every(
         ([_, value]) => value === null
       );
-      
+
       if (isValid) {
-        alert("Пороль успешно изменён!");
+        const { oldPassword, newPassword } = formData;
+
+        await ProfileController.changePassword({
+          oldPassword: oldPassword,
+          newPassword: newPassword,
+        });
+
         resetForm();
       } else {
         alert("Проверьте правильность заполнения полей!");
@@ -100,7 +124,7 @@ export default class PasswordChange extends Block<BlockProfileChange> {
       placeholder: "",
       events: {
         input: (event) => inputHandler(event, "oldPassword"),
-        blur: blurValidate,
+        blur: () => blurValidate(formData, errorData, setErrorData),
       },
       inputValue: null,
     });
@@ -112,8 +136,8 @@ export default class PasswordChange extends Block<BlockProfileChange> {
       inputName: "newPassword",
       placeholder: "",
       events: {
-        input: (event) => inputHandler(event, "password"),
-        blur: blurValidate,
+        input: (event) => inputHandler(event, "newPassword"),
+        blur: () => blurValidate(formData, errorData, setErrorData),
       },
       inputValue: null,
     });
@@ -126,7 +150,7 @@ export default class PasswordChange extends Block<BlockProfileChange> {
       placeholder: "",
       events: {
         input: (event) => inputHandler(event, "repeatPassword"),
-        blur: blurValidate,
+        blur: () => blurValidate(formData, errorData, setErrorData),
       },
       inputValue: null,
     });
@@ -159,19 +183,18 @@ export default class PasswordChange extends Block<BlockProfileChange> {
       id: null,
       className: "y-btn-back",
       typeButton: "button",
-      text: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="14" cy="14" r="14" transform="rotate(-180 14 14)" fill="#3369F3"/>
-        <rect x="20" y="14.8" width="11" height="1.6" transform="rotate(-180 20 14.8)" fill="white"/>
-        <path d="M13 19L9 14L13 9" stroke="white" stroke-width="1.6"/>
-      </svg>`,
-      events: {
-        click: backHandler,
-      },
+      text: BackIcon,
+    });
+
+    const linkBack = new Link({
+      className: "y-nav-link",
+      content: buttonBack,
+      to: "/profile/profile-user",
     });
 
     const buttonSave = new Button({
       id: null,
-      className: "y-btn",
+      className: "y-btn-primary",
       typeButton: "button",
       text: "Сохранить",
       events: {
@@ -180,13 +203,13 @@ export default class PasswordChange extends Block<BlockProfileChange> {
     });
 
     const avatar = new UserAvatar({
-      img: "",
-      userName: "Иван",
+      src: user.avatar,
     });
 
-    this.children = {
-      back: buttonBack,
+    return {
+      back: linkBack,
       avatar: avatar,
+      userName: user.first_name,
       content: [
         labelOldPassword,
         errorOldPassword,
@@ -201,14 +224,17 @@ export default class PasswordChange extends Block<BlockProfileChange> {
 
   render() {
     return `
-    <div class='y-profile'>
-      <div class='y-profile__back'>{{back}}</div>
-      <div class='y-profile__content'>
-        <div class='y-profile__avatar'>{{avatar}}</div>
-        <div class='y-profile__data'>{{content}}</div>
-        <div class='y-profile__action'>{{action}}</div>
+    <div class='y-profile-password-change'>
+      <div class='y-profile-password-change__back'>{{back}}</div>
+      <div class='y-profile-password-change__content'>
+        <div class='y-profile-password-change__avatar'>{{avatar}}</div>
+        <div class='y-profile-password-change__username'>{{userName}}</div>
+        <div class='y-profile-password-change__data'>{{content}}</div>
+        <div class='y-profile-password-change__action'>{{action}}</div>
       </div>
     </div>
     `;
   }
 }
+
+export const ProfilePasswordChange = withProfile(ProfilePasswordChangeBase);

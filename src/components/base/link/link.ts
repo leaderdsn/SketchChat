@@ -1,17 +1,28 @@
+import { BlockBaseLink } from "~src/components/base/link/types";
 import Block from "~src/utils/block";
-import { BlockLink } from "~src/components/base/link/types";
-import { P } from "~src/types";
+import { withRouter } from "~src/utils/HOC/withRouter";
 
-export default class Link extends Block<BlockLink> {
-  constructor(props: BlockLink) {
-    super(props as P);
+class BaseLink extends Block<BlockBaseLink> {
+  constructor(props: BlockBaseLink) {
+    super({
+      ...props,
+      events: {
+        click: () => this.navigate()
+      },
+    } as BlockBaseLink);
+  }
+
+  navigate() {
+    this.props.router.go(this.props.to);
   }
 
   render() {
     return `
-    <a id='{{id}}' class='{{className}}' href='{{src}}'>
-      {{textLink}}
-    </a>
+    <span class='{{className}}'>
+      {{content}}
+    </span>
     `;
   }
 }
+
+export const Link = withRouter(BaseLink);

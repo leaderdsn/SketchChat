@@ -6,19 +6,34 @@ button
   background-color: transparent
   cursor: pointer
 
-.y-btn
-  height: 37px
-  padding: 12px 0
+.y-btn-primary
+  height: 32px
+  padding: 12px
   box-sizing: border-box
   font-family: 'Inter'
   font-style: normal
   font-weight: 500
   font-size: 13px
-  line-height: 13px
+  line-height: 4px
   text-align: center
   color: var(--notification-text-color)
-  background: #3369F3
+  background: var(--primary-color)
   border-radius: 8px
+  &:hover
+    background: var(--primary-color-hover)
+
+.y-btn
+  height: 32px
+  box-sizing: border-box
+  font-family: 'Inter'
+  font-style: normal
+  font-weight: 500
+  font-size: 13px
+  line-height: 4px
+  text-align: center
+  background: var(--background-color)
+  border-radius: 8px
+  border: 1px solid var(--border-color)
 
 .y-btn-link
   color: var(--primary-color)
