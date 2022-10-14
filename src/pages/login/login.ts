@@ -65,7 +65,7 @@ export default class Login extends Block {
       }
     };
 
-    this.setProps({ headerText: "Вход 1" });
+    this.setProps({ headerText: "Вход" });
 
     const errorLogin = new Piece({
       className: "y-field-error",
