@@ -13,7 +13,10 @@
     "quotemark": [
       true,
       "single"
-    ]
+    ],
+    "no-empty": false,
+    "no-bitwise": false,
+    "no-conditional-assignment": false
   },
   "rulesDirectory": []
 }
