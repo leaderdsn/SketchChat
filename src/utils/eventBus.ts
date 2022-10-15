@@ -1,9 +1,6 @@
 export type Listener<T extends Event[] = Event[]> = (...args: T) => void;
 
-export default class EventBus<
-  E extends string = string,
-  M extends { [K in E]: Event[] } = Record<E, any[]>
-> {
+export default class EventBus<E extends string = string, M extends { [K in E]: Event[] } = Record<E, any[]>> {
   private listeners: { [K in E]?: Listener<M[E]>[] } = {};
 
   on(event: E, callback: Listener<M[E]>) {
@@ -19,9 +16,7 @@ export default class EventBus<
       throw new Error(`Нет события: ${event}`);
     }
 
-    this.listeners[event] = this.listeners[event]!.filter(
-      (listener) => listener !== callback
-    );
+    this.listeners[event] = this.listeners[event]!.filter((listener) => listener !== callback);
   }
 
   emit(event: E, ...args: M[E]) {
