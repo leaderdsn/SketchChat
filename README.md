@@ -1,16 +1,21 @@
 # SketchChat
 
-This is a project of my own chat that will be carried out as part of my training on **yandex.practicum**. An up-to-date demonstration of the project can be viewed at this address netlify: https://sketch-chat.netlify.app/ and heroku: https://sketch-chat-app.herokuapp.com/chat
+This is a project of my own chat that will be carried out as part of my training on **yandex.practicum**. An up-to-date demonstration of the project can be viewed at this address **netlify**: https://sketch-chat.netlify.app/ and **heroku**: https://sketch-chat-app.herokuapp.com/chat
 
 **What's new?**
-In the 3rd sprint, its Router and Store were implemented
 
-In the 4th sprint, I supplemented the project with:
-*-precompile*
+In the **3rd sprint**, its **Router** and **Store** were implemented
+
+In the **4th sprint**, I supplemented the project with:
+
+#### *precompile*
+
     which will not even allow you to commit code that does not pass the tests you specified.
-*-docker*
+#### *docker*
+
     that allows you to create containers, start and stop them, link them to each other, delete them, and maintain their operation.
-*-heroku*
+#### *heroku*
+
     deploy now happens not only on netlify, but also on heroku, which allows you to deploy docker images
 
 LINK TO PULL REQUEST: https://github.com/leaderdsn/SketchChat/pull/4
@@ -22,7 +27,6 @@ LINK TO PULL REQUEST: https://github.com/leaderdsn/SketchChat/pull/4
 
 1.  ## Install Deps
 
-
 ### bash
 #### #using npm
     npm i
@@ -33,8 +37,7 @@ LINK TO PULL REQUEST: https://github.com/leaderdsn/SketchChat/pull/4
 
 ### bash
 #### #using npm
-    npm run dev
-
+    npm run serve
  
 Open source code using your favorite IDE/Text editor and navigate to src/ directory, this is where your application live.
 
@@ -54,3 +57,11 @@ Open source code using your favorite IDE/Text editor and navigate to src/ direct
 #### #using npm
     npm run build
     npm run start
+    
+5.  ## Running tests and linters
+
+    Tests and linters are necessary to check for errors in the code
+    
+### bash
+#### #using npm
+    npm run validate
