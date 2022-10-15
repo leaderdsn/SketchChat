@@ -18,7 +18,7 @@ In the **4th sprint**, I supplemented the project with:
 
     deploy now happens not only on netlify, but also on heroku, which allows you to deploy docker images
 
-LINK TO PULL REQUEST: https://github.com/leaderdsn/SketchChat/pull/4
+LINK TO PULL REQUEST: https://github.com/leaderdsn/SketchChat/pull/5
 
 ## Requirements
 
