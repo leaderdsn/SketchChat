@@ -14,9 +14,13 @@
     "lint:ts": "tslint -c tslint.json ./src/**/*.ts",
     "lint:js": "standard",
     "test": "mocha",
-    "validate": "npm-run-all test eslint lint:js lint:ts",
-    "precommit": "npm run validate",
-    "prepush": "npm run validate"
+    "validate": "npm-run-all test eslint lint:js lint:ts"
+  },
+  "husky": {    
+    "hooks": {      
+      "pre-commit": "npm run validate", 
+      "pre-push": "npm run validate"   
+    }  
   },
   "keywords": [],
   "author": "",
