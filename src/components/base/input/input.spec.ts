@@ -1,27 +1,26 @@
-import { expect } from "chai";
-import Input from "./input";
+import { expect } from 'chai';
+import Input from './input';
 
 describe('Input', () => {
-
   const props = {
     id: null,
-    typeInput: null,
-    className: null,
-    inputName: null,
+    typeInput: 'text',
+    className: 'y-input',
+    inputName: 'name',
     placeholder: null,
     events: null,
     inputValue: null,
-  }
+  };
 
   it('should render', () => {
-    new Input(props);
+    return new Input(props);
   });
 
   it('element should return input', () => {
     const input = new Input(props);
     const element = input.element;
 
-    expect(element).to.be.instanceof(window.HTMLInputElement)
+    expect(element).to.be.instanceof(window.HTMLInputElement);
   });
 
   it('.setValue() should write the value', () => {
@@ -33,7 +32,7 @@ describe('Input', () => {
   });
 
   it('.getName() should read the name', () => {
-    const input = new Input({...props, inputName: 'name'});
+    const input = new Input({ ...props, inputName: 'name' });
 
     expect(input.getName()).to.eq('name');
   });
