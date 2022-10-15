@@ -14,6 +14,8 @@ FROM node:16-alpine AS production
 
 COPY --from=builder /var/www/app/package*.json ./
 
+RUN npm pkg delete scripts.prepare
+
 RUN npm install --omit=dev
 
 COPY --from=builder /var/www/app/dist ./dist
