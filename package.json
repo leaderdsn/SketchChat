@@ -4,9 +4,9 @@
   "description": "sketchchat",
   "source": "src/index.ts",
   "scripts": {
-    "clear": "rd /s /q dist",
-    "clear:cache": "rm -rf .history/*",
-    "clear:dist": "npm run clear:cache rm -rf dist/*",
+    "clear:history": "rd /s /q .history",
+    "clear:dist": "rd /s /q dist",
+    "clear:all": "npm-run-all -p clear:history clear:dist",
     "start": "node ./server.js",
     "serve": "webpack serve --mode=development --progress",
     "build": "webpack",
@@ -16,12 +16,6 @@
     "test": "mocha",
     "validate": "npm-run-all -p test eslint lint:ts",
     "prepare": "husky install"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run validate",
-      "pre-push": "npm run validate"
-    }
   },
   "keywords": [],
   "author": "",
