@@ -1,11 +1,11 @@
-import { ChatsData, FormChatsData } from "~src/api/chatsAPI";
-import ChatsController from "~src/controllers/chats";
-import Button from "~src/components/base/button";
-import Input from "~src/components/base/input";
-import Form from "~src/components/base/form";
-import Label from "~src/components/base/label";
-import Block from "~src/utils/block";
-import { LoginAndSignup } from "~src/types";
+import { ChatsData, FormChatsData } from '~src/api/chatsAPI';
+import ChatsController from '~src/controllers/chats';
+import Button from '~src/components/base/button';
+import Input from '~src/components/base/input';
+import Form from '~src/components/base/form';
+import Label from '~src/components/base/label';
+import Block from '~src/utils/block';
+import { LoginAndSignup } from '~src/types';
 
 class CreateChat extends Block {
   constructor(props: LoginAndSignup) {
@@ -17,12 +17,10 @@ class CreateChat extends Block {
       title: null,
     };
 
-    this.setProps({ headerText: "Создать чат" });
+    this.setProps({ headerText: 'Создать чат' });
 
     const inputHandler = (e: Event, key: string) => {
-      formData[key as unknown as number] = (
-        e.target! as HTMLInputElement
-      ).value;
+      formData[key as unknown as number] = (e.target! as HTMLInputElement).value;
     };
 
     const clearForm = () => {
@@ -42,47 +40,47 @@ class CreateChat extends Block {
     };
 
     const inputTitle = new Input({
-      id: "form-title",
-      typeInput: "text",
-      className: "y-field-control",
-      inputName: "title",
+      id: 'form-title',
+      typeInput: 'text',
+      className: 'y-field-control',
+      inputName: 'title',
       placeholder: null,
       events: {
-        input: (event) => inputHandler(event, "title"),
+        input: (event) => inputHandler(event, 'title'),
       },
       inputValue: null,
     });
 
     const labelTitle = new Label({
-      forName: "title",
-      labelName: "Название",
-      className: "y-field-text",
+      forName: 'title',
+      labelName: 'Название',
+      className: 'y-field-text',
       input: inputTitle,
     });
 
     const buttonClose = new Button({
       id: null,
-      className: "y-btn",
-      typeButton: "button",
+      className: 'y-btn',
+      typeButton: 'button',
       events: {
         click: () => this.hide(),
       },
-      text: "Закрыть",
+      text: 'Закрыть',
     });
 
     const buttonCreate = new Button({
       id: null,
-      className: "y-btn-primary",
-      typeButton: "button",
+      className: 'y-btn-primary',
+      typeButton: 'button',
       events: {
         click: submit,
       },
-      text: "Создать",
+      text: 'Создать',
     });
 
     const form = new Form({
-      method: "POST",
-      className: "y-login-page__form",
+      method: 'POST',
+      className: 'y-login-page__form',
       content: [labelTitle],
     });
 

@@ -1,3 +1,3 @@
-import { SendIcon } from "~src/components/icons/send/send";
+import { SendIcon } from '~src/components/icons/send/send';
 
 export default SendIcon;

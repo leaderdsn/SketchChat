@@ -1,5 +1,5 @@
-import { BlockLabel } from "~src/components/base/label/types";
-import Block from "~src/utils/block";
+import { BlockLabel } from '~src/components/base/label/types';
+import Block from '~src/utils/block';
 
 export default class Label extends Block<BlockLabel> {
   constructor(props: BlockLabel) {
@@ -8,7 +8,7 @@ export default class Label extends Block<BlockLabel> {
 
   render() {
     return `
-    <label for='{{forName}}' class='{{className}}'> 
+    <label for='{{forName}}' class='{{className}}'>
       <span>{{labelName}}</span>
       {{input}}
       {{error}}

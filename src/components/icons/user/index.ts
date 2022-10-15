@@ -1,3 +1,3 @@
-import { UserIcon } from "~src/components/icons/user/user";
+import { UserIcon } from '~src/components/icons/user/user';
 
 export default UserIcon;

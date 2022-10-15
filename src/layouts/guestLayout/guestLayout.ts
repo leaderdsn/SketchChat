@@ -1,5 +1,5 @@
-import { BlockLayout } from "~src/layouts/types";
-import Block from "~src/utils/block";
+import { BlockLayout } from '~src/layouts/types';
+import Block from '~src/utils/block';
 
 class GuestLayout extends Block {
   constructor(props: BlockLayout) {

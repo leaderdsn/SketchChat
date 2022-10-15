@@ -1,5 +1,5 @@
-import HTTPTransport from "~src/utils/HTTPTransport";
-import { Nullable } from "~src/utils/types";
+import HTTPTransport from '~src/utils/HTTPTransport';
+import { Nullable } from '~src/utils/types';
 
 export interface PasswordData {
   oldPassword: Nullable<string>;
@@ -30,19 +30,19 @@ export class ProfileAPI {
   protected http: HTTPTransport;
 
   public constructor() {
-    this.http = new HTTPTransport("/user");
+    this.http = new HTTPTransport('/user');
   }
 
   changeAvatar(data: FormData): Promise<XMLHttpRequest> {
-    return this.http.put("/profile/avatar", { data });
+    return this.http.put('/profile/avatar', { data });
   }
 
   changeProfile(data: ProfileData): Promise<XMLHttpRequest> {
-    return this.http.put("/profile", { data });
+    return this.http.put('/profile', { data });
   }
 
   changePassword(data: PasswordData): Promise<XMLHttpRequest> {
-    return this.http.put("/password", { data });
+    return this.http.put('/password', { data });
   }
 }
 

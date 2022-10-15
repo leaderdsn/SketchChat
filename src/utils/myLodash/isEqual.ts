@@ -21,7 +21,6 @@ const isEqual = (lhs: Indexed, rhs: Indexed) => {
   }
 
   return true;
-}
+};
 
 export default isEqual;
-

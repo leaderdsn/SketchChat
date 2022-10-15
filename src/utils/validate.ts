@@ -1,6 +1,6 @@
-import { PasswordChangeFormData } from "~src/components/profile/passwordChange/types";
-import { ProfileChangeFormData } from "~src/components/profile/profileChange/types";
-import { FormData } from "~src/pages/types";
+import { PasswordChangeFormData } from '~src/components/profile/profilePasswordChange/types';
+import { ProfileChangeFormData } from '~src/components/profile/profileChange/types';
+import { FormData } from '~src/pages/types';
 
 type Value = string | undefined | null;
 
@@ -41,29 +41,29 @@ const isValidRepeatPassword = (value: string) => {
 
 const validate = (value: Value, type: string) => {
   switch (type) {
-    case "email":
+    case 'email':
       if (!isValidEmail(value as string)) {
-        return "Указана некорректная почта";
+        return 'Указана некорректная почта';
       } else return null;
-    case "password":
+    case 'password':
       if (!isValidPassword(value as string)) {
-        return "Пароль должен содержать от 6 до 20 символов, латинские буквы верхнего и нижнего регистра";
+        return 'Пароль должен содержать от 6 до 20 символов, латинские буквы верхнего и нижнего регистра';
       } else return null;
-    case "repeat_password":
+    case 'repeat_password':
       if (!isValidRepeatPassword(value as string)) {
-        return "Пароли не совпадают";
+        return 'Пароли не совпадают';
       } else return null;
-    case "phone":
+    case 'phone':
       if (!isValidPhone(value as string)) {
-        return "Некорректный номер телефона";
+        return 'Некорректный номер телефона';
       } else return null;
     default:
       if (isValidNull(value)) {
-        return "Поле не может быть пустым";
+        return 'Поле не может быть пустым';
       } else if (isValidUndefined(value)) {
-        return "Поле не может быть пустым";
+        return 'Поле не может быть пустым';
       } else if (isValidLength(value)) {
-        return "Поле должно содержать минимум 3 символа";
+        return 'Поле должно содержать минимум 3 символа';
       } else return null;
   }
 };

@@ -1,5 +1,5 @@
-import { MessageInfo } from "~src/controllers/messages";
-import Block from "~src/utils/block";
+import { MessageInfo } from '~src/controllers/messages';
+import Block from '~src/utils/block';
 
 export default class Message extends Block<MessageInfo> {
   constructor(props: MessageInfo) {
@@ -9,7 +9,7 @@ export default class Message extends Block<MessageInfo> {
   render() {
     let isMine = ``;
     if (this.props.isMine) {
-      isMine = "y-message-item--mine";
+      isMine = 'y-message-item--mine';
     }
     return `
     <div class='y-message-item ${isMine}'>

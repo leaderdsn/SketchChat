@@ -1,8 +1,8 @@
-import auth from "~src/controllers/auth";
-import Button from "~src/components/base/button";
-import Piece from "~src/components/base/piece";
-import Block from "~src/utils/block";
-import { LoginAndSignup } from "~src/types";
+import auth from '~src/controllers/auth';
+import Button from '~src/components/base/button';
+import Piece from '~src/components/base/piece';
+import Block from '~src/utils/block';
+import { LoginAndSignup } from '~src/types';
 
 class ExitChat extends Block {
   constructor(props: LoginAndSignup) {
@@ -10,34 +10,34 @@ class ExitChat extends Block {
   }
 
   init() {
-    this.setProps({ headerText: "Выход из чата" });
+    this.setProps({ headerText: 'Выход из чата' });
 
     const buttonCancel = new Button({
       id: null,
-      className: "y-btn",
-      typeButton: "button",
+      className: 'y-btn',
+      typeButton: 'button',
       events: {
         click: () => this.hide(),
       },
-      text: "Отмена",
+      text: 'Отмена',
     });
 
     const buttonExit = new Button({
       id: null,
-      className: "y-btn-primary",
-      typeButton: "button",
+      className: 'y-btn-primary',
+      typeButton: 'button',
       events: {
         click: () => {
           auth.logout();
           this.hide();
         },
       },
-      text: "Выйти",
+      text: 'Выйти',
     });
 
     this.children.form = new Piece({
-      className: "y-text-description",
-      content: "Вы действительно хотите выйти?",
+      className: 'y-text-description',
+      content: 'Вы действительно хотите выйти?',
     });
 
     this.children.content = [buttonExit, buttonCancel];

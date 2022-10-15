@@ -1,7 +1,7 @@
-import { BlockSidebar } from "~src/components/chat/sidebar/types";
-import SearchPanel from "~src/components/chat/searchPanel";
-import ContactsList from "~src/components/chat/contactsList";
-import Block from "~src/utils/block";
+import { BlockSidebar } from '~src/components/chat/sidebar/types';
+import SearchPanel from '~src/components/chat/searchPanel';
+import ContactsList from '~src/components/chat/contactsList';
+import Block from '~src/utils/block';
 
 export default class Sidebar extends Block<BlockSidebar> {
   constructor(props: BlockSidebar) {

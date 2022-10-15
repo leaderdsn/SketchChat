@@ -1,6 +1,6 @@
-import { BlockTime } from "~src/components/base/time/types";
-import Block from "~src/utils/block";
-import getTime from "~src/utils/getTime";
+import { BlockTime } from '~src/components/base/time/types';
+import Block from '~src/utils/block';
+import getTime from '~src/utils/getTime';
 
 export default class Time extends Block<BlockTime> {
   constructor(props: BlockTime) {

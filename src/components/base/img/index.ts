@@ -1,3 +1,3 @@
-import Img from "~src/components/base/img/img";
+import Img from '~src/components/base/img/img';
 
 export default Img;

@@ -1,9 +1,9 @@
-import Input from "~src/components/base/input";
-import Link from "~src/components/base/link";
-import Button from "~src/components/base/button";
-import { BlockSearchPanel } from "~src/components/chat/searchPanel/types";
-import CreateChat from "~src/components/modals/createChat";
-import Block from "~src/utils/block";
+import Input from '~src/components/base/input';
+import Link from '~src/components/base/link';
+import Button from '~src/components/base/button';
+import { BlockSearchPanel } from '~src/components/chat/searchPanel/types';
+import CreateChat from '~src/components/modals/createChat';
+import Block from '~src/utils/block';
 export default class SearchPanel extends Block<BlockSearchPanel> {
   constructor(props: BlockSearchPanel) {
     super(props as BlockSearchPanel);
@@ -11,15 +11,15 @@ export default class SearchPanel extends Block<BlockSearchPanel> {
 
   init() {
     const searchContact = () => {
-      console.log("search");
+      console.log('search');
     };
 
     const inputSearch = new Input({
-      id: "search",
-      typeInput: "text",
-      className: "y-search-panel__search-control",
-      inputName: "search",
-      placeholder: "Поиск",
+      id: 'search',
+      typeInput: 'text',
+      className: 'y-search-panel__search-control',
+      inputName: 'search',
+      placeholder: 'Поиск',
       events: {
         input: searchContact,
         blur: () => null,
@@ -28,19 +28,19 @@ export default class SearchPanel extends Block<BlockSearchPanel> {
     });
 
     const linkToProfile = new Link({
-      className: "y-link-text",
-      content: "Профиль",
-      to: "/profile/profile-user",
+      className: 'y-link-text',
+      content: 'Профиль',
+      to: '/profile/profile-user',
     });
 
     const buttonAddChat = new Button({
       id: null,
-      className: "y-btn-primary y-btn-add",
-      typeButton: "button",
+      className: 'y-btn-primary y-btn-add',
+      typeButton: 'button',
       events: {
         click: () => CreateChat.show(),
       },
-      text: "+",
+      text: '+',
     });
 
     this.children = {

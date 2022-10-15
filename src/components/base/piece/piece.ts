@@ -1,5 +1,5 @@
-import { BlockPiece } from "~src/components/base/piece/types";
-import Block from "~src/utils/block";
+import { BlockPiece } from '~src/components/base/piece/types';
+import Block from '~src/utils/block';
 
 export default class Piece extends Block<BlockPiece> {
   constructor(props: BlockPiece) {

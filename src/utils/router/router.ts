@@ -1,23 +1,23 @@
-import Block from "~src/utils/block";
-import Route from "~src/utils/router/route"
-import { Nullable } from "~src/utils/types";
+import Block from '~src/utils/block';
+import Route from '~src/utils/router/route';
+import { Nullable } from '~src/utils/types';
 
 class Router {
-  private static __instance: Router;
+  private static _instance: Router;
   private _routes: Nullable<Route[]>;
   private _history: Nullable<History>;
   private _currentRoute: Nullable<Route>;
 
-  constructor(private readonly rootQuery: string = "#root") {
-    if (Router.__instance) {
-      return Router.__instance;
+  constructor(private readonly rootQuery: string = '#root') {
+    if (Router._instance) {
+      return Router._instance;
     }
 
     this._routes = [];
     this._history = window.history;
     this._currentRoute = null;
 
-    Router.__instance = this;
+    Router._instance = this;
   }
 
   public use(pathname: string | RegExp, block: typeof Block) {
@@ -53,7 +53,7 @@ class Router {
   }
 
   public go(pathname: string) {
-    this._history!.pushState({}, "", pathname);
+    this._history!.pushState({}, '', pathname);
     this._onRoute(pathname);
   }
 

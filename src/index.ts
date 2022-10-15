@@ -1,27 +1,27 @@
-import { ProfilePasswordChangePage } from "~src/components/profile/passwordChange/passwordChange";
-import { ProfileChangePage } from "~src/components/profile/profileChange/profileChange";
-import { ProfileUserPage } from "~src/components/profile/profileUser/profileUser";
-import AuthController from "~src/controllers/auth";
-import ChatsController from "~src/controllers/chats";
-import { ChatPage } from "~src/pages/chat/chat";
-import { LoginPage } from "~src/pages/login/login";
-import { ProfilePage } from "~src/pages/profile/profile";
-import { SignupPage } from "~src/pages/signup/signup";
-import Router from "~src/utils/router/router";
-import store from "~src/utils/store";
-import "~src/styles/main.sass";
+import { ProfilePasswordChangePage } from '~src/components/profile/profilePasswordChange/profilePasswordChangePage';
+import { ProfileChangePage } from '~src/components/profile/profileChange/profileChangePage';
+import { ProfileUserPage } from '~src/components/profile/profileUser/profileUserPage';
+import AuthController from '~src/controllers/auth';
+import ChatsController from '~src/controllers/chats';
+import { ChatPage } from '~src/pages/chat/chatPage';
+import { LoginPage } from '~src/pages/login/loginPage';
+import { ProfilePage } from '~src/pages/profile/profilePage';
+import { SignupPage } from '~src/pages/signup/signupPage';
+import Router from '~src/utils/router/router';
+import store from '~src/utils/store';
+import '~src/styles/main.sass';
 
 enum Routes {
-  Index = "/",
-  Register = "/signup",
-  Chat = "/chat",
-  Profile = "/profile",
-  ProfileUser = "/profile/profile-user",
-  ProfileChange = "/profile/profile-change",
-  ProfilePasswordChange = "/profile/password-change",
+  Index = '/',
+  Register = '/signup',
+  Chat = '/chat',
+  Profile = '/profile',
+  ProfileUser = '/profile/profile-user',
+  ProfileChange = '/profile/profile-change',
+  ProfilePasswordChange = '/profile/password-change',
 }
 
-window.addEventListener("DOMContentLoaded", async () => {
+window.addEventListener('DOMContentLoaded', async () => {
   try {
     await AuthController.fetchUser();
     await ChatsController.fetchChats();

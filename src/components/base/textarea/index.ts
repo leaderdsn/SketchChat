@@ -1,3 +1,3 @@
-import Textarea from "~src/components/base/textarea/textarea";
+import Textarea from '~src/components/base/textarea/textarea';
 
 export default Textarea;
