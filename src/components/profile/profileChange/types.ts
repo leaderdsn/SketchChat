@@ -1,4 +1,4 @@
-import { Nullable } from "~src/utils/types";
+import { Nullable } from '~src/utils/types';
 
 export type ProfileChangeFormData = {
   [key: number]: Nullable<string>;

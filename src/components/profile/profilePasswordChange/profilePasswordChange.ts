@@ -1,24 +1,17 @@
-import ProfileController from "~src/controllers/profile";
-import Button from "~src/components/base/button";
-import Input from "~src/components/base/input";
-import Label from "~src/components/base/label";
-import Link from "~src/components/base/link";
-import BackIcon from "~src/components/icons/back";
-import Piece from "~src/components/base/piece";
-import UserAvatar from "~src/components/profile/userAvatar";
-import { PasswordChangeFormData } from "~src/components/profile/passwordChange/types";
-import Profile, { withProfile } from "~src/pages/profile/profile";
-import Block from "~src/utils/block";
-import { blurValidate } from "~src/utils/validate";
-import { P } from "~src/types";
+import ProfileController from '~src/controllers/profile';
+import Button from '~src/components/base/button';
+import Input from '~src/components/base/input';
+import Label from '~src/components/base/label';
+import Link from '~src/components/base/link';
+import BackIcon from '~src/components/icons/back';
+import Piece from '~src/components/base/piece';
+import UserAvatar from '~src/components/profile/userAvatar';
+import { PasswordChangeFormData } from '~src/components/profile/profilePasswordChange/types';
+import { withProfile } from '~src/pages/profile/profile';
+import Block from '~src/utils/block';
+import { blurValidate } from '~src/utils/validate';
+import { P } from '~src/types';
 
-export class ProfilePasswordChangePage extends Profile {
-  constructor() {
-    super({
-      profile: new ProfilePasswordChange({}),
-    });
-  }
-}
 class ProfilePasswordChangeBase extends Block {
   protected init() {
     this.children = this.createProfilePasswordChange(this.props);
@@ -77,126 +70,122 @@ class ProfilePasswordChangeBase extends Block {
     const submit = async () => {
       blurValidate(formData, errorData, setErrorData);
 
-      const isValid: Boolean = Object.entries(errorData).every(
-        ([_, value]) => value === null
-      );
+      const isValid: boolean = Object.entries(errorData).every(([_, value]) => value === null);
 
       if (isValid) {
         const { oldPassword, newPassword } = formData;
 
         await ProfileController.changePassword({
-          oldPassword: oldPassword,
-          newPassword: newPassword,
+          oldPassword,
+          newPassword,
         });
 
         resetForm();
       } else {
-        alert("Проверьте правильность заполнения полей!");
+        alert('Проверьте правильность заполнения полей!');
       }
     };
 
     const inputHandler = (e: Event, key: string) => {
-      formData[key as unknown as number] = (
-        e.target! as HTMLInputElement
-      ).value;
+      formData[key as unknown as number] = (e.target! as HTMLInputElement).value;
     };
 
     const errorOldPassword = new Piece({
-      className: "y-field-error",
+      className: 'y-field-error',
       content: errorData.oldPassword,
     });
 
     const errorNewPassword = new Piece({
-      className: "y-field-error",
+      className: 'y-field-error',
       content: errorData.oldPassword,
     });
 
     const errorRepeatNewPassword = new Piece({
-      className: "y-field-error",
+      className: 'y-field-error',
       content: errorData.oldPassword,
     });
 
     const inputOldPassword = new Input({
-      id: "oldPassword",
-      typeInput: "password",
-      className: "y-field-profile-control",
-      inputName: "oldPassword",
-      placeholder: "",
+      id: 'oldPassword',
+      typeInput: 'password',
+      className: 'y-field-profile-control',
+      inputName: 'oldPassword',
+      placeholder: '',
       events: {
-        input: (event) => inputHandler(event, "oldPassword"),
+        input: (event) => inputHandler(event, 'oldPassword'),
         blur: () => blurValidate(formData, errorData, setErrorData),
       },
       inputValue: null,
     });
 
     const inputNewPassword = new Input({
-      id: "newPassword",
-      typeInput: "password",
-      className: "y-field-profile-control",
-      inputName: "newPassword",
-      placeholder: "",
+      id: 'newPassword',
+      typeInput: 'password',
+      className: 'y-field-profile-control',
+      inputName: 'newPassword',
+      placeholder: '',
       events: {
-        input: (event) => inputHandler(event, "newPassword"),
+        input: (event) => inputHandler(event, 'newPassword'),
         blur: () => blurValidate(formData, errorData, setErrorData),
       },
       inputValue: null,
     });
 
     const inputRepeatNewPassword = new Input({
-      id: "repeatNewPassword",
-      typeInput: "password",
-      className: "y-field-profile-control",
-      inputName: "repeatNewPassword",
-      placeholder: "",
+      id: 'repeatNewPassword',
+      typeInput: 'password',
+      className: 'y-field-profile-control',
+      inputName: 'repeatNewPassword',
+      placeholder: '',
       events: {
-        input: (event) => inputHandler(event, "repeatPassword"),
+        input: (event) => inputHandler(event, 'repeatPassword'),
         blur: () => blurValidate(formData, errorData, setErrorData),
       },
       inputValue: null,
     });
 
     const labelOldPassword = new Label({
-      forName: "oldPassword",
-      className: "y-field-profile-text",
-      labelName: "Старый пароль",
+      forName: 'oldPassword',
+      className: 'y-field-profile-text',
+      labelName: 'Старый пароль',
       input: inputOldPassword,
       error: null,
     });
 
     const labelNewPassword = new Label({
-      forName: "newPassword",
-      className: "y-field-profile-text",
-      labelName: "Новый пароль",
+      forName: 'newPassword',
+      className: 'y-field-profile-text',
+      labelName: 'Новый пароль',
       input: inputNewPassword,
       error: null,
     });
 
     const labelRepeatNewPassword = new Label({
-      forName: "repeatNewPassword",
-      className: "y-field-profile-text",
-      labelName: "Повторите новый пароль",
+      forName: 'repeatNewPassword',
+      className: 'y-field-profile-text',
+      labelName: 'Повторите новый пароль',
       input: inputRepeatNewPassword,
       error: null,
     });
 
     const buttonBack = new Button({
       id: null,
-      className: "y-btn-back",
-      typeButton: "button",
+      className: 'y-btn-back',
+      typeButton: 'button',
       text: BackIcon,
     });
 
     const linkBack = new Link({
-      className: "y-nav-link",
+      className: 'y-nav-link',
       content: buttonBack,
-      to: "/profile/profile-user",
+      to: '/profile/profile-user',
     });
 
     const buttonSave = new Button({
       id: null,
-      className: "y-btn-primary",
-      typeButton: "button",
-      text: "Сохранить",
+      className: 'y-btn-primary',
+      typeButton: 'button',
+      text: 'Сохранить',
       events: {
         click: submit,
       },
@@ -208,16 +197,9 @@ class ProfilePasswordChangeBase extends Block {
 
     return {
       back: linkBack,
-      avatar: avatar,
+      avatar,
       userName: user.first_name,
-      content: [
-        labelOldPassword,
-        errorOldPassword,
-        labelNewPassword,
-        errorNewPassword,
-        labelRepeatNewPassword,
-        errorRepeatNewPassword,
-      ],
+      content: [labelOldPassword, errorOldPassword, labelNewPassword, errorNewPassword, labelRepeatNewPassword, errorRepeatNewPassword],
       action: buttonSave,
     };
   }

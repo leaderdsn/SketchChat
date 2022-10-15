@@ -1,5 +1,5 @@
-import { BlockButton } from "~src/components/base/button/types";
-import Block from "~src/utils/block";
+import { BlockButton } from '~src/components/base/button/types';
+import Block from '~src/utils/block';
 
 export default class Button extends Block<BlockButton> {
   constructor(props: BlockButton) {
@@ -8,10 +8,10 @@ export default class Button extends Block<BlockButton> {
 
   render() {
     return `
-      <button 
-        id='{{id}}' 
-        class='{{className}}' 
-        type='{{typeButton}}' 
+      <button
+        id='{{id}}'
+        class='{{className}}'
+        type='{{typeButton}}'
       >
         {{text}}
       </button>

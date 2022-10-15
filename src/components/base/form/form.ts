@@ -1,9 +1,9 @@
-import { BlockForm } from "~src/components/base/form/types";
-import Block from "~src/utils/block";
+import { BlockForm } from '~src/components/base/form/types';
+import Block from '~src/utils/block';
 
 export default class Form extends Block<BlockForm> {
   constructor(props: BlockForm) {
-    super({ ...props, method: "post" } as BlockForm);
+    super({ ...props, method: 'post' } as BlockForm);
   }
 
   render() {

@@ -1,14 +1,14 @@
-import { expect } from "chai";
-import set from "./set";
+import { expect } from 'chai';
+import set from './set';
 
 describe('set function', () => {
   let obj: Record<string, unknown>;
   const keypath = 'test';
-  const value ='some value';
+  const value = 'some value';
 
   beforeEach(() => {
-    obj = {}
-  })
+    obj = {};
+  });
 
   it('should set a value by keypath to the object', () => {
     set(obj, keypath, value);
@@ -32,7 +32,7 @@ describe('set function', () => {
   it('should throw an error if path is not a string', () => {
     const keypathNotString = 10;
 
-    //@ts-ignore because we want to check behaviour in runtime
+    // @ts-ignore because we want to check behaviour in runtime
     const fn = () => set(obj, keypathNotString, value);
 
     expect(fn).to.throw(Error);

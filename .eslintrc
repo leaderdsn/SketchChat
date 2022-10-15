@@ -1,8 +1,5 @@
 {
   "root": true,
-  "ignorePatterns": [
-    "projects/**/*"
-  ],
   "plugins": [
     "@typescript-eslint",
     "prettier",
@@ -13,7 +10,8 @@
   "overrides": [
     {
       "files": [
-        "*.ts"
+        "*.ts",
+        "*.js"
       ],
       "parserOptions": {
         "project": [

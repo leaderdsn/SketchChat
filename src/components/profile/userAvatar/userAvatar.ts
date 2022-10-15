@@ -1,6 +1,6 @@
-import UserIcon from "~src/components/icons/user";
-import { BlockUserAvatar } from "~src/components/profile/userAvatar/types";
-import Block from "~src/utils/block";
+import UserIcon from '~src/components/icons/user';
+import { BlockUserAvatar } from '~src/components/profile/userAvatar/types';
+import Block from '~src/utils/block';
 
 export default class UserAvatar extends Block<BlockUserAvatar> {
   constructor(props: BlockUserAvatar) {
@@ -8,23 +8,22 @@ export default class UserAvatar extends Block<BlockUserAvatar> {
   }
 
   init() {
-    const { src } = this.props
+    const { src } = this.props;
 
-    const url = 'https://ya-praktikum.tech/api/v2/resources'
+    const url = 'https://ya-praktikum.tech/api/v2/resources';
 
-    if(src) {
-      this.setProps({...this.props, src: url + src})
+    if (src) {
+      this.setProps({ ...this.props, src: url + src });
     }
-
   }
 
   render() {
-    const { src } = this.props
+    const { src } = this.props;
 
-    let img = UserIcon
-    
-    if(src) {
-      img = `<img src='{{src}}' alt='{{userName}}' />`
+    let img = UserIcon;
+
+    if (src) {
+      img = `<img src='{{src}}' alt='{{userName}}' />`;
     }
 
     return `

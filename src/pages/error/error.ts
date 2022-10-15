@@ -1,5 +1,5 @@
-import { BlockErrorPage } from "~src/pages/error/types";
-import Block from "~src/utils/block";
+import { BlockErrorPage } from '~src/pages/error/types';
+import Block from '~src/utils/block';
 
 export default class ErrorPage extends Block<BlockErrorPage> {
   constructor(props: BlockErrorPage) {

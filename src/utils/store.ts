@@ -1,12 +1,12 @@
-import { User } from "~src/api/authAPI";
-import { ChatsData } from "~src/api/chatsAPI";
-import { MessageInfo } from "~src/controllers/messages";
-import EventBus from "~src/utils/eventBus";
-import set from "~src/utils/myLodash/set";
-import { Nullable } from "~src/utils/types";
+import { User } from '~src/api/authAPI';
+import { ChatsData } from '~src/api/chatsAPI';
+import { MessageInfo } from '~src/controllers/messages';
+import EventBus from '~src/utils/eventBus';
+import set from '~src/utils/myLodash/set';
+import { Nullable } from '~src/utils/types';
 
 export type State = {
-  auth: Boolean;
+  auth: boolean;
   user?: Nullable<User>;
   chats?: Nullable<ChatsData[]>;
   messages?: Record<number, MessageInfo[]>;
@@ -15,7 +15,7 @@ export type State = {
 };
 
 export enum StoreEvents {
-  Updated = "updated",
+  Updated = 'updated',
 }
 
 export class Store extends EventBus {

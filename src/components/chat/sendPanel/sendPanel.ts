@@ -1,5 +1,5 @@
-import { BlockSendPanel } from "~src/components/chat/sendPanel/types";
-import Block from "~src/utils/block";
+import { BlockSendPanel } from '~src/components/chat/sendPanel/types';
+import Block from '~src/utils/block';
 
 export default class SendPanel extends Block<BlockSendPanel> {
   constructor(props: BlockSendPanel) {

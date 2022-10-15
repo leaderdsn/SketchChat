@@ -1,4 +1,4 @@
-import { Indexed } from "~src/utils/myLodash/types";
+import { Indexed } from '~src/utils/myLodash/types';
 
 const isEqualObjects = (a: Indexed, b: Indexed) => {
   const propsA = Object.getOwnPropertyNames(a);
@@ -8,15 +8,10 @@ const isEqualObjects = (a: Indexed, b: Indexed) => {
     return false;
   }
 
-  for (let i = 0; i < propsA.length; i += 1) {
-    const prop = propsA[i];
-    const bothAreObjects =
-      typeof a[prop] === "object" && typeof b[prop] === "object";
+  for (const prop of propsA) {
+    const bothAreObjects = typeof a[prop] === 'object' && typeof b[prop] === 'object';
 
-    if (
-      (!bothAreObjects && a[prop] !== b[prop]) ||
-      (bothAreObjects && !isEqualObjects(a[prop] as Indexed, b[prop] as Indexed))
-    ) {
+    if ((!bothAreObjects && a[prop] !== b[prop]) || (bothAreObjects && !isEqualObjects(a[prop] as Indexed, b[prop] as Indexed))) {
       return false;
     }
   }

@@ -1,5 +1,5 @@
-import { BlockImg } from "~src/components/base/img/types";
-import Block from "~src/utils/block";
+import { BlockImg } from '~src/components/base/img/types';
+import Block from '~src/utils/block';
 
 export default class Img extends Block<BlockImg> {
   constructor(props: BlockImg) {

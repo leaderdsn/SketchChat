@@ -1,4 +1,4 @@
-import { Nullable } from "~src/utils/types";
+import { Nullable } from '~src/utils/types';
 
 export type BlockButton = {
   id: Nullable<number | string>;

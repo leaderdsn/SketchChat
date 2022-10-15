@@ -1,8 +1,8 @@
-import { ChatsData } from "~src/api/chatsAPI";
-import { BlockContact } from "~src/components/chat/contact/types";
-import withStore from "~src/utils/HOC/withStore";
-import Block from "~src/utils/block";
-import { P } from "~src/types";
+import { ChatsData } from '~src/api/chatsAPI';
+import { BlockContact } from '~src/components/chat/contact/types';
+import withStore from '~src/utils/HOC/withStore';
+import Block from '~src/utils/block';
+import { P } from '~src/types';
 
 class ContactBase extends Block<BlockContact> {
   constructor(props: BlockContact) {
@@ -14,7 +14,7 @@ class ContactBase extends Block<BlockContact> {
 
     return `
         <div class='y-contact-item
-            ${id === selectedChat?.id ? " is-selected" : ""}'>
+            ${id === selectedChat?.id ? ' is-selected' : ''}'>
           <div class='y-contact-item__avatar'>
             {{avatar}}
           </div>
@@ -24,11 +24,7 @@ class ContactBase extends Block<BlockContact> {
           </div>
           <div class='y-contact-item__info'>
             {{dateTime}}
-            ${
-              unread_count > 0
-                ? `<span class='y-contact-item__notification-count'>{{unread_count}}</span>`
-                : ""
-            }
+            ${unread_count > 0 ? `<span class='y-contact-item__notification-count'>{{unread_count}}</span>` : ''}
           </div>
         </div>
         `;

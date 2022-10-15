@@ -1,5 +1,5 @@
-import { BlockTextarea } from "~src/components/base/textarea/types";
-import Block from "~src/utils/block";
+import { BlockTextarea } from '~src/components/base/textarea/types';
+import Block from '~src/utils/block';
 
 export default class Textarea extends Block<BlockTextarea> {
   constructor(props: BlockTextarea) {
@@ -20,13 +20,13 @@ export default class Textarea extends Block<BlockTextarea> {
 
   render() {
     return `
-    <textarea 
-      id='{{id}}' 
-      class='{{className}}' 
-      rows='{{rows}}' 
-      cols='{{cols}}' 
-      maxLength='{{length}}' 
-      name='{{name}}' 
+    <textarea
+      id='{{id}}'
+      class='{{className}}'
+      rows='{{rows}}'
+      cols='{{cols}}'
+      maxLength='{{length}}'
+      name='{{name}}'
       placeholder='{{placeholder}}'
       value={{value}}
     ></textarea>

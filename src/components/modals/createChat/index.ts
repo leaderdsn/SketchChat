@@ -1,3 +1,3 @@
-import CreateChat from "~src/components/modals/createChat/createChat";
+import CreateChat from '~src/components/modals/createChat/createChat';
 
 export default CreateChat;

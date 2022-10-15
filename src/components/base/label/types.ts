@@ -1,6 +1,6 @@
-import Input from "~src/components/base/input/input";
-import Piece from "~src/components/base/piece";
-import { Nullable } from "~src/utils/types";
+import Input from '~src/components/base/input/input';
+import Piece from '~src/components/base/piece';
+import { Nullable } from '~src/utils/types';
 
 export type BlockLabel = {
   forName: Nullable<string>;

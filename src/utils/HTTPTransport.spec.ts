@@ -1,4 +1,4 @@
-import { expect } from "chai";
+import { expect } from 'chai';
 import sinon, { SinonFakeXMLHttpRequest, SinonFakeXMLHttpRequestStatic } from 'sinon';
 import HTTPTransport from './HTTPTransport';
 
@@ -10,16 +10,16 @@ describe('HTTPTransport', () => {
   beforeEach(() => {
     xhr = sinon.useFakeXMLHttpRequest();
 
-    xhr.onCreate = ((request: SinonFakeXMLHttpRequest) => {
+    xhr.onCreate = (request: SinonFakeXMLHttpRequest) => {
       requests.push(request);
-    });
+    };
 
     instance = new HTTPTransport('/auth');
   });
 
   afterEach(() => {
     requests.length = 0;
-  })
+  });
 
   it('.get() should send GET request', () => {
     instance.get('/user');
@@ -54,6 +54,4 @@ describe('HTTPTransport', () => {
 
     expect(request.method).to.eq('DELETE');
   });
-
-
 });

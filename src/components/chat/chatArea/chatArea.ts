@@ -1,19 +1,19 @@
-import { ChatsData } from "~src/api/chatsAPI";
-import MessagesController, { MessageInfo } from "~src/controllers/messages";
-import Button from "~src/components/base/button";
-import Input from "~src/components/base/input";
-import Time from "~src/components/base/time";
-import Textarea from "~src/components/base/textarea";
-import HeaderPanel from "~src/components/chat/headerPanel";
-import SendPanel from "~src/components/chat/sendPanel";
-import Message from "~src/components/chat/message";
-import MessagesList from "~src/components/chat/messagesList";
-import UserAvatar from "~src/components/profile/userAvatar";
-import UploadIcon from "~src/components/icons/upload";
-import SendIcon from "~src/components/icons/send";
-import withStore from "~src/utils/HOC/withStore";
-import Block from "~src/utils/block";
-import { P } from "~src/types";
+import { ChatsData } from '~src/api/chatsAPI';
+import MessagesController, { MessageInfo } from '~src/controllers/messages';
+import Button from '~src/components/base/button';
+import Input from '~src/components/base/input';
+import Time from '~src/components/base/time';
+import Textarea from '~src/components/base/textarea';
+import HeaderPanel from '~src/components/chat/headerPanel';
+import SendPanel from '~src/components/chat/sendPanel';
+import Message from '~src/components/chat/message';
+import MessagesList from '~src/components/chat/messagesList';
+import UserAvatar from '~src/components/profile/userAvatar';
+import UploadIcon from '~src/components/icons/upload';
+import SendIcon from '~src/components/icons/send';
+import withStore from '~src/utils/HOC/withStore';
+import Block from '~src/utils/block';
+import { P } from '~src/types';
 
 type MsgProps = {
   selectedChat: number | undefined;
@@ -22,13 +22,11 @@ type MsgProps = {
 };
 
 class ChatAreaBase extends Block {
-  
   protected init() {
     this.children.headerPanel = this.createHeaderPanel(this.props);
   }
 
   protected componentDidUpdate(_: P, newProps: P): boolean {
-
     this.children.headerPanel = this.createHeaderPanel(newProps);
 
     this.children.messagesList = new MessagesList({
@@ -46,7 +44,7 @@ class ChatAreaBase extends Block {
         ...data,
         isMine: userId === data.user_id,
         time: new Time({
-          time: data.time ? data.time : null
+          time: data.time ? data.time : null,
         }),
       });
     });
@@ -70,13 +68,13 @@ class ChatAreaBase extends Block {
 
       const message = sendTextarea.getValue();
       MessagesController.sendMessages(props.selectedChat, message as string);
-      sendTextarea.setValue("");
+      sendTextarea.setValue('');
     };
 
     const inputFile = new Input({
-      id: "file",
-      typeInput: "file",
-      className: "y-file-control",
+      id: 'file',
+      typeInput: 'file',
+      className: 'y-file-control',
       inputName: null,
       placeholder: null,
       events: null,
@@ -84,27 +82,27 @@ class ChatAreaBase extends Block {
     });
 
     const uploadButton = new Button({
-      id: "upload",
-      className: "y-btn-upload",
-      typeButton: "Button",
+      id: 'upload',
+      className: 'y-btn-upload',
+      typeButton: 'Button',
       text: UploadIcon,
     });
 
     const sendTextarea = new Textarea({
-      id: "send",
-      className: "y-send-control",
+      id: 'send',
+      className: 'y-send-control',
       rows: null,
       cols: null,
       maxLength: null,
-      name: "send",
-      placeholder: "Сообщение",
+      name: 'send',
+      placeholder: 'Сообщение',
       value: null,
     });
 
     const sendButton = new Button({
-      id: "sendButton",
-      className: "y-btn-send",
-      typeButton: "button",
+      id: 'sendButton',
+      className: 'y-btn-send',
+      typeButton: 'button',
       text: SendIcon,
       events: {
         click: submit,
@@ -114,7 +112,7 @@ class ChatAreaBase extends Block {
     return new SendPanel({
       upload: [inputFile, uploadButton],
       textArea: sendTextarea,
-      sendButton: sendButton,
+      sendButton
     });
   }
 
@@ -126,7 +124,7 @@ class ChatAreaBase extends Block {
         {{headerPanel}}
       </div>
       <div class='y-chat-area__body'>
-        ${selectedChat ? `{{messagesList}}` : "Выберите чат"}
+        ${selectedChat ? `{{messagesList}}` : 'Выберите чат'}
       </div>
       <div class='y-chat-area__footer'>
         {{sendPanel}}

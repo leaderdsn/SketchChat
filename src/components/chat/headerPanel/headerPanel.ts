@@ -1,8 +1,8 @@
-import Button from "~src/components/base/button";
-import { BlockHeaderPanel } from "~src/components/chat/headerPanel/types";
-import ExitIcon from "~src/components/icons/exit";
-import ExitChat from "~src/components/modals/exitChat/exitChat";
-import Block from "~src/utils/block";
+import Button from '~src/components/base/button';
+import { BlockHeaderPanel } from '~src/components/chat/headerPanel/types';
+import ExitIcon from '~src/components/icons/exit';
+import ExitChat from '~src/components/modals/exitChat/exitChat';
+import Block from '~src/utils/block';
 
 export default class HeaderPanel extends Block<BlockHeaderPanel> {
   constructor(props: BlockHeaderPanel) {
@@ -12,8 +12,8 @@ export default class HeaderPanel extends Block<BlockHeaderPanel> {
   init() {
     const buttonLogout = new Button({
       id: null,
-      className: "y-btn",
-      typeButton: "button",
+      className: 'y-btn',
+      typeButton: 'button',
       events: {
         click: () => ExitChat.show(),
       },
