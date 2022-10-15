@@ -1,11 +1,19 @@
 # SketchChat
 
-This is a project of my own chat that will be carried out as part of my training on **yandex.practicum**. An up-to-date demonstration of the project can be viewed at this address: https://sketch-chat.netlify.app/
+This is a project of my own chat that will be carried out as part of my training on **yandex.practicum**. An up-to-date demonstration of the project can be viewed at this address netlify: https://sketch-chat.netlify.app/ and heroku: https://sketch-chat-app.herokuapp.com/chat
 
 **What's new?**
 In the 3rd sprint, its Router and Store were implemented
 
-LINK TO PULL REQUEST: https://github.com/leaderdsn/SketchChat/pull/3
+In the 4th sprint, I supplemented the project with:
+*-precompile*
+    which will not even allow you to commit code that does not pass the tests you specified.
+*-docker*
+    that allows you to create containers, start and stop them, link them to each other, delete them, and maintain their operation.
+*-heroku*
+    deploy now happens not only on netlify, but also on heroku, which allows you to deploy docker images
+
+LINK TO PULL REQUEST: https://github.com/leaderdsn/SketchChat/pull/4
 
 ## Requirements
 
