@@ -1,20 +1,10 @@
-import Block from "~src/utils/block";
-import { P } from "~src/types";
-import { BlockChat } from "~src/pages/chat/types";
-import Sidebar from "~src/components/chat/sidebar/sidebar";
-import MainLayout from "~src/layouts/mainLayout/mainLayout";
-import ChatArea from "~src/components/chat/chatArea";
-
-export class ChatPage extends MainLayout {
-  constructor() {
-    super({
-      content: new Chat({}),
-    });
-  }
-}
+import ChatArea from '~src/components/chat/chatArea';
+import Sidebar from '~src/components/chat/sidebar/sidebar';
+import { BlockChat } from '~src/pages/chat/types';
+import Block from '~src/utils/block';
 export default class Chat extends Block<BlockChat> {
   constructor(props: BlockChat) {
-    super(props as P);
+    super(props as BlockChat);
   }
 
   init() {

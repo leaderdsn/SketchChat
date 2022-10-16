@@ -1,3 +1,3 @@
-import Sidebar from "~src/components/chat/sidebar/sidebar";
+import Sidebar from '~src/components/chat/sidebar/sidebar';
 
 export default Sidebar;

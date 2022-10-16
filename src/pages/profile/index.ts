@@ -1,3 +1,3 @@
-import Profile from "~src/pages/profile/profile";
+import Profile from '~src/pages/profile/profile';
 
 export default Profile;

@@ -1,16 +1,13 @@
-import store, { StoreEvents } from "~src/utils/store";
-import Block from "~src/utils/block";
-import { P } from "~src/types";
-import isEqual from "~src/utils/myLodash/isEqual";
+import Block from '~src/utils/block';
+import isEqual from '~src/utils/myLodash/isEqual';
+import store, { StoreEvents } from '~src/utils/store';
+import { P } from '~src/types';
 
 export default function withStore(mapStateToProps: (state: any) => any) {
-
-
   return function wrap(Component: typeof Block) {
     let previousState: any;
 
     return class extends Component {
-
       constructor(props: P) {
         previousState = mapStateToProps(store.getState());
 
@@ -23,6 +20,6 @@ export default function withStore(mapStateToProps: (state: any) => any) {
           previousState = stateProps;
         });
       }
-    }
-  }
+    };
+  };
 }

@@ -1,25 +1,15 @@
-import { MessageInfo } from "~src/controllers/messages";
-import { P } from "~src/types";
-import Block from "~src/utils/block";
-import getTime from "~src/utils/getTime";
+import { MessageInfo } from '~src/controllers/messages';
+import Block from '~src/utils/block';
 
 export default class Message extends Block<MessageInfo> {
   constructor(props: MessageInfo) {
-    super(props as P);
-  }
-
-  init() {
-    const { time } = this.props;
-    this.setProps({
-      ...this.props,
-      time: time ? getTime(time as unknown as Date) : null,
-    });
+    super(props as MessageInfo);
   }
 
   render() {
     let isMine = ``;
     if (this.props.isMine) {
-      isMine = "y-message-item--mine";
+      isMine = 'y-message-item--mine';
     }
     return `
     <div class='y-message-item ${isMine}'>

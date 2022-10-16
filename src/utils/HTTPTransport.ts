@@ -1,5 +1,5 @@
-import { Nullable } from "~src/utils/types";
-import queryStringify from "~src/utils/myLodash/queryStringify";
+import queryStringify from '~src/utils/myLodash/queryStringify';
+import { Nullable } from '~src/utils/types';
 
 export type Options = {
   method: METHODS;
@@ -8,37 +8,31 @@ export type Options = {
   headers?: Nullable<{}>;
 };
 
-export type OptionsWithoutMethod = Omit<Options, "method">;
+export type OptionsWithoutMethod = Omit<Options, 'method'>;
 
 export enum METHODS {
-  GET = "GET",
-  POST = "POST",
-  PUT = "PUT",
-  PATCH = "PATCH",
-  DELETE = "DELETE",
+  GET = 'GET',
+  POST = 'POST',
+  PUT = 'PUT',
+  PATCH = 'PATCH',
+  DELETE = 'DELETE',
 }
 export default class HTTPTransport {
-  static API_URL = "https://ya-praktikum.tech/api/v2";
+  static API_URL = 'https://ya-praktikum.tech/api/v2';
   protected endpoint: string;
 
   constructor(endpoint: string) {
     this.endpoint = `${HTTPTransport.API_URL}${endpoint}`;
   }
 
-  public get(
-    url: string = "/",
-    options: OptionsWithoutMethod = {}
-  ): Promise<XMLHttpRequest> {
+  public get(url: string = '/', options: OptionsWithoutMethod = {}): Promise<XMLHttpRequest> {
     return this.request(this.endpoint + url, {
       ...options,
       method: METHODS.GET,
     });
   }
 
-  public post(
-    url: string,
-    options: OptionsWithoutMethod = {}
-  ): Promise<XMLHttpRequest> {
+  public post(url: string, options: OptionsWithoutMethod = {}): Promise<XMLHttpRequest> {
     return this.request(this.endpoint + url, {
       ...options,
       method: METHODS.POST,
@@ -46,10 +40,7 @@ export default class HTTPTransport {
     });
   }
 
-  public put(
-    url: string,
-    options: OptionsWithoutMethod = {}
-  ): Promise<XMLHttpRequest> {
+  public put(url: string, options: OptionsWithoutMethod = {}): Promise<XMLHttpRequest> {
     return this.request(this.endpoint + url, {
       ...options,
       method: METHODS.PUT,
@@ -57,10 +48,7 @@ export default class HTTPTransport {
     });
   }
 
-  public patch(
-    url: string,
-    options: OptionsWithoutMethod = {}
-  ): Promise<XMLHttpRequest> {
+  public patch(url: string, options: OptionsWithoutMethod = {}): Promise<XMLHttpRequest> {
     return this.request(this.endpoint + url, {
       ...options,
       method: METHODS.PATCH,
@@ -68,25 +56,19 @@ export default class HTTPTransport {
     });
   }
 
-  public delete(
-    url: string,
-    options: OptionsWithoutMethod = {}
-  ): Promise<XMLHttpRequest> {
+  public delete(url: string, options: OptionsWithoutMethod = {}): Promise<XMLHttpRequest> {
     return this.request(this.endpoint + url, {
       ...options,
       method: METHODS.DELETE,
     });
   }
 
-  private request(
-    url: string,
-    options: Options = { method: METHODS.GET }
-  ): Promise<XMLHttpRequest> {
+  private request(url: string, options: Options = { method: METHODS.GET }): Promise<XMLHttpRequest> {
     const { headers = null, method, data, timeout } = options;
 
     return new Promise((resolve, reject) => {
       if (!method) {
-        reject("No method");
+        reject('No method');
         return;
       }
 
@@ -101,21 +83,21 @@ export default class HTTPTransport {
         });
       } else {
         if (!(data instanceof FormData)) {
-          xhr.setRequestHeader("Content-Type", "application/json");
-          xhr.responseType = "json";
+          xhr.setRequestHeader('Content-Type', 'application/json');
+          xhr.responseType = 'json';
         }
       }
 
-      xhr.onload = function () {
+      xhr.onload = () => {
         resolve(xhr);
       };
 
-      xhr.onabort = () => reject({ reason: "abort" });
-      xhr.onerror = () => reject({ reason: "network error" });
+      xhr.onabort = () => reject({ reason: 'abort' });
+      xhr.onerror = () => reject({ reason: 'network error' });
       if (timeout) {
         xhr.timeout = timeout;
       }
-      xhr.ontimeout = () => reject({ reason: "timeout" });
+      xhr.ontimeout = () => reject({ reason: 'timeout' });
 
       xhr.withCredentials = true;
 

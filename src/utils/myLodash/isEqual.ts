@@ -1,5 +1,5 @@
-import { Indexed } from '~src/utils/myLodash/types';
 import isArrayOrObject from '~src/utils/myLodash/isArrayOrObject';
+import { Indexed } from '~src/utils/myLodash/types';
 
 const isEqual = (lhs: Indexed, rhs: Indexed) => {
   if (Object.keys(lhs).length !== Object.keys(rhs).length) {
@@ -21,7 +21,6 @@ const isEqual = (lhs: Indexed, rhs: Indexed) => {
   }
 
   return true;
-}
+};
 
 export default isEqual;
-

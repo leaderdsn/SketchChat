@@ -1,5 +1,5 @@
-import { P } from "~src/types";
-import Block from "~src/utils/block";
+import Block from '~src/utils/block';
+import { P } from '~src/types';
 
 export default class Loading extends Block {
   constructor(props: P) {

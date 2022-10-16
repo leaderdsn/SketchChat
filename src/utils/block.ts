@@ -1,16 +1,16 @@
-import EventBus from "~src/utils/eventBus";
-import constructor from "~src/modules/constructor";
-import { Nullable, Values } from "./types";
-import idGenerator from "~src/utils/myLodash/idGenerator";
+import constructor from '~src/modules/constructor';
+import EventBus from './eventBus';
+import idGenerator from '~src/utils/myLodash/idGenerator';
+import { Nullable, Values } from '~src/utils/types';
 
 type TEvents = Values<typeof Block.EVENTS>;
 
 export default class Block<P extends Record<string, any> = any> {
   static EVENTS = {
-    INIT: "init",
-    FLOW_CDM: "flow:component-did-mount",
-    FLOW_CDU: "flow:component-did-update",
-    FLOW_RENDER: "flow:render",
+    INIT: 'init',
+    FLOW_CDM: 'flow:component-did-mount',
+    FLOW_CDU: 'flow:component-did-update',
+    FLOW_RENDER: 'flow:render',
   } as const;
 
   public _id: string;
@@ -70,7 +70,7 @@ export default class Block<P extends Record<string, any> = any> {
 
   private _componentDidMount(props: P) {
     this.componentDidMount(props);
-    for (let key in this.children) {
+    for (const key in this.children) {
       if (Array.isArray(this.children[key])) {
         (this.children[key] as unknown as Block[]).forEach((item) => {
           item.dispatchComponentDidMount();
@@ -89,7 +89,7 @@ export default class Block<P extends Record<string, any> = any> {
     }
   }
 
-  public componentDidMount(oldProps: P) {}
+  public componentDidMount(_oldProps: P) {}
 
   public dispatchComponentDidMount() {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
@@ -102,7 +102,7 @@ export default class Block<P extends Record<string, any> = any> {
     }
   }
 
-  protected componentDidUpdate(oldProps: P, newProps: P) {
+  protected componentDidUpdate(_oldProps: P, _newProps: P) {
     return true;
   }
 
@@ -131,7 +131,7 @@ export default class Block<P extends Record<string, any> = any> {
   }
 
   protected render(): string {
-    return "";
+    return '';
   }
 
   public getContent(): HTMLElement {
@@ -150,7 +150,7 @@ export default class Block<P extends Record<string, any> = any> {
     return new Proxy(props as {}, {
       get(target: Record<string, unknown>, prop: string) {
         const value = target[prop];
-        return typeof value === "function" ? value.bind(target) : value;
+        return typeof value === 'function' ? value.bind(target) : value;
       },
       set(target: Record<string, unknown>, prop: string, value: P) {
         const oldTarget = { ...target };
@@ -159,7 +159,7 @@ export default class Block<P extends Record<string, any> = any> {
         return true;
       },
       deleteProperty() {
-        throw new Error("Нет доступа");
+        throw new Error('Нет доступа');
       },
     });
   }
@@ -201,7 +201,7 @@ export default class Block<P extends Record<string, any> = any> {
 
     Object.entries(this.children).forEach(([key, component]) => {
       if (Array.isArray(component)) {
-        let components: string[] = [];
+        const components: string[] = [];
         component.forEach((item) => {
           components.push(`<div data-id="${item._id}"></div>`);
         });
@@ -211,16 +211,14 @@ export default class Block<P extends Record<string, any> = any> {
       }
     });
 
-    const fragment = document.createElement("template");
+    const fragment = document.createElement('template');
 
     fragment.innerHTML = constructor(contextAndStubs, template);
 
     Object.entries(this.children).forEach(([_, component]) => {
       if (Array.isArray(component)) {
         component.forEach((item) => {
-          const stub = fragment.content.querySelector(
-            `[data-id="${item._id}"]`
-          );
+          const stub = fragment.content.querySelector(`[data-id="${item._id}"]`);
           if (!stub) {
             return;
           }
@@ -228,9 +226,7 @@ export default class Block<P extends Record<string, any> = any> {
           stub.replaceWith(item.getContent());
         });
       } else {
-        const stub = fragment.content.querySelector(
-          `[data-id="${component._id}"]`
-        );
+        const stub = fragment.content.querySelector(`[data-id="${component._id}"]`);
 
         if (!stub) {
           return;
@@ -245,10 +241,10 @@ export default class Block<P extends Record<string, any> = any> {
   }
 
   public show() {
-    this.getContent().style.display = "grid";
+    this.getContent().style.display = 'grid';
   }
 
   public hide() {
-    this.getContent().style.display = "none";
+    this.getContent().style.display = 'none';
   }
 }

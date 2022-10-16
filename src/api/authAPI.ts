@@ -1,4 +1,4 @@
-import HTTPTransport from "~src/utils/HTTPTransport";
+import HTTPTransport from '~src/utils/HTTPTransport';
 
 export interface SigninData {
   login: string;
@@ -41,24 +41,23 @@ export class AuthAPI {
   protected http: HTTPTransport;
 
   public constructor() {
-    this.http = new HTTPTransport("/auth");
+    this.http = new HTTPTransport('/auth');
   }
 
-
   public signin(data: SigninData): Promise<XMLHttpRequest> {
-    return this.http.post("/signin", { data });
+    return this.http.post('/signin', { data });
   }
 
   public create(data: SignupData): Promise<XMLHttpRequest> {
-    return this.http.post("/signup", { data });
+    return this.http.post('/signup', { data });
   }
 
   public read(): Promise<XMLHttpRequest> {
-    return this.http.get("/user");
+    return this.http.get('/user');
   }
 
   public logout(): Promise<XMLHttpRequest> {
-    return this.http.post("/logout");
+    return this.http.post('/logout');
   }
 }
 

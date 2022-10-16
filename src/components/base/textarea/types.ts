@@ -1,4 +1,4 @@
-import { Nullable } from "~src/utils/types";
+import { Nullable } from '~src/utils/types';
 
 export type BlockTextarea = {
   id: string;
@@ -13,4 +13,4 @@ export type BlockTextarea = {
     input?: (e: Event) => Nullable<void> | Promise<void>;
     onchange?: (e: Event) => Nullable<void> | Promise<void>;
   } | Nullable<() => {}>;
-}
+};

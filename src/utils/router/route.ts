@@ -1,10 +1,8 @@
-import Block from "~src/utils/block";
-import render from "~src/utils/render";
-import { Nullable } from "~src/utils/types";
+import Block from '~src/utils/block';
+import render from '~src/utils/render';
+import { Nullable } from '~src/utils/types';
 
-interface BlockConstructable<P = any> {
-  new (props: P): Block<any>;
-}
+export type BlockConstructable<P = any> = new (props: P) => Block<any>;
 
 export default class Route {
   private _pathname: string | RegExp;
@@ -33,7 +31,7 @@ export default class Route {
   }
 
   match(pathname: string) {
-    return pathname === this._pathname as string;
+    return pathname === (this._pathname as string);
   }
 
   render() {

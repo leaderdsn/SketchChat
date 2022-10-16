@@ -1,10 +1,10 @@
-function trim(string: string, chars?: string): string {
-  if (string && !chars) {
-    return string.trim();
+function trim(str: string, chars?: string): string {
+  if (str && !chars) {
+    return str.trim();
   }
 
-  const reg = new RegExp(`[${chars}]`, "gi");
-  return string.replace(reg, "");
+  const reg = new RegExp(`[${chars}]`, 'gi');
+  return str.replace(reg, '');
 }
 
 export default trim;

@@ -1,10 +1,11 @@
-import store from "~src/utils/store";
-import { Nullable } from "~src/utils/types";
-import WSTransport, { WSTransportEvents } from "~src/utils/WSTransport";
+import Time from '~src/components/base/time/time';
+import store from '~src/utils/store';
+import { Nullable } from '~src/utils/types';
+import WSTransport, { WSTransportEvents } from '~src/utils/WSTransport';
 
 export interface MessageInfo {
   chat_id: number;
-  time: Nullable<string>;
+  time: Nullable<Time>;
   type: string;
   user_id: number;
   content: string;
@@ -30,9 +31,7 @@ class MessagesController {
 
     const userId = store.getState().user?.id;
 
-    const wsTransport = new WSTransport(
-      `wss://ya-praktikum.tech/ws/chats/${userId}/${id}/${token}`
-    );
+    const wsTransport = new WSTransport(`wss://ya-praktikum.tech/ws/chats/${userId}/${id}/${token}`);
 
     this.sockets.set(id, wsTransport);
 
@@ -51,7 +50,7 @@ class MessagesController {
     }
 
     socket.send({
-      type: "message",
+      type: 'message',
       content: message,
     });
   }
@@ -64,8 +63,8 @@ class MessagesController {
     }
 
     socket.send({
-      type: "get old",
-      content: "0",
+      type: 'get old',
+      content: '0',
     });
   }
 
@@ -94,9 +93,7 @@ class MessagesController {
   }
 
   private subscribe(transport: WSTransport, id: number) {
-    transport.on(WSTransportEvents.Message, (message) =>
-      this.onMessage(id, message)
-    );
+    transport.on(WSTransportEvents.Message, (message) => this.onMessage(id, message));
     transport.on(WSTransportEvents.Close, () => this.onClose(id));
   }
 }

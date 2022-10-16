@@ -1,3 +1,3 @@
-import Message from "~src/components/chat/message/message";
+import Message from '~src/components/chat/message/message';
 
 export default Message;

@@ -1,4 +1,4 @@
-import { MessageInfo } from "~src/controllers/messages";
+import { MessageInfo } from '~src/controllers/messages';
 
 export type BlockMessagesList = {
   messages: MessageInfo[];

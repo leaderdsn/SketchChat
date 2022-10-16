@@ -1,9 +1,5 @@
-import store from "~src/utils/store";
-import API, {
-  ProfileAPI,
-  ProfileData,
-  PasswordData,
-} from "~src/api/profileAPI";
+import API, { ProfileAPI, ProfileData, PasswordData } from '~src/api/profileAPI';
+import store from '~src/utils/store';
 
 class ProfileController {
   private readonly api: ProfileAPI;
@@ -13,11 +9,12 @@ class ProfileController {
   }
 
   async changeAvatar(data: FormData) {
-    await this.api.changeAvatar(data)
+    await this.api
+      .changeAvatar(data)
       .then((res) => {
         if (res.status < 400) {
-          store.set("avatar", res.response.avatar);
-          alert("Аватар успешно изменён!");
+          store.set('avatar', res.response.avatar);
+          alert('Аватар успешно изменён!');
         } else {
           alert(res.response.reason);
         }
@@ -28,11 +25,12 @@ class ProfileController {
   }
 
   async changeProfile(data: ProfileData) {
-    await this.api.changeProfile(data)
+    await this.api
+      .changeProfile(data)
       .then((res) => {
         if (res.status < 400) {
-          store.set("user", res.response);
-          alert("Профиль успешно изменён!");
+          store.set('user', res.response);
+          alert('Профиль успешно изменён!');
         } else {
           alert(res.response.reason);
         }
@@ -47,7 +45,7 @@ class ProfileController {
       .changePassword(data)
       .then((res) => {
         if (res.status < 400) {
-          alert("Пароль успешно изменён!");
+          alert('Пароль успешно изменён!');
         } else {
           alert(res.response.reason);
         }
