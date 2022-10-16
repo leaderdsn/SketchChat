@@ -10,13 +10,13 @@ In the **4th sprint**, I supplemented the project with:
 
 #### *precompile*
 
-    which will not even allow you to commit code that does not pass the tests you specified.
+which will not even allow you to commit code that does not pass the tests you specified.
 #### *docker*
 
-    that allows you to create containers, start and stop them, link them to each other, delete them, and maintain their operation.
+that allows you to create containers, start and stop them, link them to each other, delete them, and maintain their operation.
 #### *heroku*
 
-    deploy now happens not only on netlify, but also on heroku, which allows you to deploy docker images
+deploy now happens not only on netlify, but also on heroku, which allows you to deploy docker images
 
 LINK TO PULL REQUEST: https://github.com/leaderdsn/SketchChat/pull/5
 
