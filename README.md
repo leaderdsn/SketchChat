@@ -25,13 +25,13 @@ LINK TO PULL REQUEST: https://github.com/leaderdsn/SketchChat/pull/5
 - [npm](https://www.npmjs.com/package/npm)
 - [nodejs](https://nodejs.org/en/)
 
-1.  ## Install Deps
+## 1. Install Deps
 
 ### bash
 #### #using npm
     npm i
 
-2.  ## Start developing
+## 2. Start developing
 
     Start your site.
 
@@ -41,7 +41,7 @@ LINK TO PULL REQUEST: https://github.com/leaderdsn/SketchChat/pull/5
  
 Open source code using your favorite IDE/Text editor and navigate to src/ directory, this is where your application live.
 
-3.  ## Build your application for production
+## 3. Build your application for production
 
     Once you're finished, you can make production build of your app using:
 
@@ -49,7 +49,7 @@ Open source code using your favorite IDE/Text editor and navigate to src/ direct
 #### #using npm
     npm run build
     
-4.  ## Starting with a static server
+## 4. Starting with a static server
 
     Before executing the **npm run start** command, make sure that the **dist** folder is present in the root of the project.
 
@@ -58,7 +58,7 @@ Open source code using your favorite IDE/Text editor and navigate to src/ direct
     npm run build
     npm run start
     
-5.  ## Running tests and linters
+## 5. Running tests and linters
 
     Tests and linters are necessary to check for errors in the code
     
